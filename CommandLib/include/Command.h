@@ -18,7 +18,7 @@
 * \section intro_sec Introduction
 *
 * This project contains classes that simplify coordination of complex and synchronous activities. To get a better feel for
-* features and usage, read the CommandLib namespace documentation.
+* features and usage, read the CommandLib namespace detailed documentation.
 *
 * Note that this was compiled using Visual Studio 2013. There will be a few errors using other compilers, because there
 * is a bit of Microsoft-specific code. They shouldn't be difficult to address; I plan to correct them soon.
@@ -254,8 +254,7 @@ namespace CommandLib
 		/// </summary>
 		/// <returns>The object that can waited up for this command to be not executing.</returns>
 		/// <remarks>
-		/// Calling <see cref="Wait"/> has the same effect as waiting upon the object returned from this method, so the only time it makes
-		/// sense to use this object is when you want to wait upon multiple objects using a <see cref="WaitGroup"/> object.
+		/// Calling <see cref="Wait"/> has the same effect as waiting upon the object returned from this method.
 		/// </remarks>
 		Waitable::Ptr DoneEvent() const;
 

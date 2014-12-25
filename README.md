@@ -29,7 +29,7 @@ Coverage is quite complete. I will endeavor to get it up to 100%.
 
 Example Usage
 ----
-A sample project is included that tracks two robots moving towards 0,0. It demonstrates how to author a naturally asynchronous Command, and makes use of ParallelCommands, SequentialCommands, PeriodicCommand, TimeLimitedCommand and RetryableCommand.
+A sample project is included that tracks a robot arm moving towards 0,0. It demonstrates how to author a naturally asynchronous Command, and makes use of ParallelCommands, SequentialCommands, PeriodicCommand, TimeLimitedCommand and RetryableCommand.
 
 Other Languages
 ----
