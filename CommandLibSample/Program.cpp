@@ -12,7 +12,7 @@
 #include <iostream>
 #include <algorithm>
 
-// This application demonstrates how to wrap an aysnchronous operation (Robot::Move) with an AsyncCommand-derived class,
+// This application demonstrates how to wrap an aysnchronous operation (RobotArm::Move) with an AsyncCommand-derived class,
 // and makes use of ParallelCommands, SequentialCommands, PeriodicCommand, TimeLimitedCommand and RetryableCommand.
 class RetryHandler : public CommandLib::RetryableCommand::RetryCallback
 {
