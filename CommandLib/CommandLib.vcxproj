@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AbortLinkedCommand.h" />
+    <ClInclude Include="include\AsyncCommand.h" />
+    <ClInclude Include="include\Command.h" />
+    <ClInclude Include="include\CommandAbortedException.h" />
+    <ClInclude Include="include\CommandDispatcher.h" />
+    <ClInclude Include="include\CommandListener.h" />
+    <ClInclude Include="include\CommandLogger.h" />
+    <ClInclude Include="include\CommandMonitor.h" />
+    <ClInclude Include="include\CommandTimeoutException.h" />
+    <ClInclude Include="include\CommandTracer.h" />
+    <ClInclude Include="include\Event.h" />
+    <ClInclude Include="include\ParallelCommands.h" />
+    <ClInclude Include="include\PauseCommand.h" />
+    <ClInclude Include="include\PeriodicCommand.h" />
+    <ClInclude Include="include\RecurringCommand.h" />
+    <ClInclude Include="include\RetryableCommand.h" />
+    <ClInclude Include="include\ScheduledCommand.h" />
+    <ClInclude Include="include\SequentialCommands.h" />
+    <ClInclude Include="include\SyncCommand.h" />
+    <ClInclude Include="include\TimeLimitedCommand.h" />
+    <ClInclude Include="include\VariableCommand.h" />
+    <ClInclude Include="include\Waitable.h" />
+    <ClInclude Include="include\WaitGroup.h" />
+    <ClInclude Include="include\WaitMonitor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="impl\AbortLinkedCommand.cpp" />
+    <ClCompile Include="impl\AsyncCommand.cpp" />
+    <ClCompile Include="impl\Command.cpp" />
+    <ClCompile Include="impl\CommandAbortedException.cpp" />
+    <ClCompile Include="impl\CommandDispatcher.cpp" />
+    <ClCompile Include="impl\CommandListener.cpp" />
+    <ClCompile Include="impl\CommandLogger.cpp" />
+    <ClCompile Include="impl\CommandMonitor.cpp" />
+    <ClCompile Include="impl\CommandTimeoutException.cpp" />
+    <ClCompile Include="impl\CommandTracer.cpp" />
+    <ClCompile Include="impl\Event.cpp" />
+    <ClCompile Include="impl\ParallelCommands.cpp" />
+    <ClCompile Include="impl\PauseCommand.cpp" />
+    <ClCompile Include="impl\PeriodicCommand.cpp" />
+    <ClCompile Include="impl\RecurringCommand.cpp" />
+    <ClCompile Include="impl\RetryableCommand.cpp" />
+    <ClCompile Include="impl\ScheduledCommand.cpp" />
+    <ClCompile Include="impl\SequentialCommands.cpp" />
+    <ClCompile Include="impl\SyncCommand.cpp" />
+    <ClCompile Include="impl\TimeLimitedCommand.cpp" />
+    <ClCompile Include="impl\VariableCommand.cpp" />
+    <ClCompile Include="impl\Waitable.cpp" />
+    <ClCompile Include="impl\WaitGroup.cpp" />
+    <ClCompile Include="impl\WaitMonitor.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C6925718-93BB-442A-B54E-0877E50DA769}</ProjectGuid>
+    <RootNamespace>CommandLibForCPP</RootNamespace>
+    <ProjectName>CommandLib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)CommandLib\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)CommandLib\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
