@@ -16,7 +16,10 @@ namespace CommandLib
 	class Waitable
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable Waitable object</summary>
 		typedef std::shared_ptr<const Waitable> ConstPtr;
+
+		/// <summary>Shared pointer to a Waitable object</summary>
 		typedef std::shared_ptr<Waitable> Ptr;
 
 		virtual ~Waitable();

@@ -18,7 +18,10 @@ namespace CommandLib
 	class VariableCommand final : public Command
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable VariableCommand object</summary>
 		typedef std::shared_ptr<const VariableCommand> ConstPtr;
+
+		/// <summary>Shared pointer to a VariableCommand object</summary>
 		typedef std::shared_ptr<VariableCommand> Ptr;
 
 		/// <summary>
@@ -46,6 +49,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		VariableCommand();
 	private:
 		virtual void SyncExecuteImpl() final;

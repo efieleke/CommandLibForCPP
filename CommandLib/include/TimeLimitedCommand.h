@@ -13,7 +13,10 @@ namespace CommandLib
 	class TimeLimitedCommand : public SyncCommand
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable TimeLimitedCommand object</summary>
 		typedef std::shared_ptr<const TimeLimitedCommand> ConstPtr;
+
+		/// <summary>Shared pointer to a TimeLimitedCommand object</summary>
 		typedef std::shared_ptr<TimeLimitedCommand> Ptr;
 
 		/// <summary>
@@ -55,6 +58,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		explicit TimeLimitedCommand(long long timeoutMS);
 	private:
 		virtual void SyncExeImpl() override final;

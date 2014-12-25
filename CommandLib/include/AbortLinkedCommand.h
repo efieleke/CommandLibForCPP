@@ -16,7 +16,10 @@ namespace CommandLib
 	class AbortLinkedCommand : public SyncCommand
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable AbortLinkedCommand object</summary>
 		typedef std::shared_ptr<const AbortLinkedCommand> ConstPtr;
+
+		/// <summary>Shared pointer to an AbortLinkedCommand object</summary>
 		typedef std::shared_ptr<AbortLinkedCommand> Ptr;
 
 		/// <summary>
@@ -48,6 +51,9 @@ namespace CommandLib
 		/// <returns>The same value that was passed to the overloaded form of Create. This may be null, if that Create method was not used</returns>
 		const Command::ConstPtr CommandToWatch() const;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		AbortLinkedCommand(Command::Ptr commandToRun, Waitable::Ptr abortEvent, Command::ConstPtr commandToWatch);
 	private:
 		class Listener : public CommandListener

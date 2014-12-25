@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>CommandLibForCPP: C:/Users/Eric/Documents/GitHub/CommandLibForCPP/CommandLib/include/WaitMonitor.h Source File</title>
+<title>CommandLibForCPP: CommandLibForCPP/CommandLib/include/WaitMonitor.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('_wait_monitor_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,13 +115,15 @@ $(document).ready(function(){initNavTree('_wait_monitor_8h_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_command_lib_1_1_wait_monitor.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_command_lib_1_1_wait_monitor.html">WaitMonitor</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">typedef</span> std::shared_ptr&lt;WaitMonitor&gt; Ptr;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_command_lib_1_1_wait_monitor.html">WaitMonitor</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_command_lib_1_1_wait_monitor.html#ae97f385185f20d67f215494278136052">   13</a></span>&#160;        <span class="keyword">typedef</span> std::shared_ptr&lt;WaitMonitor&gt; <a class="code" href="class_command_lib_1_1_wait_monitor.html#ae97f385185f20d67f215494278136052">Ptr</a>;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_wait_monitor.html#a478cc2d9cc714ecb9b4844e47a67faa1">Signaled</a>(<span class="keyword">const</span> <a class="code" href="class_command_lib_1_1_waitable.html">Waitable</a>&amp; waitable) = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_command_lib_1_1_wait_monitor.html">WaitMonitor</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_wait_monitor.html#a478cc2d9cc714ecb9b4844e47a67faa1">Signaled</a>(<span class="keyword">const</span> <a class="code" href="class_command_lib_1_1_waitable.html">Waitable</a>&amp; waitable) = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 <div class="ttc" id="namespace_command_lib_html"><div class="ttname"><a href="namespace_command_lib.html">CommandLib</a></div><div class="ttdoc">CommandLib contains a set of classes that can be used to easily coordinate synchronous and asynchrono...</div><div class="ttdef"><b>Definition:</b> AbortLinkedCommand.h:4</div></div>
+<div class="ttc" id="class_command_lib_1_1_wait_monitor_html_ae97f385185f20d67f215494278136052"><div class="ttname"><a href="class_command_lib_1_1_wait_monitor.html#ae97f385185f20d67f215494278136052">CommandLib::WaitMonitor::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; WaitMonitor &gt; Ptr</div><div class="ttdoc">Shared pointer to a WaitMonitor object</div><div class="ttdef"><b>Definition:</b> WaitMonitor.h:13</div></div>
 <div class="ttc" id="class_command_lib_1_1_wait_monitor_html_a478cc2d9cc714ecb9b4844e47a67faa1"><div class="ttname"><a href="class_command_lib_1_1_wait_monitor.html#a478cc2d9cc714ecb9b4844e47a67faa1">CommandLib::WaitMonitor::Signaled</a></div><div class="ttdeci">virtual void Signaled(const Waitable &amp;waitable)=0</div><div class="ttdoc">Invoked when a Waitable object becomes signaled</div></div>
 <div class="ttc" id="class_command_lib_1_1_waitable_html"><div class="ttname"><a href="class_command_lib_1_1_waitable.html">CommandLib::Waitable</a></div><div class="ttdoc">This class represents an object that can be waited upon until it enters a signaled state...</div><div class="ttdef"><b>Definition:</b> Waitable.h:16</div></div>
 <div class="ttc" id="class_command_lib_1_1_wait_monitor_html"><div class="ttname"><a href="class_command_lib_1_1_wait_monitor.html">CommandLib::WaitMonitor</a></div><div class="ttdoc">Objects of this time can wait upon Waitable objects</div><div class="ttdef"><b>Definition:</b> WaitMonitor.h:9</div></div>
@@ -130,8 +132,8 @@ $(document).ready(function(){initNavTree('_wait_monitor_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_07d2a1df948ac12f20bb69d09c2e1d12.html">Eric</a></li><li class="navelem"><a class="el" href="dir_5e658b2c2cbbe28b92c1ef02f34a5b86.html">Documents</a></li><li class="navelem"><a class="el" href="dir_95c101e63ceea9a42b6df3ade6d2762b.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6f45d2d84af5e224f08a1103e46009a2.html">CommandLibForCPP</a></li><li class="navelem"><a class="el" href="dir_184a5afe8241d428a808e23a4d80fc52.html">CommandLib</a></li><li class="navelem"><a class="el" href="dir_46537864c0723317cab1d41096194b7b.html">include</a></li><li class="navelem"><b>WaitMonitor.h</b></li>
-    <li class="footer">Generated on Wed Dec 24 2014 22:32:02 for CommandLibForCPP by
+    <li class="navelem"><a class="el" href="dir_c98e6fdae2a5bcf5e75574031156faef.html">CommandLibForCPP</a></li><li class="navelem"><a class="el" href="dir_b6ba224f53dc29b821160d1b40ce08f1.html">CommandLib</a></li><li class="navelem"><a class="el" href="dir_c67fb1de641487f46005f52ce9314c2a.html">include</a></li><li class="navelem"><b>WaitMonitor.h</b></li>
+    <li class="footer">Generated on Thu Dec 25 2014 13:00:26 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

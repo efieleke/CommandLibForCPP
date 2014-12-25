@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_wait_monitor.htm
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -121,9 +121,9 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_wait_monitor.htm
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae97f385185f20d67f215494278136052"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae97f385185f20d67f215494278136052"></a>
-typedef std::shared_ptr<br class="typebreak" />
-&lt; <a class="el" href="class_command_lib_1_1_wait_monitor.html">WaitMonitor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Ptr</b></td></tr>
+<tr class="memitem:ae97f385185f20d67f215494278136052"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr<br class="typebreak" />
+&lt; <a class="el" href="class_command_lib_1_1_wait_monitor.html">WaitMonitor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_wait_monitor.html#ae97f385185f20d67f215494278136052">Ptr</a></td></tr>
+<tr class="memdesc:ae97f385185f20d67f215494278136052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared pointer to a <a class="el" href="class_command_lib_1_1_wait_monitor.html" title="Objects of this time can wait upon Waitable objects">WaitMonitor</a> object <a href="#ae97f385185f20d67f215494278136052">More...</a><br /></td></tr>
 <tr class="separator:ae97f385185f20d67f215494278136052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -135,7 +135,22 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Objects of this time can wait upon <a class="el" href="class_command_lib_1_1_waitable.html" title="This class represents an object that can be waited upon until it enters a signaled state...">Waitable</a> objects</p>
 <p><a class="el" href="class_command_lib_1_1_wait_monitor.html" title="Objects of this time can wait upon Waitable objects">WaitMonitor</a> objects can be registered by calling <a class="el" href="class_command_lib_1_1_waitable.html#afa4d25c0eb13db4222575f95036fbb22" title="Add a listener for when this object becomes signaled">Waitable::AddListener</a></p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="ae97f385185f20d67f215494278136052"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;<a class="el" href="class_command_lib_1_1_wait_monitor.html">WaitMonitor</a>&gt; <a class="el" href="class_command_lib_1_1_wait_monitor.html#ae97f385185f20d67f215494278136052">CommandLib::WaitMonitor::Ptr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shared pointer to a <a class="el" href="class_command_lib_1_1_wait_monitor.html" title="Objects of this time can wait upon Waitable objects">WaitMonitor</a> object</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a478cc2d9cc714ecb9b4844e47a67faa1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +185,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Eric/Documents/GitHub/CommandLibForCPP/CommandLib/include/<a class="el" href="_wait_monitor_8h_source.html">WaitMonitor.h</a></li>
+<li>CommandLibForCPP/CommandLib/include/<a class="el" href="_wait_monitor_8h_source.html">WaitMonitor.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -178,7 +193,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_command_lib.html">CommandLib</a></li><li class="navelem"><a class="el" href="class_command_lib_1_1_wait_monitor.html">WaitMonitor</a></li>
-    <li class="footer">Generated on Wed Dec 24 2014 22:32:03 for CommandLibForCPP by
+    <li class="footer">Generated on Thu Dec 25 2014 13:00:26 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

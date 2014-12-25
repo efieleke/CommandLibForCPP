@@ -30,7 +30,10 @@ namespace CommandLib
 			virtual bool OnCommandFailed(size_t failNumber, const std::exception& reason, long long* waitMS) = 0;
 		};
 
+		/// <summary>Shared pointer to a non-modifyable RetryableCommand object</summary>
 		typedef std::shared_ptr<const RetryableCommand> ConstPtr;
+
+		/// <summary>Shared pointer to a RetryableCommand object</summary>
 		typedef std::shared_ptr<RetryableCommand> Ptr;
 
 		/// <summary>
@@ -46,6 +49,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		RetryableCommand(Command::Ptr command, RetryCallback* callback);
 	private:
 		virtual void SyncExeImpl() override final;

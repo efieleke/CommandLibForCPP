@@ -11,7 +11,10 @@ namespace CommandLib
 	class ScheduledCommand : public SyncCommand
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable ScheduledCommand object</summary>
 		typedef std::shared_ptr<const ScheduledCommand> ConstPtr;
+
+		/// <summary>Shared pointer to a ScheduledCommand object</summary>
 		typedef std::shared_ptr<ScheduledCommand> Ptr;
 
 		/// <summary>
@@ -42,6 +45,7 @@ namespace CommandLib
 		/// <summary>Sets the time at which to execute the command to run</summary>
 		/// <param name="time">
 		/// The time at which to execute the command to run. Note that unless this ScheduledCommand object is actually executed, the command to run will never execute.
+		/// </param>
 		/// </returns>
 		/// <remarks>
 		/// It is safe to change this property while this command is executing, although if the underlying command
@@ -64,6 +68,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		ScheduledCommand(
 			Command::Ptr command,
 			const std::chrono::time_point<std::chrono::system_clock>& timeOfExecution,

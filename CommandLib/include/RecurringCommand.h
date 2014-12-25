@@ -47,7 +47,10 @@ namespace CommandLib
 			virtual bool GetNextExecutionTime(std::chrono::time_point<std::chrono::system_clock>* time) = 0;
 		};
 
+		/// <summary>Shared pointer to a non-modifyable RecurringCommand object</summary>
 		typedef std::shared_ptr<const RecurringCommand> ConstPtr;
+
+		/// <summary>Shared pointer to a RecurringCommand object</summary>
 		typedef std::shared_ptr<RecurringCommand> Ptr;
 
 		/// <summary>
@@ -79,6 +82,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		RecurringCommand(Command::Ptr command, ExecutionTimeCallback* callback);
 	private:
 		virtual void SyncExeImpl() override final;

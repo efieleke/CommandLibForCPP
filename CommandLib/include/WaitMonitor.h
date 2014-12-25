@@ -9,7 +9,9 @@ namespace CommandLib
 	class WaitMonitor
     {
 	public:
+		/// <summary>Shared pointer to a WaitMonitor object</summary>
 		typedef std::shared_ptr<WaitMonitor> Ptr;
+
 		virtual ~WaitMonitor();
 
 		/// <summary>Invoked when a <see cref="Waitable"/> object becomes signaled</summary>

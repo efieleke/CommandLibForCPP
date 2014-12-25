@@ -10,11 +10,12 @@ var indexSectionsWithContent =
   0: "acdegimnoprstvw",
   1: "aceprstvw",
   2: "c",
-  3: "acdeginoprstw",
+  3: "acdeginoprstvw",
   4: "ms",
-  5: "i",
-  6: "p",
-  7: "c"
+  5: "cp",
+  6: "i",
+  7: "p",
+  8: "c"
 };
 
 var indexSectionNames =
@@ -24,9 +25,10 @@ var indexSectionNames =
   2: "namespaces",
   3: "functions",
   4: "variables",
-  5: "enums",
-  6: "enumvalues",
-  7: "pages"
+  5: "typedefs",
+  6: "enums",
+  7: "enumvalues",
+  8: "pages"
 };
 
 function convertToId(search)

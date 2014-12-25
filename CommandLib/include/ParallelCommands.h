@@ -11,7 +11,10 @@ namespace CommandLib
 	class ParallelCommands : public AsyncCommand
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable ParallelCommands object</summary>
 		typedef std::shared_ptr<const ParallelCommands> ConstPtr;
+
+		/// <summary>Shared pointer to a ParallelCommands object</summary>
 		typedef std::shared_ptr<ParallelCommands> Ptr;
 
 		/// <summary>
@@ -43,6 +46,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		explicit ParallelCommands(bool abortUponFailure);
 	private:
 		virtual void AsyncExecuteImpl(CommandListener* listener) override;

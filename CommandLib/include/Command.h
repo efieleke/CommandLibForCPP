@@ -18,7 +18,8 @@
 * \section intro_sec Introduction
 *
 * This project contains classes that simplify coordination of complex and synchronous activities. To get a better feel for
-* features and usage, read the CommandLib namespace detailed documentation.
+* features and usage, read the CommandLib namespace detailed documentation. The CommandLibSample project provides
+* example usage.
 *
 * Note that this was compiled using Visual Studio 2013. There will be a few errors using other compilers, because there
 * is a bit of Microsoft-specific code. They shouldn't be difficult to address; I plan to correct them soon.
@@ -99,7 +100,10 @@ namespace CommandLib
 	class Command : public std::enable_shared_from_this<Command>
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable Command object</summary>
 		typedef std::shared_ptr<const Command> ConstPtr;
+
+		/// <summary>Shared pointer to a Command object</summary>
 		typedef std::shared_ptr<Command> Ptr;
 
 		/// <summary>
@@ -231,7 +235,7 @@ namespace CommandLib
 		/// <summary>
 		/// The exact same effect as a call to <see cref="Abort"/> immediately followed by a call to <see cref="Wait(const std::chrono::duration{Rep, Period}&)"/>
 		/// </summary>
-		/// <param name="duration">The maximum amount of time to wait</param>
+		/// <param name="interval">The maximum amount of time to wait</param>
 		/// <returns>true if the the command completed within 'duration', false otherwise</returns>
 		template<typename Rep, typename Period>
 		bool AbortAndWait(const std::chrono::duration<Rep, Period>& interval) const
@@ -246,7 +250,14 @@ namespace CommandLib
 		/// <returns>true if the the command completed within 'duration', false otherwise</returns>
 		bool AbortAndWait(long long milliseconds);
 
-		// Returned string should be the name of the derived class, without any namespace qualification. This is used for logging and diagnostic purposes.
+		/// <summary>
+		/// Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.
+		/// </summary>
+		/// <remarks>
+		/// The returned string should be the name of the derived class, without any namespace qualification.
+		/// I could have used typeid instead, but that requires compiling with RTTI, which is not something
+		/// that everyone wants.
+		/// </remarks>
 		virtual std::string ClassName() const = 0;
 
 		/// <summary>
@@ -266,9 +277,9 @@ namespace CommandLib
 		Waitable::Ptr AbortEvent() const;
 	protected:
 		/// <summary>
-		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// Constructor
 		/// </summary>
-		explicit Command();
+		Command();
 
 		/// <summary>Make this command the owner of the command passed as an argument.</summary>
 		/// <param name="orphan">

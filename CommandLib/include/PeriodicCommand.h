@@ -30,7 +30,10 @@ namespace CommandLib
 			PauseAfter
 		};
 
+		/// <summary>Shared pointer to a non-modifyable PeriodicCommand object</summary>
 		typedef std::shared_ptr<const PeriodicCommand> ConstPtr;
+
+		/// <summary>Shared pointer to a PeriodicCommand object</summary>
 		typedef std::shared_ptr<PeriodicCommand> Ptr;
 
 		/// <summary>
@@ -226,6 +229,9 @@ namespace CommandLib
 		/// <remarks>It is safe to change this member while this command is executing</remarks>
 		std::atomic_uint m_repeatCount;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		PeriodicCommand(
 			Command::Ptr command,
 			size_t repeatCount,

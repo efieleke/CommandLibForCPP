@@ -8,7 +8,10 @@ namespace CommandLib
 	class PauseCommand : public SyncCommand
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable PauseCommand object</summary>
 		typedef std::shared_ptr<const PauseCommand> ConstPtr;
+
+		/// <summary>Shared pointer to a PauseCommand object</summary>
 		typedef std::shared_ptr<PauseCommand> Ptr;
 
 		/// <summary>Creates a PauseCommand object as a top-level <see cref="Command"/></summary>
@@ -101,7 +104,7 @@ namespace CommandLib
 		/// <summary>
 		/// Sets the amount of time to pause in milliseconds
 		/// </summary>
-		/// <param name="dur"/>The amount of milliseconds to pause</param>
+		/// <param name="ms"/>The amount of milliseconds to pause</param>
 		/// <remarks>It is safe to change this property while the command is executing, but doing so will have no effect until the next time it is executed.</remarks>
 		void SetDurationMS(long long ms);
 
@@ -111,6 +114,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		PauseCommand(long long ms, Waitable::Ptr stopEvent);
 	private:
 		virtual void PrepareExecute() override final;

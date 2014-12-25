@@ -11,7 +11,12 @@ namespace CommandLib
 	class CommandTracer : public CommandMonitor
     {
 	public:
-		// Windows implementations may wish to define an output stream that wraps OutputDebugStream
+		/// <summary>Constructor</summary>
+		/// <param name="os">The stream of which to write output</param>
+		/// <remarks>
+		/// Easiest usage is to just pass std::cout as the argument. Windows implementations may wish to
+		/// define an output stream that wraps OutputDebugStream
+		/// </remarks>
 		explicit CommandTracer(std::ostream& os);
 
 		/// <inheritdoc/>

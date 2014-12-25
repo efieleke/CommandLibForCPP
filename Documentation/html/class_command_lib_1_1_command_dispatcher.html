@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_command_dispatch
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2995e97c734165b7d0b3491d606c547b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command_dispatcher.html#a2995e97c734165b7d0b3491d606c547b">AddMonitor</a> (<a class="el" href="class_command_lib_1_1_command_monitor.html">CommandMonitor</a> *monitor)</td></tr>
 <tr class="memdesc:a2995e97c734165b7d0b3491d606c547b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a listener that will receive callbacks about the status of commands executed by this dispatcher <a href="#a2995e97c734165b7d0b3491d606c547b">More...</a><br /></td></tr>
 <tr class="separator:a2995e97c734165b7d0b3491d606c547b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a1db45e830c48a4085bb2b86e47c692"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command_dispatcher.html#a2a1db45e830c48a4085bb2b86e47c692">Dispatch</a> (Command::Ptr command)</td></tr>
+<tr class="memitem:a2a1db45e830c48a4085bb2b86e47c692"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command_dispatcher.html#a2a1db45e830c48a4085bb2b86e47c692">Dispatch</a> (<a class="el" href="class_command_lib_1_1_command.html#a3b3e4f00144373299df5c6bb1acc319d">Command::Ptr</a> command)</td></tr>
 <tr class="memdesc:a2a1db45e830c48a4085bb2b86e47c692"><td class="mdescLeft">&#160;</td><td class="mdescRight">If there is room in the pool, asynchronously executes the command immediately. Otherwise, places the command in a queue for processing when room in the pool becomes available.  <a href="#a2a1db45e830c48a4085bb2b86e47c692">More...</a><br /></td></tr>
 <tr class="separator:a2a1db45e830c48a4085bb2b86e47c692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade1b36f9203de1426d7dff4f83808bec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command_dispatcher.html#ade1b36f9203de1426d7dff4f83808bec">Abort</a> ()</td></tr>
@@ -236,7 +236,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CommandLib::CommandDispatcher::Dispatch </td>
           <td>(</td>
-          <td class="paramtype">Command::Ptr&#160;</td>
+          <td class="paramtype"><a class="el" href="class_command_lib_1_1_command.html#a3b3e4f00144373299df5c6bb1acc319d">Command::Ptr</a>&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -273,7 +273,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Eric/Documents/GitHub/CommandLibForCPP/CommandLib/include/<a class="el" href="_command_dispatcher_8h_source.html">CommandDispatcher.h</a></li>
+<li>CommandLibForCPP/CommandLib/include/<a class="el" href="_command_dispatcher_8h_source.html">CommandDispatcher.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -281,7 +281,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_command_lib.html">CommandLib</a></li><li class="navelem"><a class="el" href="class_command_lib_1_1_command_dispatcher.html">CommandDispatcher</a></li>
-    <li class="footer">Generated on Wed Dec 24 2014 22:32:02 for CommandLibForCPP by
+    <li class="footer">Generated on Thu Dec 25 2014 13:00:26 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

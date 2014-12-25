@@ -7,9 +7,17 @@ namespace CommandLib
 	class CommandTimeoutException : public std::runtime_error
 	{
 	public:
+		/// <summary>Constructor</summary>
 		CommandTimeoutException();
+
+		/// <summary>Constructor</summary>
+		/// <param name="message">The specific error message, if desired</param>
 		explicit CommandTimeoutException(const char* message);
+
+		/// <summary>Constructor</summary>
+		/// <param name="message">The specific error message, if desired</param>
 		explicit CommandTimeoutException(const std::string& message);
+
 		virtual ~CommandTimeoutException();
 	};
 }

@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_sequential_comma
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_sequential_comma
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_command_lib_1_1_sequential_commands-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CommandLib::SequentialCommands Class Reference</div>  </div>
@@ -124,26 +125,26 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_sequential_comma
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a833e8df5749f6f13b93eaa1d724799e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a833e8df5749f6f13b93eaa1d724799e9"></a>
-typedef std::shared_ptr&lt; const <br class="typebreak" />
-<a class="el" href="class_command_lib_1_1_sequential_commands.html">SequentialCommands</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ConstPtr</b></td></tr>
+<tr class="memitem:a833e8df5749f6f13b93eaa1d724799e9"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; const <br class="typebreak" />
+<a class="el" href="class_command_lib_1_1_sequential_commands.html">SequentialCommands</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#a833e8df5749f6f13b93eaa1d724799e9">ConstPtr</a></td></tr>
+<tr class="memdesc:a833e8df5749f6f13b93eaa1d724799e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared pointer to a non-modifyable <a class="el" href="class_command_lib_1_1_sequential_commands.html" title="Represents a collection of Command objects that execute in sequence, wrapped in a Command object...">SequentialCommands</a> object <a href="#a833e8df5749f6f13b93eaa1d724799e9">More...</a><br /></td></tr>
 <tr class="separator:a833e8df5749f6f13b93eaa1d724799e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf77d8fcaebe414c283e553ba0604228"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf77d8fcaebe414c283e553ba0604228"></a>
-typedef std::shared_ptr<br class="typebreak" />
-&lt; <a class="el" href="class_command_lib_1_1_sequential_commands.html">SequentialCommands</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Ptr</b></td></tr>
+<tr class="memitem:adf77d8fcaebe414c283e553ba0604228"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr<br class="typebreak" />
+&lt; <a class="el" href="class_command_lib_1_1_sequential_commands.html">SequentialCommands</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#adf77d8fcaebe414c283e553ba0604228">Ptr</a></td></tr>
+<tr class="memdesc:adf77d8fcaebe414c283e553ba0604228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared pointer to a <a class="el" href="class_command_lib_1_1_sequential_commands.html" title="Represents a collection of Command objects that execute in sequence, wrapped in a Command object...">SequentialCommands</a> object <a href="#adf77d8fcaebe414c283e553ba0604228">More...</a><br /></td></tr>
 <tr class="separator:adf77d8fcaebe414c283e553ba0604228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_class_command_lib_1_1_command"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_command_lib_1_1_command')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_command_lib_1_1_command.html">CommandLib::Command</a></td></tr>
-<tr class="memitem:aee8fd78ff853a1f9c8e56959c3e81811 inherit pub_types_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee8fd78ff853a1f9c8e56959c3e81811"></a>
-typedef std::shared_ptr&lt; const <br class="typebreak" />
-<a class="el" href="class_command_lib_1_1_command.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ConstPtr</b></td></tr>
+<tr class="memitem:aee8fd78ff853a1f9c8e56959c3e81811 inherit pub_types_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; const <br class="typebreak" />
+<a class="el" href="class_command_lib_1_1_command.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#aee8fd78ff853a1f9c8e56959c3e81811">ConstPtr</a></td></tr>
+<tr class="memdesc:aee8fd78ff853a1f9c8e56959c3e81811 inherit pub_types_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared pointer to a non-modifyable <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> object <a href="#aee8fd78ff853a1f9c8e56959c3e81811">More...</a><br /></td></tr>
 <tr class="separator:aee8fd78ff853a1f9c8e56959c3e81811 inherit pub_types_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b3e4f00144373299df5c6bb1acc319d inherit pub_types_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b3e4f00144373299df5c6bb1acc319d"></a>
-typedef std::shared_ptr&lt; <a class="el" href="class_command_lib_1_1_command.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Ptr</b></td></tr>
+<tr class="memitem:a3b3e4f00144373299df5c6bb1acc319d inherit pub_types_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="class_command_lib_1_1_command.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a3b3e4f00144373299df5c6bb1acc319d">Ptr</a></td></tr>
+<tr class="memdesc:a3b3e4f00144373299df5c6bb1acc319d inherit pub_types_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared pointer to a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> object <a href="#a3b3e4f00144373299df5c6bb1acc319d">More...</a><br /></td></tr>
 <tr class="separator:a3b3e4f00144373299df5c6bb1acc319d inherit pub_types_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af0100e15f7897471ce84802ab6c25e00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#af0100e15f7897471ce84802ab6c25e00">Add</a> (Command::Ptr command)</td></tr>
+<tr class="memitem:af0100e15f7897471ce84802ab6c25e00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#af0100e15f7897471ce84802ab6c25e00">Add</a> (<a class="el" href="class_command_lib_1_1_command.html#a3b3e4f00144373299df5c6bb1acc319d">Command::Ptr</a> command)</td></tr>
 <tr class="memdesc:af0100e15f7897471ce84802ab6c25e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> to the collection to execute. <a href="#af0100e15f7897471ce84802ab6c25e00">More...</a><br /></td></tr>
 <tr class="separator:af0100e15f7897471ce84802ab6c25e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad022ea238a8c3ac1c1f71a5b71f6d94f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#ad022ea238a8c3ac1c1f71a5b71f6d94f">Clear</a> ()</td></tr>
@@ -154,6 +155,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8109d8d9b2c4a191cad02164ca173709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbfd93499d508c3f0d2d817bd59e7080"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbfd93499d508c3f0d2d817bd59e7080"></a>
 virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#abbfd93499d508c3f0d2d817bd59e7080">ClassName</a> () const override</td></tr>
+<tr class="memdesc:abbfd93499d508c3f0d2d817bd59e7080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes. The returned string should be the name of the derived class, without any namespace qualification. I could have used typeid instead, but that requires compiling with RTTI, which is not something that everyone wants.  <br /></td></tr>
 <tr class="separator:abbfd93499d508c3f0d2d817bd59e7080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_command_lib_1_1_command"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_command_lib_1_1_command')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_command_lib_1_1_command.html">CommandLib::Command</a></td></tr>
 <tr class="memitem:a04e911cc1a65438fd78d8d1d81f6faaa inherit pub_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a04e911cc1a65438fd78d8d1d81f6faaa">Id</a> () const </td></tr>
@@ -197,18 +199,37 @@ virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <tr class="memitem:ab7e0fd4eb4f1d2b6d98228c1432805e3 inherit pub_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#ab7e0fd4eb4f1d2b6d98228c1432805e3">AbortAndWait</a> (long long milliseconds)</td></tr>
 <tr class="memdesc:ab7e0fd4eb4f1d2b6d98228c1432805e3 inherit pub_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">The exact same effect as a call to <a class="el" href="class_command_lib_1_1_command.html#a247cbc7325e3b9d9d7044d449b989aa6" title="Aborts a running command">Abort</a> immediately followed by a call to Wait(const std::chrono::duration{Rep, Period}&amp;)  <a href="#ab7e0fd4eb4f1d2b6d98228c1432805e3">More...</a><br /></td></tr>
 <tr class="separator:ab7e0fd4eb4f1d2b6d98228c1432805e3 inherit pub_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add579dd7358aa87e722f8b2e9be0afd8 inherit pub_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">Waitable::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#add579dd7358aa87e722f8b2e9be0afd8">DoneEvent</a> () const </td></tr>
+<tr class="memitem:add579dd7358aa87e722f8b2e9be0afd8 inherit pub_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_command_lib_1_1_waitable.html#ac74b6b91e48220146eada76a31cf2d9b">Waitable::Ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#add579dd7358aa87e722f8b2e9be0afd8">DoneEvent</a> () const </td></tr>
 <tr class="memdesc:add579dd7358aa87e722f8b2e9be0afd8 inherit pub_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signaled when this command has finished execution, regardless of whether it succeeded, failed or was aborted.  <a href="#add579dd7358aa87e722f8b2e9be0afd8">More...</a><br /></td></tr>
 <tr class="separator:add579dd7358aa87e722f8b2e9be0afd8 inherit pub_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f49e49de93e9b4ef3093031b41cc551 inherit pub_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">Waitable::Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a4f49e49de93e9b4ef3093031b41cc551">AbortEvent</a> () const </td></tr>
+<tr class="memitem:a4f49e49de93e9b4ef3093031b41cc551 inherit pub_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_command_lib_1_1_waitable.html#ac74b6b91e48220146eada76a31cf2d9b">Waitable::Ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a4f49e49de93e9b4ef3093031b41cc551">AbortEvent</a> () const </td></tr>
 <tr class="memdesc:a4f49e49de93e9b4ef3093031b41cc551 inherit pub_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signaled when this command is to be aborted. Note that this event is only reset when the command next begins execution.  <a href="#a4f49e49de93e9b4ef3093031b41cc551">More...</a><br /></td></tr>
 <tr class="separator:a4f49e49de93e9b4ef3093031b41cc551 inherit pub_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aaacdef25d7dba29bae8ff7763c55017e"><td class="memItemLeft" align="right" valign="top">static Ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#aaacdef25d7dba29bae8ff7763c55017e">Create</a> ()</td></tr>
+<tr class="memitem:aaacdef25d7dba29bae8ff7763c55017e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_command_lib_1_1_sequential_commands.html#adf77d8fcaebe414c283e553ba0604228">Ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#aaacdef25d7dba29bae8ff7763c55017e">Create</a> ()</td></tr>
 <tr class="memdesc:aaacdef25d7dba29bae8ff7763c55017e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="class_command_lib_1_1_sequential_commands.html" title="Represents a collection of Command objects that execute in sequence, wrapped in a Command object...">SequentialCommands</a> object  <a href="#aaacdef25d7dba29bae8ff7763c55017e">More...</a><br /></td></tr>
 <tr class="separator:aaacdef25d7dba29bae8ff7763c55017e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ab4cbf775a047942c6fce735980f19bb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_sequential_commands.html#ab4cbf775a047942c6fce735980f19bb0">SequentialCommands</a> ()</td></tr>
+<tr class="memdesc:ab4cbf775a047942c6fce735980f19bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor is not public so as to enforce creation using the <a class="el" href="class_command_lib_1_1_sequential_commands.html#aaacdef25d7dba29bae8ff7763c55017e" title="Creates a SequentialCommands object ">Create()</a> methods.  <a href="#ab4cbf775a047942c6fce735980f19bb0">More...</a><br /></td></tr>
+<tr class="separator:ab4cbf775a047942c6fce735980f19bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_command_lib_1_1_command"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_command_lib_1_1_command')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_command_lib_1_1_command.html">CommandLib::Command</a></td></tr>
+<tr class="memitem:a31713edf2ee9c217f9090e5337dd1f44 inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a31713edf2ee9c217f9090e5337dd1f44">Command</a> ()</td></tr>
+<tr class="memdesc:a31713edf2ee9c217f9090e5337dd1f44 inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor  <a href="#a31713edf2ee9c217f9090e5337dd1f44">More...</a><br /></td></tr>
+<tr class="separator:a31713edf2ee9c217f9090e5337dd1f44 inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0787e7b79c5424926be5c1c8be1ebb0d inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a0787e7b79c5424926be5c1c8be1ebb0d">TakeOwnership</a> (<a class="el" href="class_command_lib_1_1_command.html#a3b3e4f00144373299df5c6bb1acc319d">Ptr</a> orphan)</td></tr>
+<tr class="memdesc:a0787e7b79c5424926be5c1c8be1ebb0d inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make this command the owner of the command passed as an argument. <a href="#a0787e7b79c5424926be5c1c8be1ebb0d">More...</a><br /></td></tr>
+<tr class="separator:a0787e7b79c5424926be5c1c8be1ebb0d inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac872e76c74ed573668b60351fd9ffd1d inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#ac872e76c74ed573668b60351fd9ffd1d">RelinquishOwnership</a> (<a class="el" href="class_command_lib_1_1_command.html#a3b3e4f00144373299df5c6bb1acc319d">Ptr</a> command)</td></tr>
+<tr class="memdesc:ac872e76c74ed573668b60351fd9ffd1d inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes what used to be an owned command a top-level command. <a href="#ac872e76c74ed573668b60351fd9ffd1d">More...</a><br /></td></tr>
+<tr class="separator:ac872e76c74ed573668b60351fd9ffd1d inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb415e0c75ffbda7cb840443ea4ac885 inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#aeb415e0c75ffbda7cb840443ea4ac885">CheckAbortFlag</a> () const </td></tr>
+<tr class="memdesc:aeb415e0c75ffbda7cb840443ea4ac885 inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws a <a class="el" href="class_command_lib_1_1_command_aborted_exception.html" title="This is thrown from Command.SyncExecute() when a command is aborted. ">CommandAbortedException</a> if an abort is pending. Synchronous implementations may find this useful in order to respond to an abort request in a timely manner.  <a href="#aeb415e0c75ffbda7cb840443ea4ac885">More...</a><br /></td></tr>
+<tr class="separator:aeb415e0c75ffbda7cb840443ea4ac885 inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -217,23 +238,65 @@ Additional Inherited Members</h2></td></tr>
 &lt; <a class="el" href="class_command_lib_1_1_command_monitor.html">CommandMonitor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#aa4ceb8d85a720bc5d9bac4be3afd7df5">sm_monitors</a></td></tr>
 <tr class="memdesc:aa4ceb8d85a720bc5d9bac4be3afd7df5 inherit pub_static_attribs_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">The objects that define command monitoring behavior. Monitoring is meant for logging and diagnostic purposes.  <a href="#aa4ceb8d85a720bc5d9bac4be3afd7df5">More...</a><br /></td></tr>
 <tr class="separator:aa4ceb8d85a720bc5d9bac4be3afd7df5 inherit pub_static_attribs_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_class_command_lib_1_1_command"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_command_lib_1_1_command')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_command_lib_1_1_command.html">CommandLib::Command</a></td></tr>
-<tr class="memitem:a31713edf2ee9c217f9090e5337dd1f44 inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a31713edf2ee9c217f9090e5337dd1f44">Command</a> ()</td></tr>
-<tr class="memdesc:a31713edf2ee9c217f9090e5337dd1f44 inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor is not public so as to enforce creation using the Create() methods.  <a href="#a31713edf2ee9c217f9090e5337dd1f44">More...</a><br /></td></tr>
-<tr class="separator:a31713edf2ee9c217f9090e5337dd1f44 inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0787e7b79c5424926be5c1c8be1ebb0d inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a0787e7b79c5424926be5c1c8be1ebb0d">TakeOwnership</a> (Ptr orphan)</td></tr>
-<tr class="memdesc:a0787e7b79c5424926be5c1c8be1ebb0d inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make this command the owner of the command passed as an argument. <a href="#a0787e7b79c5424926be5c1c8be1ebb0d">More...</a><br /></td></tr>
-<tr class="separator:a0787e7b79c5424926be5c1c8be1ebb0d inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac872e76c74ed573668b60351fd9ffd1d inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#ac872e76c74ed573668b60351fd9ffd1d">RelinquishOwnership</a> (Ptr command)</td></tr>
-<tr class="memdesc:ac872e76c74ed573668b60351fd9ffd1d inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes what used to be an owned command a top-level command. <a href="#ac872e76c74ed573668b60351fd9ffd1d">More...</a><br /></td></tr>
-<tr class="separator:ac872e76c74ed573668b60351fd9ffd1d inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb415e0c75ffbda7cb840443ea4ac885 inherit pro_methods_class_command_lib_1_1_command"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#aeb415e0c75ffbda7cb840443ea4ac885">CheckAbortFlag</a> () const </td></tr>
-<tr class="memdesc:aeb415e0c75ffbda7cb840443ea4ac885 inherit pro_methods_class_command_lib_1_1_command"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws a <a class="el" href="class_command_lib_1_1_command_aborted_exception.html" title="This is thrown from Command.SyncExecute() when a command is aborted. ">CommandAbortedException</a> if an abort is pending. Synchronous implementations may find this useful in order to respond to an abort request in a timely manner.  <a href="#aeb415e0c75ffbda7cb840443ea4ac885">More...</a><br /></td></tr>
-<tr class="separator:aeb415e0c75ffbda7cb840443ea4ac885 inherit pro_methods_class_command_lib_1_1_command"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a collection of <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> objects that execute in sequence, wrapped in a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> object. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a833e8df5749f6f13b93eaa1d724799e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;const <a class="el" href="class_command_lib_1_1_sequential_commands.html">SequentialCommands</a>&gt; <a class="el" href="class_command_lib_1_1_sequential_commands.html#a833e8df5749f6f13b93eaa1d724799e9">CommandLib::SequentialCommands::ConstPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shared pointer to a non-modifyable <a class="el" href="class_command_lib_1_1_sequential_commands.html" title="Represents a collection of Command objects that execute in sequence, wrapped in a Command object...">SequentialCommands</a> object</p>
+
+</div>
+</div>
+<a class="anchor" id="adf77d8fcaebe414c283e553ba0604228"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt;<a class="el" href="class_command_lib_1_1_sequential_commands.html">SequentialCommands</a>&gt; <a class="el" href="class_command_lib_1_1_sequential_commands.html#adf77d8fcaebe414c283e553ba0604228">CommandLib::SequentialCommands::Ptr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shared pointer to a <a class="el" href="class_command_lib_1_1_sequential_commands.html" title="Represents a collection of Command objects that execute in sequence, wrapped in a Command object...">SequentialCommands</a> object</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab4cbf775a047942c6fce735980f19bb0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CommandLib::SequentialCommands::SequentialCommands </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This constructor is not public so as to enforce creation using the <a class="el" href="class_command_lib_1_1_sequential_commands.html#aaacdef25d7dba29bae8ff7763c55017e" title="Creates a SequentialCommands object ">Create()</a> methods. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af0100e15f7897471ce84802ab6c25e00"></a>
 <div class="memitem">
 <div class="memproto">
@@ -241,7 +304,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void CommandLib::SequentialCommands::Add </td>
           <td>(</td>
-          <td class="paramtype">Command::Ptr&#160;</td>
+          <td class="paramtype"><a class="el" href="class_command_lib_1_1_command.html#a3b3e4f00144373299df5c6bb1acc319d">Command::Ptr</a>&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -285,7 +348,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static Ptr CommandLib::SequentialCommands::Create </td>
+          <td class="memname">static <a class="el" href="class_command_lib_1_1_sequential_commands.html#adf77d8fcaebe414c283e553ba0604228">Ptr</a> CommandLib::SequentialCommands::Create </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -331,7 +394,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Eric/Documents/GitHub/CommandLibForCPP/CommandLib/include/<a class="el" href="_sequential_commands_8h_source.html">SequentialCommands.h</a></li>
+<li>CommandLibForCPP/CommandLib/include/<a class="el" href="_sequential_commands_8h_source.html">SequentialCommands.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -339,7 +402,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_command_lib.html">CommandLib</a></li><li class="navelem"><a class="el" href="class_command_lib_1_1_sequential_commands.html">SequentialCommands</a></li>
-    <li class="footer">Generated on Wed Dec 24 2014 22:32:02 for CommandLibForCPP by
+    <li class="footer">Generated on Thu Dec 25 2014 13:00:26 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

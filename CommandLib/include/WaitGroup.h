@@ -24,7 +24,7 @@ namespace CommandLib
 		/// This object must remain in scope for as long as the item passed as a parameter,
 		/// otherwise behavior is undefined.
 		/// </remarks>
-		void AddWaitable(Waitable::Ptr item);
+		void AddWaitable(Waitable::Ptr waitable);
 
 		/// <summary>Waits until any one of the waitable objects becomes signaled.</summary>
 		/// <returns>

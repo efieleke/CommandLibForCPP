@@ -9,7 +9,10 @@ namespace CommandLib
 	class SequentialCommands : public SyncCommand
     {
 	public:
+		/// <summary>Shared pointer to a non-modifyable SequentialCommands object</summary>
 		typedef std::shared_ptr<const SequentialCommands> ConstPtr;
+
+		/// <summary>Shared pointer to a SequentialCommands object</summary>
 		typedef std::shared_ptr<SequentialCommands> Ptr;
 
 		/// <summary>
@@ -41,6 +44,9 @@ namespace CommandLib
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
 	protected:
+		/// <summary>
+		/// This constructor is not public so as to enforce creation using the Create() methods.
+		/// </summary>
 		SequentialCommands();
 	private:
 		virtual void SyncExeImpl() final;

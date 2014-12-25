@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_command_tracer.h
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -122,8 +122,8 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_command_tracer.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a415c9eb7f65bbab0356f6beae82a51bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a415c9eb7f65bbab0356f6beae82a51bf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CommandTracer</b> (std::ostream &amp;os)</td></tr>
+<tr class="memitem:a415c9eb7f65bbab0356f6beae82a51bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command_tracer.html#a415c9eb7f65bbab0356f6beae82a51bf">CommandTracer</a> (std::ostream &amp;os)</td></tr>
+<tr class="memdesc:a415c9eb7f65bbab0356f6beae82a51bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor <a href="#a415c9eb7f65bbab0356f6beae82a51bf">More...</a><br /></td></tr>
 <tr class="separator:a415c9eb7f65bbab0356f6beae82a51bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bf102840bfad1186d0a693590afd9f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bf102840bfad1186d0a693590afd9f9"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command_tracer.html#a8bf102840bfad1186d0a693590afd9f9">CommandStarting</a> (const <a class="el" href="class_command_lib_1_1_command.html">Command</a> &amp;command) override</td></tr>
@@ -149,8 +149,42 @@ Implementations of this method must not throw.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements <a class="el" href="class_command_lib_1_1_command_monitor.html" title="This is a callback interface for Command starting and finishing events. Its intended use is for loggi...">CommandMonitor</a> by writing diagnostic information to an output stream. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Eric/Documents/GitHub/CommandLibForCPP/CommandLib/include/<a class="el" href="_command_tracer_8h_source.html">CommandTracer.h</a></li>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a415c9eb7f65bbab0356f6beae82a51bf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CommandLib::CommandTracer::CommandTracer </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>The stream of which to write output</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Easiest usage is to just pass std::cout as the argument. Windows implementations may wish to define an output stream that wraps OutputDebugStream </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>CommandLibForCPP/CommandLib/include/<a class="el" href="_command_tracer_8h_source.html">CommandTracer.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -158,7 +192,7 @@ Implementations of this method must not throw.  <br /></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_command_lib.html">CommandLib</a></li><li class="navelem"><a class="el" href="class_command_lib_1_1_command_tracer.html">CommandTracer</a></li>
-    <li class="footer">Generated on Wed Dec 24 2014 22:32:02 for CommandLibForCPP by
+    <li class="footer">Generated on Thu Dec 25 2014 13:00:26 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

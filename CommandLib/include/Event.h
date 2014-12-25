@@ -13,6 +13,7 @@ namespace CommandLib
 	class Event : public Waitable
     {
 	public:
+		/// <summary>Shared pointer to an Event object</summary>
 		typedef std::shared_ptr<Event> Ptr;
 
 		/// <summary>Construct an unsignaled Event</summary>
