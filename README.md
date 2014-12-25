@@ -13,7 +13,7 @@ All of the above Command classes are simply containers for other Command objects
 
 Help File Documentation
 ----
-Documentation is currently non-existent. An impending check-in will correct this situation. This library is ported from CommandLib for C#, which is also checked in to GitHub, and which has full documentation.
+Documentation is in HTML format, generated using doxygen. Open index.html in the Documentation/hmtl folder for in-depth descriptions of each class and its methods.
 
 Diagnostics
 ----
