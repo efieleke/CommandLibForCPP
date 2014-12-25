@@ -1,4 +1,4 @@
-﻿#include "Robot.h"
+﻿#include "RobotArm.h"
 #include "CommandLogger.h"
 #include "CommandTracer.h"
 #include "PeriodicCommand.h"
@@ -8,8 +8,7 @@
 #include "RetryableCommand.h"
 #include "CommandTimeoutException.h"
 #include "ReportPositionCommand.h"
-#include "MoveRobotCommand.h"
-#include "EmitGreetingCommand.h"
+#include "MoveRobotArmCommand.h"
 #include <iostream>
 #include <algorithm>
 
@@ -24,7 +23,7 @@ public:
 
 		if (dynamic_cast<const CommandLib::CommandTimeoutException*>(&reason) != nullptr)
 		{
-			std::cout << "Would you like to give George and Martha more time to find each other (y/n)? ";
+			std::cout << "Would you like to give more time to move the robot arm to the origin (y/n)? ";
 			char letter;
 			std::cin >> letter;
 			return letter == 'y';
@@ -48,53 +47,36 @@ int main(int argc, char* argv[])
 			CommandLib::Command::sm_monitors.push_back(logger.get());
 		}
 
-		Robot robotOne("George", 100, 126);
-		Robot robotTwo("Martha", 97, 80);
+		RobotArm robotArm(100, 126);
 
-		// Create a command that will concurrently move both robots to position 0,0
-		CommandLib::ParallelCommands::Ptr moveRobotsCmd = CommandLib::ParallelCommands::Create(true);
-		moveRobotsCmd->Add(MoveRobotCommand::Create(&robotOne, 0, 0));
-		moveRobotsCmd->Add(MoveRobotCommand::Create(&robotTwo, 0, 0));
+		// Create a command to move the robot arm to position 0,0
+		MoveRobotArmCommand::Ptr moveToOriginCmd = MoveRobotArmCommand::Create(&robotArm, 0, 0);
 
-		// Create commands that will periodically report robot positions until they both reach their destination (0,0)
-		CommandLib::PeriodicCommand::Ptr reportRobotOnePositionCmd = CommandLib::PeriodicCommand::Create(
-			ReportPositionCommand::Create(robotOne), // the command to execute
+		// Create a command to report the robot arm's position every second
+		CommandLib::PeriodicCommand::Ptr periodicReportPositionCmd = CommandLib::PeriodicCommand::Create(
+			ReportPositionCommand::Create(robotArm), // the command to execute
 			std::numeric_limits<size_t>::max(), // no fixed upper limit on repetitions
 			1000, // execute the command every second
 			CommandLib::PeriodicCommand::IntervalType::PauseBefore, // wait a second before executing the command the first time
 			true, // the second to wait is inclusive of the time it actually takes to report the position
-			moveRobotsCmd->DoneEvent()); // stop when this command is finished (in other words, when both robots reach 0,0)
+			moveToOriginCmd->DoneEvent()); // stop when this command is finished (in other words, when both robots reach 0,0)
 
-		CommandLib::PeriodicCommand::Ptr reportRobotTwoPositionCmd = CommandLib::PeriodicCommand::Create(
-			ReportPositionCommand::Create(robotTwo), // the command to execute
-			std::numeric_limits<size_t>::max(), // no fixed upper limit on repetitions
-			1000, // execute the command every second
-			CommandLib::PeriodicCommand::IntervalType::PauseBefore, // wait a second before executing the command the first time
-			true, // the second to wait is inclusive of the time it actually takes to report the position
-			moveRobotsCmd->DoneEvent()); // stop when this command is finished (in other words, when both robots reach 0,0)
-
-		// Create a command that will move the robots and periodically report at the same time
+		// Create a command that will concurrently move the robot arm and periodically report its position
 		CommandLib::ParallelCommands::Ptr moveAndReportCmd = CommandLib::ParallelCommands::Create(true);
-		moveAndReportCmd->Add(moveRobotsCmd);
-		moveAndReportCmd->Add(reportRobotOnePositionCmd);
-		moveAndReportCmd->Add(reportRobotTwoPositionCmd);
+		moveAndReportCmd->Add(moveToOriginCmd);
+		moveAndReportCmd->Add(periodicReportPositionCmd);
 
-		// Create a command that will first report the starting positions, then perform the simulataneous moves
-		// and position reporting, then report their final positions, and last of all, greet each other.
+		// Create a command that will first report the starting position, then perform the simulataneous move
+		// and position reporting, then report the final position.
 		CommandLib::SequentialCommands::Ptr moveAndGreetCmd = CommandLib::SequentialCommands::Create();
-		moveAndGreetCmd->Add(ReportPositionCommand::Create(robotOne));
-		moveAndGreetCmd->Add(ReportPositionCommand::Create(robotTwo));
+		moveAndGreetCmd->Add(ReportPositionCommand::Create(robotArm));
 		moveAndGreetCmd->Add(moveAndReportCmd);
-		moveAndGreetCmd->Add(ReportPositionCommand::Create(robotOne));
-		moveAndGreetCmd->Add(ReportPositionCommand::Create(robotTwo));
-		moveAndGreetCmd->Add(EmitGreetingCommand::Create(robotOne));
-		moveAndGreetCmd->Add(EmitGreetingCommand::Create(robotTwo));
+		moveAndGreetCmd->Add(ReportPositionCommand::Create(robotArm));
 
 		// Wrap the above command in a command that throws a TimeoutException if it takes longer than 20 seconds.
 		CommandLib::TimeLimitedCommand::Ptr timeLimitedCmd = CommandLib::TimeLimitedCommand::Create(moveAndGreetCmd, 20000);
 
-		// Allow retries, because we will time out, and maybe the end user actually wants to see if there are any
-		// sparks between George and Martha.
+		// Allow retries, because we will time out
 		RetryHandler retryHandler;
 		CommandLib::RetryableCommand::Ptr retryableCmd = CommandLib::RetryableCommand::Create(timeLimitedCmd, &retryHandler);
 
@@ -102,6 +84,7 @@ int main(int argc, char* argv[])
 		try
 		{
 			retryableCmd->SyncExecute();
+			std::cout << "Robot arm successfully moved to the origin" << std::endl;
 		}
 		catch (std::exception& err)
 		{

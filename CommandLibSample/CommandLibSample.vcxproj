@@ -11,19 +11,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EmitGreetingCommand.h" />
-    <ClInclude Include="MoveRobotCommand.h" />
-    <ClInclude Include="MoveRobotOnAxisCommand.h" />
+    <ClInclude Include="MoveRobotArmCommand.h" />
+    <ClInclude Include="MoveRobotArmOnAxisCommand.h" />
     <ClInclude Include="ReportPositionCommand.h" />
-    <ClInclude Include="Robot.h" />
+    <ClInclude Include="RobotArm.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EmitGreetingCommand.cpp" />
-    <ClCompile Include="MoveRobotCommand.cpp" />
-    <ClCompile Include="MoveRobotOnAxisCommand.cpp" />
+    <ClCompile Include="MoveRobotArmCommand.cpp" />
+    <ClCompile Include="MoveRobotArmOnAxisCommand.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="ReportPositionCommand.cpp" />
-    <ClCompile Include="Robot.cpp" />
+    <ClCompile Include="RobotArm.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{89F24B8F-0129-43B5-B9E6-755810787E18}</ProjectGuid>

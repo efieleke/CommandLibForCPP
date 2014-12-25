@@ -7,10 +7,10 @@
 #include <memory>
 #include "Event.h"
 
-class Robot
+class RobotArm
 {
 public:
-	Robot(const std::string& name, int xPos, int yPos);
+	RobotArm(int xPos, int yPos);
 
 	class OperationCompleteHandler
 	{
@@ -24,7 +24,7 @@ public:
 	public:
 		void Abort();
 	private:
-		friend class Robot;
+		friend class RobotArm;
 		Operation();
 
 		CommandLib::Event m_startedEvent;
@@ -32,15 +32,12 @@ public:
 	};
 
 	void GetPosition(int* x, int* y) const;
-	std::string Greeting() const;
 
 	std::shared_ptr<Operation> MoveX(int destination, OperationCompleteHandler* handler);
 	std::shared_ptr<Operation> MoveY(int destination, OperationCompleteHandler* handler);
-
-	const std::string m_name;
 private:
-	Robot(const Robot&) = delete;
-	Robot& operator=(const Robot&) = delete;
+	RobotArm(const RobotArm&) = delete;
+	RobotArm& operator=(const RobotArm&) = delete;
 	std::shared_ptr<Operation> Move(int destination, OperationCompleteHandler* handler, int* value);
 		
 	int m_xPos;

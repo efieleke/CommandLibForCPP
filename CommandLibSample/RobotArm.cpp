@@ -1,36 +1,31 @@
-﻿#include "Robot.h"
+﻿#include "RobotArm.h"
 #include <thread>
 
-Robot::OperationCompleteHandler::~OperationCompleteHandler()
+RobotArm::OperationCompleteHandler::~OperationCompleteHandler()
 {
 }
 
-Robot::Operation::Operation()
+RobotArm::Operation::Operation()
 {
 }
 
-void Robot::Operation::Abort()
+void RobotArm::Operation::Abort()
 {
 	m_abortEvent.Set();
 }
 
-Robot::Robot(const std::string& name, int xPos, int yPos) : m_name(name), m_xPos(xPos), m_yPos(yPos)
+RobotArm::RobotArm(int xPos, int yPos) : m_xPos(xPos), m_yPos(yPos)
 {
 }
 
-std::string Robot::Greeting() const
-{
-	return "Hello, my name is " + m_name;
-}
-
-void Robot::GetPosition(int* x, int* y) const
+void RobotArm::GetPosition(int* x, int* y) const
 {
 	std::unique_lock<std::mutex> lock(m_mutex);
 	*x = m_xPos;
 	*y = m_yPos;
 }
 
-std::shared_ptr<Robot::Operation> Robot::Move(int destination, OperationCompleteHandler* handler, int* value)
+std::shared_ptr<RobotArm::Operation> RobotArm::Move(int destination, OperationCompleteHandler* handler, int* value)
 {
 	std::shared_ptr<Operation> operation(new Operation());
 
@@ -71,12 +66,12 @@ std::shared_ptr<Robot::Operation> Robot::Move(int destination, OperationComplete
 	return operation;
 }
 
-std::shared_ptr<Robot::Operation> Robot::MoveX(int destination, OperationCompleteHandler* handler)
+std::shared_ptr<RobotArm::Operation> RobotArm::MoveX(int destination, OperationCompleteHandler* handler)
 {
 	return Move(destination, handler, &m_xPos);
 }
 
-std::shared_ptr<Robot::Operation> Robot::MoveY(int destination, OperationCompleteHandler* handler)
+std::shared_ptr<RobotArm::Operation> RobotArm::MoveY(int destination, OperationCompleteHandler* handler)
 {
 	return Move(destination, handler, &m_yPos);
 }
