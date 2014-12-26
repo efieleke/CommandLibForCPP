@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_wait_group.html'
 </div><!--header-->
 <div class="contents">
 
-<p>This class attempts to provide functionality like Windows' WaitForMultipleObjects  
+<p>This class attempts to provide functionality like Windows' WaitForMultipleObjects. It provides a way to efficiently wait upon any number of <a class="el" href="class_command_lib_1_1_waitable.html" title="This class represents an object that can be waited upon until it enters a signaled state...">Waitable</a> objects, until either one or all of the objects enter a signaled state.  
  <a href="class_command_lib_1_1_wait_group.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_wait_group_8h_source.html">WaitGroup.h</a>&gt;</code></p>
@@ -122,10 +122,10 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_wait_group.html'
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a813fba9c0d92994c177eee9e6289dc74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_wait_group.html#a813fba9c0d92994c177eee9e6289dc74">WaitGroup</a> ()</td></tr>
-<tr class="memdesc:a813fba9c0d92994c177eee9e6289dc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructs a <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects ...">WaitGroup</a> <a href="#a813fba9c0d92994c177eee9e6289dc74">More...</a><br /></td></tr>
+<tr class="memdesc:a813fba9c0d92994c177eee9e6289dc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructs a <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects. It provides a way to efficiently wait upon any number of Waitable objects, until either one or all of the objects enter a signaled state. ">WaitGroup</a> <a href="#a813fba9c0d92994c177eee9e6289dc74">More...</a><br /></td></tr>
 <tr class="separator:a813fba9c0d92994c177eee9e6289dc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ad37bdf4b472ad67c660ceb2a9ca0c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_wait_group.html#a2ad37bdf4b472ad67c660ceb2a9ca0c9">AddWaitable</a> (<a class="el" href="class_command_lib_1_1_waitable.html#ac74b6b91e48220146eada76a31cf2d9b">Waitable::Ptr</a> waitable)</td></tr>
-<tr class="memdesc:a2ad37bdf4b472ad67c660ceb2a9ca0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="class_command_lib_1_1_waitable.html" title="This class represents an object that can be waited upon until it enters a signaled state...">Waitable</a> to this <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects ...">WaitGroup</a> <a href="#a2ad37bdf4b472ad67c660ceb2a9ca0c9">More...</a><br /></td></tr>
+<tr class="memdesc:a2ad37bdf4b472ad67c660ceb2a9ca0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="class_command_lib_1_1_waitable.html" title="This class represents an object that can be waited upon until it enters a signaled state...">Waitable</a> to this <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects. It provides a way to efficiently wait upon any number of Waitable objects, until either one or all of the objects enter a signaled state. ">WaitGroup</a> <a href="#a2ad37bdf4b472ad67c660ceb2a9ca0c9">More...</a><br /></td></tr>
 <tr class="separator:a2ad37bdf4b472ad67c660ceb2a9ca0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8679384d7e5a9822588b0643bd17a9e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_wait_group.html#a8679384d7e5a9822588b0643bd17a9e0">WaitForAny</a> () const </td></tr>
 <tr class="memdesc:a8679384d7e5a9822588b0643bd17a9e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until any one of the waitable objects becomes signaled. <a href="#a8679384d7e5a9822588b0643bd17a9e0">More...</a><br /></td></tr>
@@ -138,18 +138,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1f741c1ac3874caa85f228c64c73f0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until any one of the waitable objects becomes signaled. <a href="#a1f741c1ac3874caa85f228c64c73f0fa">More...</a><br /></td></tr>
 <tr class="separator:a1f741c1ac3874caa85f228c64c73f0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95f23fb68ce4b30fdd20e6ed21e022a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_wait_group.html#a95f23fb68ce4b30fdd20e6ed21e022a6">WaitForAll</a> () const </td></tr>
-<tr class="memdesc:a95f23fb68ce4b30fdd20e6ed21e022a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until all of the waitable objects are simulataneously signaled. <a href="#a95f23fb68ce4b30fdd20e6ed21e022a6">More...</a><br /></td></tr>
+<tr class="memdesc:a95f23fb68ce4b30fdd20e6ed21e022a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until all of the waitable objects have entered the signaled state. <a href="#a95f23fb68ce4b30fdd20e6ed21e022a6">More...</a><br /></td></tr>
 <tr class="separator:a95f23fb68ce4b30fdd20e6ed21e022a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78cc01797bcee15a0c5bb4bc2caf6cdd"><td class="memTemplParams" colspan="2">template&lt;typename Rep , typename Period &gt; </td></tr>
 <tr class="memitem:a78cc01797bcee15a0c5bb4bc2caf6cdd"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_wait_group.html#a78cc01797bcee15a0c5bb4bc2caf6cdd">WaitForAll</a> (const std::chrono::duration&lt; Rep, Period &gt; &amp;dur) const </td></tr>
-<tr class="memdesc:a78cc01797bcee15a0c5bb4bc2caf6cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until all of the waitable objects are simulataneously signaled. <a href="#a78cc01797bcee15a0c5bb4bc2caf6cdd">More...</a><br /></td></tr>
+<tr class="memdesc:a78cc01797bcee15a0c5bb4bc2caf6cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until all of the waitable objects have entered the signaled state. <a href="#a78cc01797bcee15a0c5bb4bc2caf6cdd">More...</a><br /></td></tr>
 <tr class="separator:a78cc01797bcee15a0c5bb4bc2caf6cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d5cb811ea51f4ef3252469bc56363d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_wait_group.html#a1d5cb811ea51f4ef3252469bc56363d5">WaitForAll</a> (long long ms) const </td></tr>
 <tr class="memdesc:a1d5cb811ea51f4ef3252469bc56363d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until all of the waitable objects are simulataneously signaled. <a href="#a1d5cb811ea51f4ef3252469bc56363d5">More...</a><br /></td></tr>
 <tr class="separator:a1d5cb811ea51f4ef3252469bc56363d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class attempts to provide functionality like Windows' WaitForMultipleObjects </p>
+<div class="textblock"><p>This class attempts to provide functionality like Windows' WaitForMultipleObjects. It provides a way to efficiently wait upon any number of <a class="el" href="class_command_lib_1_1_waitable.html" title="This class represents an object that can be waited upon until it enters a signaled state...">Waitable</a> objects, until either one or all of the objects enter a signaled state. </p>
+<p>Behavior is undefined if you access the same <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects. It provides a way to efficiently wait upon any number of Waitable objects, until either one or all of the objects enter a signaled state. ">WaitGroup</a> object across multiple threads.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a813fba9c0d92994c177eee9e6289dc74"></a>
 <div class="memitem">
@@ -164,7 +165,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Contructs a <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects ...">WaitGroup</a></p>
+<p>Contructs a <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects. It provides a way to efficiently wait upon any number of Waitable objects, until either one or all of the objects enter a signaled state. ">WaitGroup</a></p>
 
 </div>
 </div>
@@ -183,7 +184,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds a <a class="el" href="class_command_lib_1_1_waitable.html" title="This class represents an object that can be waited upon until it enters a signaled state...">Waitable</a> to this <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects ...">WaitGroup</a></p>
+<p>Adds a <a class="el" href="class_command_lib_1_1_waitable.html" title="This class represents an object that can be waited upon until it enters a signaled state...">Waitable</a> to this <a class="el" href="class_command_lib_1_1_wait_group.html" title="This class attempts to provide functionality like Windows&#39; WaitForMultipleObjects. It provides a way to efficiently wait upon any number of Waitable objects, until either one or all of the objects enter a signaled state. ">WaitGroup</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">waitable</td><td>The object to include in the group wait.</td></tr>
@@ -207,7 +208,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Waits until all of the waitable objects are simulataneously signaled.</p>
+<p>Waits until all of the waitable objects have entered the signaled state.</p>
+<p>Note that this will return after all of the items have been in the signaled at any time since the wait began. This does <em>not</em> wait until the items are simultaneously signaled. For example, if waiting upon two events, and the first becomes signaled, and is then reset, and then the second event becomes signaled, this method will return (even though the two events were never both in the signaled state at the same time. </p>
 
 </div>
 </div>
@@ -235,14 +237,15 @@ template&lt;typename Rep , typename Period &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Waits until all of the waitable objects are simulataneously signaled.</p>
+<p>Waits until all of the waitable objects have entered the signaled state.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dur</td><td>The maximum amount of time to wait</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if all objects are simultaneously signaled before the duration expires, false otherwise</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if all objects have entered the signaled state at some point before the duration expires, false otherwise </dd></dl>
+<p>Note that this will return after all of the items have been in the signaled at any time since the wait began (or the duration elapses). This does <em>not</em> wait until the items are simultaneously signaled. For example, if waiting upon two events, and the first becomes signaled, and is then reset, and then the second event becomes signaled, this method will return (even though the two events were never both in the signaled state at the same time). </p>
 
 </div>
 </div>
@@ -268,6 +271,7 @@ template&lt;typename Rep , typename Period &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if all objects are simultaneously signaled before the duration expires, false otherwise</dd></dl>
+<p>Note that this will return after all of the items have been in the signaled at any time since the wait began, or the duration elapses. This does <em>not</em> wait until the items are simultaneously signaled.For example, if waiting upon two events, and the first becomes signaled, and is then reset, and then the second event becomes signaled, this method will return (even though the two events were never both in the signaled state at the same time). </p>
 
 </div>
 </div>
@@ -362,7 +366,7 @@ template&lt;typename Rep , typename Period &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_command_lib.html">CommandLib</a></li><li class="navelem"><a class="el" href="class_command_lib_1_1_wait_group.html">WaitGroup</a></li>
-    <li class="footer">Generated on Thu Dec 25 2014 13:00:26 for CommandLibForCPP by
+    <li class="footer">Generated on Fri Dec 26 2014 17:11:51 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
