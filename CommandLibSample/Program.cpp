@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 	{
 		std::unique_ptr<CommandLib::CommandLogger> logger;
 
-		if (argc > 2)
+		if (argc > 1)
 		{
 			// Output all the command activity to the file specified. This is a simple text file, and can be viewed using CommandLogViewer
 			// from the C# CommandLib project.
