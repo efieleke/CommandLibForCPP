@@ -4,12 +4,17 @@
 #include <chrono>
 #include <atomic>
 #include <list>
+#include <unordered_set>
+#include <mutex>
 
 namespace CommandLib
 {
 	/// <summary>
-	/// This class attempts to provide functionality like Windows' WaitForMultipleObjects
+	/// This class attempts to provide functionality like Windows' WaitForMultipleObjects. It provides a way to
+	/// efficiently wait upon any number of <see cref="Waitable"/> objects, until either one or all of the objects
+	/// enter a signaled state.
 	/// </summary>
+	/// <remarks>Behavior is undefined if you access the same WaitGroup object across multiple threads.</remarks>
 	class WaitGroup
     {
 	public:
@@ -63,12 +68,29 @@ namespace CommandLib
 		/// </remarks>
 		int WaitForAny(long long ms) const;
 
-		/// <summary>Waits until all of the waitable objects are simulataneously signaled.</summary>
+		/// <summary>Waits until all of the waitable objects have entered the signaled state.</summary>
+		/// <remarks>
+		/// Note that this will return after all of the items have been in the signaled at any time
+		/// since the wait began. This does *not* wait until the items are simultaneously signaled.
+		/// For example, if waiting upon two events, and the first becomes signaled, and is then reset,
+		/// and then the second event becomes signaled, this method will return (even though the two
+		/// events were never both in the signaled state at the same time.
+		/// </remarks>
 		void WaitForAll() const;
 
-		/// <summary>Waits until all of the waitable objects are simulataneously signaled.</summary>
+		/// <summary>Waits until all of the waitable objects have entered the signaled state.</summary>
 		/// <param name="dur">The maximum amount of time to wait</param>
-		/// <returns>true if all objects are simultaneously signaled before the duration expires, false otherwise</returns>
+		/// <returns>
+		/// true if all objects have entered the signaled state at some point before the duration expires,
+		/// false otherwise
+		/// </returns>
+		/// <remarks>
+		/// Note that this will return after all of the items have been in the signaled at any time
+		/// since the wait began (or the duration elapses). This does *not* wait until the items
+		/// are simultaneously signaled. For example, if waiting upon two events, and the first becomes
+		/// signaled, and is then reset, and then the second event becomes signaled, this method will
+		/// return (even though the two events were never both in the signaled state at the same time).
+		/// </remarks>
 		template<typename Rep, typename Period>
 		bool WaitForAll(const std::chrono::duration<Rep, Period>& dur) const
 		{
@@ -78,6 +100,12 @@ namespace CommandLib
 		/// <summary>Waits until all of the waitable objects are simulataneously signaled.</summary>
 		/// <param name="ms">The maximum amount of milliseconds to wait</param>
 		/// <returns>true if all objects are simultaneously signaled before the duration expires, false otherwise</returns>
+		/// Note that this will return after all of the items have been in the signaled at any time
+		/// since the wait began, or the duration elapses. This does *not* wait until the items
+		/// are simultaneously signaled.For example, if waiting upon two events, and the first becomes
+		/// signaled, and is then reset, and then the second event becomes signaled, this method will
+		/// return (even though the two events were never both in the signaled state at the same time).
+		/// </remarks>
 		bool WaitForAll(long long ms) const;
 	private:
 		class WaitGroupImpl : public std::enable_shared_from_this<WaitGroupImpl>, public WaitMonitor
@@ -93,12 +121,12 @@ namespace CommandLib
 			template<typename Rep, typename Period>
 			int WaitForAny(const std::chrono::duration<Rep, Period>& dur) const
 			{
-				m_waitSignaledEvent.Reset();
+				InitializeSignaled();
 				int result = AnySignaled();
 
 				if (result == -1 && m_waitSignaledEvent.WaitFor(dur))
 				{
-					result = m_signaledIndex;
+					result = AnySignaled();
 				}
 
 				return result;
@@ -109,6 +137,8 @@ namespace CommandLib
 			template<typename Rep, typename Period>
 			bool WaitForAll(const std::chrono::duration<Rep, Period>& dur) const
 			{
+				InitializeSignaled();
+
 				while (!AllSignaled())
 				{
 					if (!m_waitSignaledEvent.WaitFor(dur))
@@ -127,10 +157,13 @@ namespace CommandLib
 			virtual void Signaled(const Waitable& item) override final;
 			int AnySignaled() const;
 			bool AllSignaled() const;
+			void InitializeSignaled() const;
 
 			std::list<Waitable::Ptr> m_list;
+			mutable std::unordered_set<const Waitable*> m_signaled;
+			mutable const Waitable* m_firstSignaled;
 			mutable Event m_waitSignaledEvent;
-			mutable std::atomic_int m_signaledIndex;
+			mutable std::mutex m_mutex;
 		};
 
 		WaitGroup(const WaitGroup&);

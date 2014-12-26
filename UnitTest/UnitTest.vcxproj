@@ -106,6 +106,7 @@
     <ClCompile Include="CommandDispatcherTests.cpp" />
     <ClCompile Include="CommonTests.cpp" />
     <ClCompile Include="ComplexCommandTest.cpp" />
+    <ClCompile Include="EventTest.cpp" />
     <ClCompile Include="ParallelCommandsTests.cpp" />
     <ClCompile Include="PauseCommandTests.cpp" />
     <ClCompile Include="PeriodicCommandTests.cpp" />
@@ -116,6 +117,7 @@
     <ClCompile Include="TestMonitors.cpp" />
     <ClCompile Include="TimeLimitedCommandTests.cpp" />
     <ClCompile Include="VariableCommandTests.cpp" />
+    <ClCompile Include="WaitGroupTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

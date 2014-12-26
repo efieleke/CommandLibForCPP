@@ -40,7 +40,7 @@ std::shared_ptr<WaitGroup::WaitGroupImpl> WaitGroup::WaitGroupImpl::Create()
 	return Ptr(new WaitGroupImpl());
 }
 
-WaitGroup::WaitGroupImpl::WaitGroupImpl()
+WaitGroup::WaitGroupImpl::WaitGroupImpl() : m_firstSignaled(nullptr)
 {
 }
 
@@ -54,19 +54,23 @@ WaitGroup::WaitGroupImpl::~WaitGroupImpl()
 
 void WaitGroup::WaitGroupImpl::AddWaitable(Waitable::Ptr item)
 {
-	m_list.push_back(item);
+	{
+		std::unique_lock<std::mutex> lock(m_mutex);
+		m_list.push_back(item);
+	}
+
 	item->AddListener(shared_from_this());
 }
 
 int WaitGroup::WaitGroupImpl::WaitForAny() const
 {
-	m_waitSignaledEvent.Reset();
+	InitializeSignaled();
 	int result = AnySignaled();
 
 	if (result == -1)
 	{
 		m_waitSignaledEvent.Wait();
-		result = m_signaledIndex;
+		result = AnySignaled();
 	}
 
 	return result;
@@ -74,6 +78,8 @@ int WaitGroup::WaitGroupImpl::WaitForAny() const
 
 void WaitGroup::WaitGroupImpl::WaitForAll() const
 {
+	InitializeSignaled();
+
 	while (!AllSignaled())
 	{
 		m_waitSignaledEvent.Wait();
@@ -82,33 +88,37 @@ void WaitGroup::WaitGroupImpl::WaitForAll() const
 
 void WaitGroup::WaitGroupImpl::Signaled(const Waitable& waitable)
 {
-	int index = 0;
+	std::unique_lock<std::mutex> lock(m_mutex);
 
-	for (Waitable::Ptr item : m_list)
+	if (m_signaled.insert(&waitable).second)
 	{
-		if (item.get() == &waitable)
+		if (m_firstSignaled == nullptr)
 		{
-			m_signaledIndex = index;
-			m_waitSignaledEvent.Set();
-			break;
+			m_firstSignaled = &waitable;
 		}
-		
-		++index;
+
+		m_waitSignaledEvent.Set();
 	}
 }
 
 int WaitGroup::WaitGroupImpl::AnySignaled() const
 {
-	int result = 0;
+	std::unique_lock<std::mutex> lock(m_mutex);
+	m_waitSignaledEvent.Reset();
 
-	for (Waitable::Ptr item : m_list)
+	if (m_firstSignaled != nullptr)
 	{
-		if (item->IsSignaled())
-		{
-			return result;
-		}
+		int result = 0;
 
-		++result;
+		for (Waitable::Ptr item : m_list)
+		{
+			if (item.get() == m_firstSignaled)
+			{
+				return result;
+			}
+
+			++result;
+		}
 	}
 
 	return -1;
@@ -116,13 +126,27 @@ int WaitGroup::WaitGroupImpl::AnySignaled() const
 
 bool WaitGroup::WaitGroupImpl::AllSignaled() const
 {
+	std::unique_lock<std::mutex> lock(m_mutex);
+	m_waitSignaledEvent.Reset();
+	return m_signaled.size() == m_list.size();
+}
+
+void WaitGroup::WaitGroupImpl::InitializeSignaled() const
+{
+	std::unique_lock<std::mutex> lock(m_mutex);
+	m_firstSignaled = nullptr;
+	m_signaled.clear();
+
 	for (Waitable::Ptr item : m_list)
 	{
-		if (!item->IsSignaled())
+		if (item->IsSignaled())
 		{
-			return false;
+			if (m_firstSignaled == nullptr)
+			{
+				m_firstSignaled = item.get();
+			}
+
+			m_signaled.insert(item.get());
 		}
 	}
-
-	return true;
 }
