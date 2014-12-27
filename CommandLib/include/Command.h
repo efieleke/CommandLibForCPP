@@ -17,13 +17,12 @@
 *
 * \section intro_sec Introduction
 *
-* This project contains classes that simplify coordination of complex and synchronous activities. To get a better feel for
+* This project contains classes that simplify coordination of asynchronous and synchronous activities. To get a better feel for
 * features and usage, read the CommandLib namespace detailed documentation. The CommandLibSample project provides
 * example usage.
 *
-* Note that this was compiled using Visual Studio 2013. There will be a few errors using other compilers, because there
-* is a bit of Microsoft-specific code. They shouldn't be difficult to address; I plan to correct them soon.
-*
+* Note that this was compiled using Visual Studio 2013. The unit tests make use of Microsoft-specific classes. Elsewhere there
+* are a few bits of Microsoft-specific code, which I plan to make compiler-agnostic in the near future.
 */
 
 /// <summary>
