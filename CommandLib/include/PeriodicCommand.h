@@ -222,7 +222,7 @@ namespace CommandLib
 		virtual std::string ClassName() const override;
 
 		/// <summary>
-		/// The number of times the command to run will execute. If the command to run is currently executing when this is
+		/// The total number of times the command to run will execute. If the command to run is currently executing when this is
 		/// changed, it will be allowed to finish, even if the repeat count is set to a number lower than the number of times
 		/// already executed.
 		/// </summary>

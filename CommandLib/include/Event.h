@@ -9,7 +9,10 @@
 
 namespace CommandLib
 {
-	/// <summary>This object mimics a Windows manual reset event</summary>
+	/// <summary>
+	/// This object mimics a Windows manual reset event, and can be added to a <see cref="WaitGroup"/>
+	/// so that it's possible to wait upon multiple Event objects.
+	/// </summary>
 	class Event : public Waitable
     {
 	public:

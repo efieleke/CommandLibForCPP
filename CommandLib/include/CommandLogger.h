@@ -14,7 +14,7 @@ namespace CommandLib
     {
 	public:
 		/// <summary>Constructor</summary>
-		/// <param name="filename">The file name on which to append log entries</param>
+		/// <param name="filename">Name of the log file. Will be overwritten if it exists.</param>
 		explicit CommandLogger(const std::string& filename);
 
 		/// <inheritdoc/>

@@ -6,11 +6,15 @@
 namespace CommandLib
 {
 	/// <summary>
-	/// Dispatches <see cref="Command"/> objects to a pool for execution.
+	/// Dispatches <see cref="Command"/> objects to a pool for asynchronous execution.
 	/// </summary>
 	/// <remarks>
 	/// This class can be useful when commands are dynamically generated at runtime, and must be dynamically executed upon generation.
 	/// (for example, asynchronous handling of requests sent over a data stream).
+	/// <para>
+	/// Upon destruction, this object will wait until all dispatched commands finish execution. For a faster shutdown, you may wish to call
+	/// <see cref="CommandDispatcher::Abort()"/> before destructing the dispatcher.
+	/// </para>
 	/// </remarks>
 	class CommandDispatcher
     {

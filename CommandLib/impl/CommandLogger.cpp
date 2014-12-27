@@ -9,7 +9,7 @@ using namespace CommandLib;
 CommandLogger::CommandLogger(const std::string& filename)
 {
 	m_stream.exceptions(std::ofstream::failbit | std::ofstream::badbit);
-	m_stream.open(filename, std::ios_base::app);
+	m_stream.open(filename, std::ios_base::trunc);
 }
 
 void CommandLogger::CommandStarting(const Command& command)
