@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 		CommandLib::PeriodicCommand::Ptr periodicReportPositionCmd = CommandLib::PeriodicCommand::Create(
 			ReportPositionCommand::Create(robotArm), // the command to execute
 			std::numeric_limits<size_t>::max(), // no fixed upper limit on repetitions
-			1000, // execute the command every second
+			500, // execute the command twice every second
 			CommandLib::PeriodicCommand::IntervalType::PauseBefore, // wait a second before executing the command the first time
 			true, // the second to wait is inclusive of the time it actually takes to report the position
 			moveToOriginCmd->DoneEvent()); // stop when this command is finished (in other words, when both robots reach 0,0)
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 		moveAndGreetCmd->Add(ReportPositionCommand::Create(robotArm));
 
 		// Wrap the above command in a command that throws a TimeoutException if it takes longer than 20 seconds.
-		CommandLib::TimeLimitedCommand::Ptr timeLimitedCmd = CommandLib::TimeLimitedCommand::Create(moveAndGreetCmd, 20000);
+		CommandLib::TimeLimitedCommand::Ptr timeLimitedCmd = CommandLib::TimeLimitedCommand::Create(moveAndGreetCmd, 10000);
 
 		// Allow retries, because we will time out
 		RetryHandler retryHandler;

@@ -53,7 +53,7 @@ std::shared_ptr<RobotArm::Operation> RobotArm::Move(int destination, OperationCo
 				}
 			}
 
-			aborted = operation->m_abortEvent.Wait(250);
+			aborted = operation->m_abortEvent.Wait(125);
 		}
 
 		if (handler != nullptr)
