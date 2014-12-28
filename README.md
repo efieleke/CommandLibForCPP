@@ -13,7 +13,7 @@ All of the above Command classes are simply containers for other Command objects
 
 Help File Documentation
 ----
-Documentation is in HTML format, generated using doxygen. Open index.html in the Documentation/hmtl folder for in-depth descriptions of each class and its methods.
+Documentation is in HTML format, generated using doxygen (www.doxygen.org). Open index.html in the Documentation/hmtl folder for in-depth descriptions of each class and its methods.
 
 Diagnostics
 ----
@@ -21,11 +21,11 @@ The Command class provides a CommandMonitor collection. If a CommandTracer objec
 
 Build
 ----
-Included is a solution file that contains three projects: CommandLib itself, a unit test project and a project demonstrating example usage. The solution and project files were created using Microsoft Visual Studio 2013. I haven't tried building them using any other compilers. There are a few Micrsoft-specific bits of code, so if using another compiler, those places (at least) will need to be corrected.
+Included is a solution file that contains three projects: CommandLib itself, a unit test project and a project demonstrating example usage. The solution and project files were created using Microsoft Visual Studio 2013. I haven't tried building them using any other compilers. There are a few Microsoft-specific bits of code in the core library (which I will eventually address), and the unit tests rely upon a Microsoft-provided framework.
 
 Example Usage
 ----
-A sample project is included that tracks a robot arm moving towards 0,0. It demonstrates how to author a naturally asynchronous Command, and makes use of ParallelCommands, SequentialCommands, PeriodicCommand, TimeLimitedCommand and RetryableCommand.
+A sample project is included that moves a simulated robot arm that tries to pick up a toy and drop it down the chute. It demonstrates how to author a naturally asynchronous Command, and makes use of ParallelCommands, SequentialCommands, PeriodicCommand and RetryableCommand.
 
 Author
 ----

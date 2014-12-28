@@ -8,7 +8,8 @@ namespace CommandLib
 {
 	/// <summary>
 	/// Implements <see cref="CommandMonitor"/> by writing diagnostic information to a log file that can be parsed
-	/// and dynamically displayed by the included CommandLogViewer application.
+	/// and dynamically displayed by the CommandLogViewer application included with the C# version of this project
+	/// (found at https://github.com/efieleke/CommandLib.git).
 	/// </summary>
 	class CommandLogger : public CommandMonitor
     {
