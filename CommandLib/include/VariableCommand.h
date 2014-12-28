@@ -8,12 +8,13 @@ namespace CommandLib
 	/// many temporary <see cref="Command"/> objects from collecting in memory during the lifetime of their owner.
 	/// </summary>
 	/// <remarks>
-	/// If you find that you are generating a <see cref="Command"/> object local to the execution method of an owning
-	/// <see cref="Command"/>, it's best to not specify the creator as the owner of this local command. Owned commands are
-	/// not destructed until the owner is destructed, so if the owner is executed many times before it is destructed,
-	/// it's possible for resource usage to grow unbounded. The better approach is to assign this local command
-	/// to a VariableCommand object, which would be a member variable of the owner. <see cref="SetCommandToRun"/>
-	/// will take care of destructing any previously assigned command.
+	/// If you find that you need to create a Command object within the execution method of its owning command
+	/// (perhaps because which type of Command to create depends upon runtime conditions), there are some things to
+	/// consider. Owned commands are not destroyed until the owner is destroyed. If the owner is executed many times
+	/// before it is destroyed, and you create a new child command upon every execution, resource usage will grow unbounded.
+	/// The better approach is to assign this locally created command to a <see cref="VariableCommand"/> object,
+	/// which would be a member variable of the owner. The assignment will take care of destroying any previously assigned
+	/// command.
 	/// </remarks>
 	class VariableCommand final : public Command
     {

@@ -91,9 +91,22 @@ namespace CommandLib
 	/// <see cref="SequentialCommands"/> is an example of this behavior.
 	/// </para>
 	/// <para>
+	/// If you find that you need to create a Command object within the execution method of its owning command
+	/// (perhaps because which type of Command to create depends upon runtime conditions), there are some things to
+	/// consider. Owned commands are not destroyed until the owner is destroyed. If the owner is executed many times
+	/// before it is destroyed, and you create a new child command upon every execution, resource usage will grow unbounded.
+	/// The better approach is to assign this locally created command to a <see cref="VariableCommand"/> object,
+	/// which would be a member variable of the owner. The assignment will take care of destroying any previously assigned
+	/// command.
+	/// </para>
 	/// If you would like to create a top level command that responds to abort requests to a different command,
 	/// create a <see cref="AbortLinkedCommand"/>. The use cases of this would be rare, but it can help when command
 	/// objects must be more loosely coupled.
+	/// </para>
+	/// <para>
+	/// Generally speaking, when authoring Commands, it's best to make them as granular as possible. That makes it much easier
+	/// to reuse them while composing command structures. Also, ensure that your commands are responsive to abort requests if
+	/// they take a noticeable amount of time to complete.
 	/// </para>
 	/// </remarks>
 	class Command : public std::enable_shared_from_this<Command>
