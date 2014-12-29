@@ -10,13 +10,17 @@
 class RobotArm
 {
 public:
-	RobotArm(int xPos, int yPos);
+	class OverheatedException : public std::runtime_error
+	{
+	public:
+		explicit OverheatedException(const char* message);
+	};
 
 	class OperationCompleteHandler
 	{
 	public:
 		virtual ~OperationCompleteHandler();
-		virtual void Completed(bool aborted) = 0;
+		virtual void Completed(bool aborted, const std::exception* exc) = 0;
 	};
 
 	class Operation
@@ -31,16 +35,28 @@ public:
 		CommandLib::Event m_abortEvent;
 	};
 
-	void GetPosition(int* x, int* y) const;
+	enum Axis
+	{
+		X,
+		Y,
+		Z
+	};
 
-	std::shared_ptr<Operation> MoveX(int destination, OperationCompleteHandler* handler);
-	std::shared_ptr<Operation> MoveY(int destination, OperationCompleteHandler* handler);
+	RobotArm();
+	void GetPosition(int* x, int* y, int* z) const;
+	std::shared_ptr<Operation> Move(Axis axis, int destination, OperationCompleteHandler* handler);
+	void OpenClamp();
+
+	// Returns true if it successfully grabs something
+	bool CloseClamp();
 private:
 	RobotArm(const RobotArm&) = delete;
 	RobotArm& operator=(const RobotArm&) = delete;
-	std::shared_ptr<Operation> Move(int destination, OperationCompleteHandler* handler, int* value);
+	std::shared_ptr<Operation> Move(Axis axis, int destination, OperationCompleteHandler* handler, int* value);
 		
 	int m_xPos;
     int m_yPos;
+	int m_zPos;
+	bool m_clampOpen;
 	mutable std::mutex m_mutex;
 };

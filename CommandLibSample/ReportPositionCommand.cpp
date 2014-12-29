@@ -17,7 +17,9 @@ ReportPositionCommand::ReportPositionCommand(const RobotArm& robot) : m_robot(ro
 
 void ReportPositionCommand::SyncExeImpl()
 {
-    int x, y;
-    m_robot.GetPosition(&x, &y);
-	std::cout << "Robot arm is at position " + std::to_string(x) + "," + std::to_string(y) << std::endl;
+    int x, y, z;
+    m_robot.GetPosition(&x, &y, &z);
+
+	std::cout << "Robot arm is at position " +
+		std::to_string(x) + "," + std::to_string(y) + "," + std::to_string(z) << std::endl;
 }

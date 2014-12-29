@@ -11,12 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GetToyCommand.h" />
+    <ClInclude Include="MoveAndReportPositionCommand.h" />
     <ClInclude Include="MoveRobotArmCommand.h" />
     <ClInclude Include="MoveRobotArmOnAxisCommand.h" />
     <ClInclude Include="ReportPositionCommand.h" />
     <ClInclude Include="RobotArm.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GetToyCommand.cpp" />
+    <ClCompile Include="MoveAndReportPositionCommand.cpp" />
     <ClCompile Include="MoveRobotArmCommand.cpp" />
     <ClCompile Include="MoveRobotArmOnAxisCommand.cpp" />
     <ClCompile Include="Program.cpp" />

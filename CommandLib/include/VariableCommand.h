@@ -15,6 +15,12 @@ namespace CommandLib
 	/// The better approach is to assign this locally created command to a <see cref="VariableCommand"/> object,
 	/// which would be a member variable of the owner. The assignment will take care of destroying any previously assigned
 	/// command.
+	/// <para>
+	/// If declaring a VariableCommand member variable is not an appealing option, you could opt to instead make use of
+    /// <see cref="Command.CreateAbortLinkedCommand"/>. This will return a top level command that responds to abort
+    /// requests to the command that created it. The only disadvantage to this approach is that it may end up spawning
+    /// an additional thread.
+	/// </para>
 	/// </remarks>
 	class VariableCommand final : public Command
     {
