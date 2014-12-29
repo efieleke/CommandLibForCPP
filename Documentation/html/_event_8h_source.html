@@ -117,37 +117,37 @@ $(document).ready(function(){initNavTree('_event_8h_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_command_lib.html">CommandLib</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_command_lib_1_1_event.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_command_lib_1_1_event.html">Event</a> : <span class="keyword">public</span> <a class="code" href="class_command_lib_1_1_waitable.html">Waitable</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_command_lib_1_1_event.html#a3ac4eb982c0456c1216859a61198c073">   17</a></span>&#160;        <span class="keyword">typedef</span> std::shared_ptr&lt;Event&gt; <a class="code" href="class_command_lib_1_1_event.html#a3ac4eb982c0456c1216859a61198c073">Ptr</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_command_lib_1_1_event.html#a165569ddb4788df6b3fad0e52df5e78c">Event</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_command_lib_1_1_event.html">   16</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_command_lib_1_1_event.html">Event</a> : <span class="keyword">public</span> <a class="code" href="class_command_lib_1_1_waitable.html">Waitable</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_command_lib_1_1_event.html#a3ac4eb982c0456c1216859a61198c073">   20</a></span>&#160;        <span class="keyword">typedef</span> std::shared_ptr&lt;Event&gt; <a class="code" href="class_command_lib_1_1_event.html#a3ac4eb982c0456c1216859a61198c073">Ptr</a>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="class_command_lib_1_1_event.html#a165569ddb4788df6b3fad0e52df5e78c">Event</a>(<span class="keywordtype">bool</span> initiallySignaled);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_command_lib_1_1_event.html">Event</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_event.html#a321cb0c97c92012908816b0ced0dcc84">Set</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_event.html#a9674a73be80ce75b7438c1d03942bd9e">Reset</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_command_lib_1_1_event.html#ade7b51b9d812bd01f61060cef6844fcb">IsSignaled</a>() const override final;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_command_lib_1_1_event.html#a165569ddb4788df6b3fad0e52df5e78c">Event</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="class_command_lib_1_1_event.html#a165569ddb4788df6b3fad0e52df5e78c">Event</a>(<span class="keywordtype">bool</span> initiallySignaled);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_command_lib_1_1_event.html">Event</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_event.html#a321cb0c97c92012908816b0ced0dcc84">Set</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_event.html#a9674a73be80ce75b7438c1d03942bd9e">Reset</a>();</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        virtual <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_event.html#aaf4a7c38c283a28cc4c3fe86ac9247d1">Wait</a>() const override final;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_command_lib_1_1_event.html#ade7b51b9d812bd01f61060cef6844fcb">IsSignaled</a>() const override final;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        virtual <span class="keywordtype">bool</span> <a class="code" href="class_command_lib_1_1_event.html#aaf4a7c38c283a28cc4c3fe86ac9247d1">Wait</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> ms) const override final;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    private:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="class_command_lib_1_1_event.html">Event</a>(const <a class="code" href="class_command_lib_1_1_event.html">Event</a>&amp;);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        Event&amp; operator=(const Event&amp;);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">bool</span> m_signaled;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        mutable std::condition_variable_any m_condition;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        mutable std::recursive_mutex m_mutex;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        virtual <span class="keywordtype">void</span> <a class="code" href="class_command_lib_1_1_event.html#aaf4a7c38c283a28cc4c3fe86ac9247d1">Wait</a>() const override final;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        virtual <span class="keywordtype">bool</span> <a class="code" href="class_command_lib_1_1_event.html#aaf4a7c38c283a28cc4c3fe86ac9247d1">Wait</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> ms) const override final;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    private:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="class_command_lib_1_1_event.html">Event</a>(const <a class="code" href="class_command_lib_1_1_event.html">Event</a>&amp;);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Event&amp; operator=(const Event&amp;);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">bool</span> m_signaled;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        mutable std::condition_variable_any m_condition;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        mutable std::recursive_mutex m_mutex;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="ttc" id="namespace_command_lib_html"><div class="ttname"><a href="namespace_command_lib.html">CommandLib</a></div><div class="ttdoc">CommandLib contains a set of classes that can be used to easily coordinate synchronous and asynchrono...</div><div class="ttdef"><b>Definition:</b> AbortLinkedCommand.h:4</div></div>
-<div class="ttc" id="class_command_lib_1_1_event_html_a3ac4eb982c0456c1216859a61198c073"><div class="ttname"><a href="class_command_lib_1_1_event.html#a3ac4eb982c0456c1216859a61198c073">CommandLib::Event::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Event &gt; Ptr</div><div class="ttdoc">Shared pointer to an Event object</div><div class="ttdef"><b>Definition:</b> Event.h:17</div></div>
-<div class="ttc" id="class_command_lib_1_1_event_html"><div class="ttname"><a href="class_command_lib_1_1_event.html">CommandLib::Event</a></div><div class="ttdoc">This object mimics a Windows manual reset event</div><div class="ttdef"><b>Definition:</b> Event.h:13</div></div>
+<div class="ttc" id="class_command_lib_1_1_event_html_a3ac4eb982c0456c1216859a61198c073"><div class="ttname"><a href="class_command_lib_1_1_event.html#a3ac4eb982c0456c1216859a61198c073">CommandLib::Event::Ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Event &gt; Ptr</div><div class="ttdoc">Shared pointer to an Event object</div><div class="ttdef"><b>Definition:</b> Event.h:20</div></div>
+<div class="ttc" id="class_command_lib_1_1_event_html"><div class="ttname"><a href="class_command_lib_1_1_event.html">CommandLib::Event</a></div><div class="ttdoc">This object mimics a Windows manual reset event, and can be added to a WaitGroup so that it&#39;s possibl...</div><div class="ttdef"><b>Definition:</b> Event.h:16</div></div>
 <div class="ttc" id="class_command_lib_1_1_event_html_aaf4a7c38c283a28cc4c3fe86ac9247d1"><div class="ttname"><a href="class_command_lib_1_1_event.html#aaf4a7c38c283a28cc4c3fe86ac9247d1">CommandLib::Event::Wait</a></div><div class="ttdeci">virtual void Wait() const overridefinal</div><div class="ttdoc">Waits until this object is in a signaled stateThis will return immediately if this object is currentl...</div></div>
 <div class="ttc" id="class_command_lib_1_1_waitable_html"><div class="ttname"><a href="class_command_lib_1_1_waitable.html">CommandLib::Waitable</a></div><div class="ttdoc">This class represents an object that can be waited upon until it enters a signaled state...</div><div class="ttdef"><b>Definition:</b> Waitable.h:16</div></div>
 <div class="ttc" id="class_command_lib_1_1_event_html_a9674a73be80ce75b7438c1d03942bd9e"><div class="ttname"><a href="class_command_lib_1_1_event.html#a9674a73be80ce75b7438c1d03942bd9e">CommandLib::Event::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdoc">Make this event not signaled</div></div>
@@ -160,7 +160,7 @@ $(document).ready(function(){initNavTree('_event_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_c98e6fdae2a5bcf5e75574031156faef.html">CommandLibForCPP</a></li><li class="navelem"><a class="el" href="dir_b6ba224f53dc29b821160d1b40ce08f1.html">CommandLib</a></li><li class="navelem"><a class="el" href="dir_c67fb1de641487f46005f52ce9314c2a.html">include</a></li><li class="navelem"><b>Event.h</b></li>
-    <li class="footer">Generated on Fri Dec 26 2014 21:47:42 for CommandLibForCPP by
+    <li class="footer">Generated on Mon Dec 29 2014 14:23:38 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

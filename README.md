@@ -21,7 +21,7 @@ The Command class provides a CommandMonitor collection. If a CommandTracer objec
 
 Build
 ----
-Included is a solution file that contains three projects: CommandLib itself, a unit test project and a project demonstrating example usage. The solution and project files were created using Microsoft Visual Studio 2013. I haven't tried building them using any other compilers. There are a few Microsoft-specific bits of code in the core library (which I will eventually address), and the unit tests rely upon a Microsoft-provided framework.
+Included is a solution file that contains three projects: CommandLib itself, a unit test project and a project demonstrating example usage. The solution and project files were created using Microsoft Visual Studio 2013. I haven't tried building them using any other compilers. The unit tests rely upon a Microsoft-provided framework.
 
 Example Usage
 ----

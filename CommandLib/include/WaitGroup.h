@@ -74,7 +74,7 @@ namespace CommandLib
 		/// since the wait began. This does *not* wait until the items are simultaneously signaled.
 		/// For example, if waiting upon two events, and the first becomes signaled, and is then reset,
 		/// and then the second event becomes signaled, this method will return (even though the two
-		/// events were never both in the signaled state at the same time.
+		/// events were never both in the signaled state at the same time).
 		/// </remarks>
 		void WaitForAll() const;
 

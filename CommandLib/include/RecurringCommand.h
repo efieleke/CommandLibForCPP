@@ -20,7 +20,7 @@ namespace CommandLib
 			virtual ~ExecutionTimeCallback() {}
 
 			/// <summary>
-			/// Called when a RecurringCommand needs to know the first time to execute its underlying command to run.
+			/// Called when a <see cref"RecurringCommand"/> needs to know the first time to execute its underlying command to run.
 			/// </summary>
 			/// <param name="time">
 			/// Implementations should set this to the first time to execute. If a time in the past is specified, the command to run
@@ -33,7 +33,7 @@ namespace CommandLib
 			virtual bool GetFirstExecutionTime(std::chrono::time_point<std::chrono::system_clock>* time) = 0;
 
 			/// <summary>
-			/// Called when a RecurringCommand needs to know the next time to execute its underlying command to run.
+			/// Called when a <see cref"RecurringCommand"/> needs to know the next time to execute its underlying command to run.
 			/// </summary>
 			/// <param name="time">
 			/// This will be initialized to the last time the command to run was set to begin execution. Implementations
@@ -74,7 +74,7 @@ namespace CommandLib
 		/// The time to execute the command to run. If a time in the past is specified, the command to run will execute immediately.
 		/// </param>
 		/// <remarks>
-		/// This is a no-op if this ScheduledCommand object is not currently executing.
+		/// This is a no-op if this RecurringCommand object is not currently executing.
 		/// command is executing.
 		/// </remarks>
 		void SetNextExecutionTime(const std::chrono::time_point<std::chrono::system_clock>& time);

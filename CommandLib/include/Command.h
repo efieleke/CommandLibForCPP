@@ -21,8 +21,7 @@
 * features and usage, read the CommandLib namespace detailed documentation. The CommandLibSample project provides
 * example usage.
 *
-* Note that this was compiled using Visual Studio 2013. The unit tests make use of Microsoft-specific classes. Elsewhere there
-* are a few bits of Microsoft-specific code, which I plan to make compiler-agnostic in the near future.
+* Note that this was compiled using Visual Studio 2013. The unit tests make use of Microsoft-specific classes.
 */
 
 /// <summary>
@@ -82,7 +81,7 @@ namespace CommandLib
 	/// </para>
 	/// <para>
 	/// Also, when developing a Command subclass, make sure that any member variables that are Commands are properly
-	/// owned by calling see cref="TakeOwnership"/> within your static Create() method. The advantage of doing this
+	/// owned by calling <see cref="TakeOwnership"/> within your constructor body. The advantage of doing this
 	/// is that owned commands will automatically respond to abort requests issued to the owner.
 	/// </para>
 	/// <para>
@@ -98,8 +97,8 @@ namespace CommandLib
 	/// The better approach is to assign this locally created command to a <see cref="VariableCommand"/> object,
 	/// which would be a member variable of the owner. The assignment will take care of destroying any previously assigned
 	/// command. If declaring a <see cref="VariableCommand"/> member variable is not an appealing option, you could opt to instead
-    /// make use of <see cref="CreateAbortLinkedCommand"/>. This will return a top level command that responds to abort
-    /// requests to the command that created it. The only disadvantage to this approach is that it may end up spawning
+    /// make use of <see cref="AbortLinkedCommand"/>. This is a top level command that responds to abort
+    /// requests to a different command. The only disadvantage to this approach is that it may end up spawning
     /// an additional thread.
 	/// <para>
 	/// Generally speaking, when authoring Commands, it's best to make them as granular as possible. That makes it much easier
@@ -243,7 +242,7 @@ namespace CommandLib
 		void AbortAndWait();
 
 		/// <summary>
-		/// The exact same effect as a call to <see cref="Abort"/> immediately followed by a call to <see cref="Wait(const std::chrono::duration{Rep, Period}&)"/>
+		/// The exact same effect as a call to <see cref="Abort"/> immediately followed by a call to <see cref="Wait(const std::chrono::duration<Rep, Period>&)"/>
 		/// </summary>
 		/// <param name="interval">The maximum amount of time to wait</param>
 		/// <returns>true if the the command completed within 'duration', false otherwise</returns>
@@ -254,7 +253,7 @@ namespace CommandLib
 		}
 
 		/// <summary>
-		/// The exact same effect as a call to <see cref="Abort"/> immediately followed by a call to <see cref="Wait(const std::chrono::duration{Rep, Period}&)"/>
+		/// The exact same effect as a call to <see cref="Abort"/> immediately followed by a call to <see cref="Wait(const std::chrono::duration<Rep, Period>&)"/>
 		/// </summary>
 		/// <param name="milliseconds">The maximum number of milliseconds to wait</param>
 		/// <returns>true if the the command completed within 'duration', false otherwise</returns>
