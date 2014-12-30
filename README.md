@@ -17,7 +17,7 @@ Documentation is in HTML format, generated using doxygen (www.doxygen.org). Open
 
 Diagnostics
 ----
-The Command class provides a CommandMonitor collection. If a CommandTracer object is added, diagnostic output is written to stdout. If a CommandLogger object is added, diagnostic output is written to a text file. It is intended that this file be compatible with the CommandLogViewer utility included in the C# version of this library, but that is yet to be tested.
+The Command class provides a CommandMonitor collection. If a CommandTracer object is added, diagnostic output is written to stdout. If a CommandLogger object is added, diagnostic output is written to a text file. This file be can be displayed showing parent/child relationships with the CommandLogViewer utility included in the C# version of this library.
 
 Build
 ----
