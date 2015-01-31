@@ -10,7 +10,6 @@
 #include "FailingCommand.h"
 #include "SequentialCommands.h"
 #include "ParallelCommands.h"
-#include "VariableCommand.h"
 #include "AbortLinkedCommand.h"
 #include "PeriodicCommand.h"
 
@@ -85,10 +84,8 @@ namespace UnitTest
 		protected:
 			virtual void SyncExeImpl() override
 			{
-				RelinquishOwnership(m_container);
-				Assert::ExpectException<std::logic_error>([this]() { RelinquishOwnership(m_container); }, L"Relinquished ownership of an un-owned command");
-				TakeOwnership(m_container);
-				m_container->SyncExecute();
+				Assert::ExpectException<std::logic_error>([this]() { RelinquishOwnership(m_cmd); }, L"Relinquished ownership of an un-owned command");
+				m_cmd->SyncExecute(this);
 			}
 		private:
 			static CommandLib::ParallelCommands::Ptr GenerateParallelCommands(int maxPauseMS, bool insertFailure)
@@ -132,7 +129,7 @@ namespace UnitTest
 				return result;
 			}
 
-			ComplexCommand(int maxPauseMS, bool insertFailure) : m_container(CommandLib::VariableCommand::Create())
+			ComplexCommand(int maxPauseMS, bool insertFailure)
 			{
 				CommandLib::ParallelCommands::Ptr parallel = GenerateParallelCommands(maxPauseMS, insertFailure);
 				CommandLib::SequentialCommands::Ptr seq = GenerateSequentialCommands(maxPauseMS, insertFailure);
@@ -144,13 +141,16 @@ namespace UnitTest
 				combined->Add(seq);
 				combined->Add(parallel);
 
-				m_container->SetCommandToRun(CommandLib::PeriodicCommand::Create(
-					combined, 3, maxPauseMS, CommandLib::PeriodicCommand::IntervalType::PauseAfter, true));
+				m_cmd = CommandLib::PeriodicCommand::Create(
+					combined, 3, maxPauseMS, CommandLib::PeriodicCommand::IntervalType::PauseAfter, true);
 
-				TakeOwnership(m_container);
+				TakeOwnership(m_cmd);
+
+				// For code coverage. Also, gives us an opportunity to try the third overload of SyncExecute.
+				RelinquishOwnership(m_cmd);
 			}
 
-			CommandLib::VariableCommand::Ptr m_container;
+			CommandLib::Command::Ptr m_cmd;
 		};
 
 		class NoOpCommand : public CommandLib::SyncCommand

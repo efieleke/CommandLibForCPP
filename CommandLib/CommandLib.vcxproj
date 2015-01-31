@@ -31,7 +31,6 @@
     <ClInclude Include="include\SequentialCommands.h" />
     <ClInclude Include="include\SyncCommand.h" />
     <ClInclude Include="include\TimeLimitedCommand.h" />
-    <ClInclude Include="include\VariableCommand.h" />
     <ClInclude Include="include\Waitable.h" />
     <ClInclude Include="include\WaitGroup.h" />
     <ClInclude Include="include\WaitMonitor.h" />
@@ -57,7 +56,6 @@
     <ClCompile Include="impl\SequentialCommands.cpp" />
     <ClCompile Include="impl\SyncCommand.cpp" />
     <ClCompile Include="impl\TimeLimitedCommand.cpp" />
-    <ClCompile Include="impl\VariableCommand.cpp" />
     <ClCompile Include="impl\Waitable.cpp" />
     <ClCompile Include="impl\WaitGroup.cpp" />
     <ClCompile Include="impl\WaitMonitor.cpp" />

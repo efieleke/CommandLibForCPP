@@ -52,8 +52,8 @@
 /// </para>
 /// <para>
 /// Documentation for <see cref="Command"/>, <see cref="AsyncCommand"/> and <see cref="SyncCommand"/> should be read before
-/// developing a <see cref="Command"/>-derived class. <see cref="VariableCommand"/> and <see cref="AbortLinkedCommand"/> might also
-/// serve as aids in the development of a <see cref="Command"/>.
+/// developing a <see cref="Command"/>-derived class. <see cref="AbortLinkedCommand"/> might also serve as an aid in the development
+/// of a <see cref="Command"/>.
 /// </para>
 /// <para>
 /// Windows implementations must be careful when specifying durations. The implementations of various routines in CommandLib
@@ -94,12 +94,11 @@ namespace CommandLib
 	/// (perhaps because which type of Command to create depends upon runtime conditions), there are some things to
 	/// consider. Owned commands are not destroyed until the owner is destroyed. If the owner is executed many times
 	/// before it is destroyed, and you create a new child command upon every execution, resource usage will grow unbounded.
-	/// The better approach is to assign this locally created command to a <see cref="VariableCommand"/> object,
-	/// which would be a member variable of the owner. The assignment will take care of destroying any previously assigned
-	/// command. If declaring a <see cref="VariableCommand"/> member variable is not an appealing option, you could opt to instead
-    /// make use of <see cref="AbortLinkedCommand"/>. This is a top level command that responds to abort
-    /// requests to a different command. The only disadvantage to this approach is that it may end up spawning
-    /// an additional thread.
+	/// The better approach is not assign an owner to the locally created command, but instead
+	/// have it run within the context of the launching command using <see cref="SyncExecute(Command*)"/>.
+	/// Alternatively, you could opt to make use of <see cref="CreateAbortLinkedCommand"/>. This will return a top-level
+	/// command that responds to abort requests to the command that created it. The former is more efficient for
+	/// <see cref="SyncCommand"/>-derived objects, and the latter is more efficient for <see cref="AsyncCommand"/>-derived objects.
 	/// <para>
 	/// Generally speaking, when authoring Commands, it's best to make them as granular as possible. That makes it much easier
 	/// to reuse them while composing command structures. Also, ensure that your commands are responsive to abort requests if
@@ -184,6 +183,23 @@ namespace CommandLib
 		/// command that is already executing.
 		/// </remarks>
 		void SyncExecute();
+
+		/// <summary>Executes the command and does not return until it finishes.</summary>
+		/// <exception cref="CommandAbortedException">Thrown when execution is aborted</exception>
+		/// <exception cref="std::exception">
+		/// Thrown if execution does not complete successfully.
+		/// </exception>
+		/// <remarks>
+		/// It is safe to call this any number of times, but it will cause undefined behavior to re-execute a
+		/// command that is already executing.
+		/// </remarks>
+		/// <param name="owner">
+		/// If you want this command to pay attention to abort requests of a different command, set this value to that command.
+		/// Note that if this Command is already assigned an owner, passing a non-null value will raise an exception. Also note
+		/// that the owner assignment is only in effect during the scope of this call. Upon return, this command will not
+		/// have an owner, and it is the caller's responsibility to properly dispose it.
+		/// </param>
+		void SyncExecute(Command* owner);
 
 		/// <summary>
 		/// Starts executing the command and returns immediately.

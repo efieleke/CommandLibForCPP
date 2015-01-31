@@ -318,6 +318,35 @@ void Command::SyncExecute()
 	}
 }
 
+void Command::SyncExecute(Command* owner)
+{
+	Ptr thisCommand = shared_from_this();
+
+	if (owner != nullptr)
+	{
+		owner->TakeOwnership(thisCommand);
+	}
+
+	try
+	{
+		SyncExecute();
+	}
+	catch (...)
+	{
+		if (owner != nullptr)
+		{
+			owner->RelinquishOwnership(thisCommand);
+		}
+
+		throw;
+	}
+
+	if (owner != nullptr)
+	{
+		owner->RelinquishOwnership(thisCommand);
+	}
+}
+
 void Command::PreExecute()
 {
     // Asynchronously launched commands inform their listener that they are done just before they signal the done event.
