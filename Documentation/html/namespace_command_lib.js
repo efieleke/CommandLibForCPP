@@ -20,7 +20,6 @@ var namespace_command_lib =
     [ "SequentialCommands", "class_command_lib_1_1_sequential_commands.html", "class_command_lib_1_1_sequential_commands" ],
     [ "SyncCommand", "class_command_lib_1_1_sync_command.html", "class_command_lib_1_1_sync_command" ],
     [ "TimeLimitedCommand", "class_command_lib_1_1_time_limited_command.html", "class_command_lib_1_1_time_limited_command" ],
-    [ "VariableCommand", "class_command_lib_1_1_variable_command.html", "class_command_lib_1_1_variable_command" ],
     [ "Waitable", "class_command_lib_1_1_waitable.html", "class_command_lib_1_1_waitable" ],
     [ "WaitGroup", "class_command_lib_1_1_wait_group.html", "class_command_lib_1_1_wait_group" ],
     [ "WaitMonitor", "class_command_lib_1_1_wait_monitor.html", "class_command_lib_1_1_wait_monitor" ]

@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('class_command_lib_1_1_command.html',''
 
 <p>Inherits enable_shared_from_this&lt; Command &gt;.</p>
 
-<p>Inherited by <a class="el" href="class_command_lib_1_1_async_command.html">CommandLib::AsyncCommand</a>, <a class="el" href="class_command_lib_1_1_sync_command.html">CommandLib::SyncCommand</a>, and <a class="el" href="class_command_lib_1_1_variable_command.html">CommandLib::VariableCommand</a>.</p>
+<p>Inherited by <a class="el" href="class_command_lib_1_1_async_command.html">CommandLib::AsyncCommand</a>, and <a class="el" href="class_command_lib_1_1_sync_command.html">CommandLib::SyncCommand</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -157,6 +157,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d33760ccb927d7f6349c02907ab4ff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a5d33760ccb927d7f6349c02907ab4ff3">SyncExecute</a> ()</td></tr>
 <tr class="memdesc:a5d33760ccb927d7f6349c02907ab4ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the command and does not return until it finishes. <a href="#a5d33760ccb927d7f6349c02907ab4ff3">More...</a><br /></td></tr>
 <tr class="separator:a5d33760ccb927d7f6349c02907ab4ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a663d50889f527a4963eebd88bbcdc522"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a663d50889f527a4963eebd88bbcdc522">SyncExecute</a> (<a class="el" href="class_command_lib_1_1_command.html">Command</a> *owner)</td></tr>
+<tr class="memdesc:a663d50889f527a4963eebd88bbcdc522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the command and does not return until it finishes. <a href="#a663d50889f527a4963eebd88bbcdc522">More...</a><br /></td></tr>
+<tr class="separator:a663d50889f527a4963eebd88bbcdc522"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44bad231a0f0a6de3d5405382d95f800"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_lib_1_1_command.html#a44bad231a0f0a6de3d5405382d95f800">AsyncExecute</a> (<a class="el" href="class_command_lib_1_1_command_listener.html">CommandListener</a> *listener)</td></tr>
 <tr class="memdesc:a44bad231a0f0a6de3d5405382d95f800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts executing the command and returns immediately.  <a href="#a44bad231a0f0a6de3d5405382d95f800">More...</a><br /></td></tr>
 <tr class="separator:a44bad231a0f0a6de3d5405382d95f800"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,7 +231,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>AsyncCommand</b></td
 <p>When developing a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> subclass, be sure to inherit from either <a class="el" href="class_command_lib_1_1_sync_command.html" title="Represents a Command which is most naturally synchronous in its implementation. If you inherit from t...">SyncCommand</a> (if your command is naturally synchronous in its implementation) or <a class="el" href="class_command_lib_1_1_async_command.html" title="Represents a Command which is most naturally asynchronous in its implementation. If you inherit from ...">AsyncCommand</a>. Those classes take care of the unnatural implementations (<a class="el" href="class_command_lib_1_1_sync_command.html" title="Represents a Command which is most naturally synchronous in its implementation. If you inherit from t...">SyncCommand</a> implements AsyncExecuteImpl, and <a class="el" href="class_command_lib_1_1_async_command.html" title="Represents a Command which is most naturally asynchronous in its implementation. If you inherit from ...">AsyncCommand</a> implements SyncExecuteImpl). </p>
 <p>Also, when developing a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> subclass, make sure that any member variables that are Commands are properly owned by calling <a class="el" href="class_command_lib_1_1_command.html#a0787e7b79c5424926be5c1c8be1ebb0d" title="Make this command the owner of the command passed as an argument.">TakeOwnership</a> within your constructor body. The advantage of doing this is that owned commands will automatically respond to abort requests issued to the owner. </p>
 <p>If you write a method that accepts a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> as an argument, you may wish to assume ownership of that <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a>. <a class="el" href="class_command_lib_1_1_command.html#a0787e7b79c5424926be5c1c8be1ebb0d" title="Make this command the owner of the command passed as an argument.">TakeOwnership</a> allows you to do this. The <a class="el" href="class_command_lib_1_1_sequential_commands.html#af0100e15f7897471ce84802ab6c25e00" title="Adds a Command to the collection to execute.">SequentialCommands::Add</a> member of <a class="el" href="class_command_lib_1_1_sequential_commands.html" title="SequentialCommands is a Command object which contains a collection of commands which are run in seque...">SequentialCommands</a> is an example of this behavior. </p>
-<p>If you find that you need to create a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> object within the execution method of its owning command (perhaps because which type of <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> to create depends upon runtime conditions), there are some things to consider. Owned commands are not destroyed until the owner is destroyed. If the owner is executed many times before it is destroyed, and you create a new child command upon every execution, resource usage will grow unbounded. The better approach is to assign this locally created command to a <a class="el" href="class_command_lib_1_1_variable_command.html" title="A Command which is a simple holder for another Command object. It&#39;s only useful purpose is to aid in ...">VariableCommand</a> object, which would be a member variable of the owner. The assignment will take care of destroying any previously assigned command. If declaring a <a class="el" href="class_command_lib_1_1_variable_command.html" title="A Command which is a simple holder for another Command object. It&#39;s only useful purpose is to aid in ...">VariableCommand</a> member variable is not an appealing option, you could opt to instead make use of <a class="el" href="class_command_lib_1_1_abort_linked_command.html" title="A Command wrapper that, in addition to responding to normal Command::Abort requests, also aborts in response to either 1) a request to abort a different, specified Command instance, or 2) the signaling of a specified Waitable (typically an Event). ">AbortLinkedCommand</a>. This is a top level command that responds to abort requests to a different command. The only disadvantage to this approach is that it may end up spawning an additional thread. </p>
+<p>If you find that you need to create a <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> object within the execution method of its owning command (perhaps because which type of <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> to create depends upon runtime conditions), there are some things to consider. Owned commands are not destroyed until the owner is destroyed. If the owner is executed many times before it is destroyed, and you create a new child command upon every execution, resource usage will grow unbounded. The better approach is not assign an owner to the locally created command, but instead have it run within the context of the launching command using <a class="el" href="class_command_lib_1_1_command.html#a663d50889f527a4963eebd88bbcdc522" title="Executes the command and does not return until it finishes.">SyncExecute(Command*)</a>. Alternatively, you could opt to make use of CreateAbortLinkedCommand. This will return a top-level command that responds to abort requests to the command that created it. The former is more efficient for <a class="el" href="class_command_lib_1_1_sync_command.html" title="Represents a Command which is most naturally synchronous in its implementation. If you inherit from t...">SyncCommand</a>-derived objects, and the latter is more efficient for <a class="el" href="class_command_lib_1_1_async_command.html" title="Represents a Command which is most naturally asynchronous in its implementation. If you inherit from ...">AsyncCommand</a>-derived objects. </p>
 <p>Generally speaking, when authoring Commands, it's best to make them as granular as possible. That makes it much easier to reuse them while composing command structures. Also, ensure that your commands are responsive to abort requests if they take a noticeable amount of time to complete. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="aee8fd78ff853a1f9c8e56959c3e81811"></a>
@@ -476,7 +479,7 @@ template&lt;typename Rep , typename Period &gt; </div>
 <p>Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes. </p>
 <p>The returned string should be the name of the derived class, without any namespace qualification. I could have used typeid instead, but that requires compiling with RTTI, which is not something that everyone wants. </p>
 
-<p>Implemented in <a class="el" href="class_command_lib_1_1_periodic_command.html#a77c34a0f31ae4e7f0c642a356bd5d6ef">CommandLib::PeriodicCommand</a>, <a class="el" href="class_command_lib_1_1_pause_command.html#afcdddf1fa8b52a3bfec665b1db736cc5">CommandLib::PauseCommand</a>, <a class="el" href="class_command_lib_1_1_recurring_command.html#a4e2073b92185dd5f7b545d774afbb929">CommandLib::RecurringCommand</a>, <a class="el" href="class_command_lib_1_1_scheduled_command.html#ae01bdda88e63460a380579e08ced9eda">CommandLib::ScheduledCommand</a>, <a class="el" href="class_command_lib_1_1_time_limited_command.html#a2a5063ef124f555229b90f7bd82f362e">CommandLib::TimeLimitedCommand</a>, <a class="el" href="class_command_lib_1_1_variable_command.html#a20b0247639467cc5a1b5f998218eb57d">CommandLib::VariableCommand</a>, <a class="el" href="class_command_lib_1_1_retryable_command.html#ace5c335248d89b0bf162de17a9579a74">CommandLib::RetryableCommand</a>, <a class="el" href="class_command_lib_1_1_abort_linked_command.html#a014c2c8177e18e27f651aa122b58c90e">CommandLib::AbortLinkedCommand</a>, <a class="el" href="class_command_lib_1_1_parallel_commands.html#aada3d28f970e82d1d057ac2b499453ac">CommandLib::ParallelCommands</a>, and <a class="el" href="class_command_lib_1_1_sequential_commands.html#abbfd93499d508c3f0d2d817bd59e7080">CommandLib::SequentialCommands</a>.</p>
+<p>Implemented in <a class="el" href="class_command_lib_1_1_periodic_command.html#a77c34a0f31ae4e7f0c642a356bd5d6ef">CommandLib::PeriodicCommand</a>, <a class="el" href="class_command_lib_1_1_pause_command.html#afcdddf1fa8b52a3bfec665b1db736cc5">CommandLib::PauseCommand</a>, <a class="el" href="class_command_lib_1_1_recurring_command.html#a4e2073b92185dd5f7b545d774afbb929">CommandLib::RecurringCommand</a>, <a class="el" href="class_command_lib_1_1_scheduled_command.html#ae01bdda88e63460a380579e08ced9eda">CommandLib::ScheduledCommand</a>, <a class="el" href="class_command_lib_1_1_time_limited_command.html#a2a5063ef124f555229b90f7bd82f362e">CommandLib::TimeLimitedCommand</a>, <a class="el" href="class_command_lib_1_1_retryable_command.html#ace5c335248d89b0bf162de17a9579a74">CommandLib::RetryableCommand</a>, <a class="el" href="class_command_lib_1_1_abort_linked_command.html#a014c2c8177e18e27f651aa122b58c90e">CommandLib::AbortLinkedCommand</a>, <a class="el" href="class_command_lib_1_1_parallel_commands.html#aada3d28f970e82d1d057ac2b499453ac">CommandLib::ParallelCommands</a>, and <a class="el" href="class_command_lib_1_1_sequential_commands.html#abbfd93499d508c3f0d2d817bd59e7080">CommandLib::SequentialCommands</a>.</p>
 
 </div>
 </div>
@@ -661,6 +664,38 @@ template&lt;typename Rep , typename Period &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a663d50889f527a4963eebd88bbcdc522"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandLib::Command::SyncExecute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_command_lib_1_1_command.html">Command</a> *&#160;</td>
+          <td class="paramname"><em>owner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes the command and does not return until it finishes.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_command_lib_1_1_command_aborted_exception.html" title="This is thrown from Command.SyncExecute() when a command is aborted. ">CommandAbortedException</a></td><td>Thrown when execution is aborted</td></tr>
+    <tr><td class="paramname">std::exception</td><td>Thrown if execution does not complete successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>It is safe to call this any number of times, but it will cause undefined behavior to re-execute a command that is already executing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>If you want this command to pay attention to abort requests of a different command, set this value to that command. Note that if this <a class="el" href="class_command_lib_1_1_command.html" title="Represents an action that can be run synchronously or asynchronously.">Command</a> is already assigned an owner, passing a non-null value will raise an exception. Also note that the owner assignment is only in effect during the scope of this call. Upon return, this command will not have an owner. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a0787e7b79c5424926be5c1c8be1ebb0d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -804,7 +839,7 @@ template&lt;typename Rep , typename Period &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_command_lib.html">CommandLib</a></li><li class="navelem"><a class="el" href="class_command_lib_1_1_command.html">Command</a></li>
-    <li class="footer">Generated on Mon Dec 29 2014 14:23:39 for CommandLibForCPP by
+    <li class="footer">Generated on Fri Jan 30 2015 22:05:14 for CommandLibForCPP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

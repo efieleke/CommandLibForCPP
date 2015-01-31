@@ -20,6 +20,7 @@ var class_command_lib_1_1_command =
     [ "Parent", "class_command_lib_1_1_command.html#a6772eb611b09f4fdb3812fa059d82555", null ],
     [ "RelinquishOwnership", "class_command_lib_1_1_command.html#ac872e76c74ed573668b60351fd9ffd1d", null ],
     [ "SyncExecute", "class_command_lib_1_1_command.html#a5d33760ccb927d7f6349c02907ab4ff3", null ],
+    [ "SyncExecute", "class_command_lib_1_1_command.html#a663d50889f527a4963eebd88bbcdc522", null ],
     [ "TakeOwnership", "class_command_lib_1_1_command.html#a0787e7b79c5424926be5c1c8be1ebb0d", null ],
     [ "Wait", "class_command_lib_1_1_command.html#adb0d288fa3168a371238b53e3f4a90f7", null ],
     [ "Wait", "class_command_lib_1_1_command.html#a109ddf04b5f404e5194e5a3c910a378b", null ],

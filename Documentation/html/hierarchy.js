@@ -20,8 +20,7 @@ var hierarchy =
           [ "CommandLib::ScheduledCommand", "class_command_lib_1_1_scheduled_command.html", null ],
           [ "CommandLib::SequentialCommands", "class_command_lib_1_1_sequential_commands.html", null ],
           [ "CommandLib::TimeLimitedCommand", "class_command_lib_1_1_time_limited_command.html", null ]
-        ] ],
-        [ "CommandLib::VariableCommand", "class_command_lib_1_1_variable_command.html", null ]
+        ] ]
       ] ]
     ] ],
     [ "CommandLib::RecurringCommand::ExecutionTimeCallback", "class_command_lib_1_1_recurring_command_1_1_execution_time_callback.html", null ],

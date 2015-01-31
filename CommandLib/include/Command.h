@@ -197,7 +197,7 @@ namespace CommandLib
 		/// If you want this command to pay attention to abort requests of a different command, set this value to that command.
 		/// Note that if this Command is already assigned an owner, passing a non-null value will raise an exception. Also note
 		/// that the owner assignment is only in effect during the scope of this call. Upon return, this command will not
-		/// have an owner, and it is the caller's responsibility to properly dispose it.
+		/// have an owner.
 		/// </param>
 		void SyncExecute(Command* owner);
 
