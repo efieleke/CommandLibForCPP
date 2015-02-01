@@ -96,9 +96,8 @@ namespace CommandLib
 	/// before it is destroyed, and you create a new child command upon every execution, resource usage will grow unbounded.
 	/// The better approach is not assign an owner to the locally created command, but instead
 	/// have it run within the context of the launching command using <see cref="SyncExecute(Command*)"/>.
-	/// Alternatively, you could opt to make use of <see cref="CreateAbortLinkedCommand"/>. This will return a top-level
-	/// command that responds to abort requests to the command that created it. The former is more efficient for
-	/// <see cref="SyncCommand"/>-derived objects, and the latter is more efficient for <see cref="AsyncCommand"/>-derived objects.
+	/// If you require asynchronous execution, you can make use of <see cref="AbortLinkedCommand"/>. This will return a
+	/// top-level command that responds to abort requests to the command that created it.
 	/// <para>
 	/// Generally speaking, when authoring Commands, it's best to make them as granular as possible. That makes it much easier
 	/// to reuse them while composing command structures. Also, ensure that your commands are responsive to abort requests if
