@@ -146,12 +146,7 @@ void Command::Abort()
     }
 
 	m_abortEvent->Set();
-
-	{
-		std::unique_lock<std::mutex> lock(m_mutex);
-        AbortImplAllDescendents(this);
-    }
-
+    AbortImplAllDescendents(this);
     AbortImpl();
 }
 
@@ -278,6 +273,8 @@ const Command* Command::Parent(const Command* command)
 
 void Command::AbortImplAllDescendents(Command* command)
 {
+	std::unique_lock<std::mutex> lock(command->m_mutex);
+
 	for (Ptr child : command->m_children)
 	{
 		AbortImplAllDescendents(child.get());
