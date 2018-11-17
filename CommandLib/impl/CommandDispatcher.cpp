@@ -23,8 +23,8 @@ void CommandDispatcher::Dispatch(Command::Ptr command)
         throw std::invalid_argument("Only top-level commands can be dispatched");
     }
 
-	m_nothingToDoEvent.Reset();
 	std::unique_lock<std::mutex> lock(m_mutex);
+	m_nothingToDoEvent.Reset();
 	m_finishedCommands.clear();
 
     if (m_runningCommands.size() == m_poolSize)
