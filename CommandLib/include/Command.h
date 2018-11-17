@@ -404,7 +404,7 @@ namespace CommandLib
 		static std::atomic_uint sm_nextId;
 		
 		const unsigned int m_id = ++sm_nextId;
-        const Command* m_owner = nullptr;
+        const Command* volatile m_owner = nullptr;
         std::set<Ptr, CommandLess> m_children;
         std::atomic_int m_executing;
 
