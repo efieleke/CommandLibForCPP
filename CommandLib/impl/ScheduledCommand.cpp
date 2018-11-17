@@ -6,6 +6,7 @@ namespace
 {
 	std::string TimeAsText(const std::chrono::time_point<std::chrono::system_clock>& time)
 	{
+		std::chrono::system_clock::now();
 		const time_t asTimeT = std::chrono::system_clock::to_time_t(time);
 		char timeString[64]; // more than big enough
 		timeString[0] = '\0';
@@ -52,7 +53,7 @@ std::chrono::time_point<std::chrono::system_clock> ScheduledCommand::GetTimeOfEx
 
 void ScheduledCommand::SetTimeOfExecution(const std::chrono::time_point<std::chrono::system_clock>& time)
 {
-	const auto newInterval = time - std::chrono::high_resolution_clock::now();
+	const auto newInterval = time - std::chrono::system_clock::now();
 
 	if (newInterval.count() < 0 && !m_runImmediatelyIfTimeIsPast)
 	{
@@ -87,7 +88,7 @@ std::string ScheduledCommand::ExtendedDescription() const
 
 void ScheduledCommand::SyncExeImpl()
 {
-	const auto waitTime = GetTimeOfExecution() - std::chrono::high_resolution_clock::now();
+	const auto waitTime = GetTimeOfExecution() - std::chrono::system_clock::now();
 
     if (waitTime.count() >= 0)
     {

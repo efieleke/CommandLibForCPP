@@ -35,7 +35,7 @@ namespace UnitTest
 
 		virtual bool GetFirstExecutionTime(std::chrono::time_point<std::chrono::system_clock>* time) override
 		{
-			*time = std::chrono::high_resolution_clock::now() + m_intervalBeforeFirst;
+			*time = std::chrono::system_clock::now() + m_intervalBeforeFirst;
 			return --m_repetitions >= 0;
 		}
 
@@ -43,7 +43,7 @@ namespace UnitTest
 		{
 			if (--m_repetitions >= 0)
 			{
-				*time = std::chrono::high_resolution_clock::now() + m_intervalBeforeRest;
+				*time = std::chrono::system_clock::now() + m_intervalBeforeRest;
 				return true;
 			}
 
@@ -112,7 +112,7 @@ namespace UnitTest
 			CommandLib::RecurringCommand::Ptr recurringCmd = CommandLib::RecurringCommand::Create(CommandLib::PauseCommand::Create(0), &callback);
 			recurringCmd->AsyncExecute(&listener);
 			std::this_thread::sleep_for(std::chrono::milliseconds(100)); // give time for the thread to start executing
-			recurringCmd->SetNextExecutionTime(std::chrono::high_resolution_clock::now());
+			recurringCmd->SetNextExecutionTime(std::chrono::system_clock::now());
 			recurringCmd->Wait();
 			listener.Check();
 		}

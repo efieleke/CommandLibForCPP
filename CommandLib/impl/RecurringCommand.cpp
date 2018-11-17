@@ -13,7 +13,7 @@ std::string RecurringCommand::ClassName() const
 }
 
 RecurringCommand::RecurringCommand(Command::Ptr command, ExecutionTimeCallback* callback)
-	: m_callback(callback), m_scheduledCmd(ScheduledCommand::Create(command, std::chrono::high_resolution_clock::now(), true))
+	: m_callback(callback), m_scheduledCmd(ScheduledCommand::Create(command, std::chrono::system_clock::now(), true))
 {
 	TakeOwnership(m_scheduledCmd);
 }

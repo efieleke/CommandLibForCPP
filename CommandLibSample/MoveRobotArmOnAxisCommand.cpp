@@ -18,13 +18,13 @@ std::string MoveRobotArmOnAxisCommand::ClassName() const
 void MoveRobotArmOnAxisCommand::AsyncExecuteImpl(CommandLib::CommandListener* listener)
 {
     m_listener = listener;
-	std::unique_lock<std::mutex>(m_mutex);
+	std::unique_lock<std::mutex> lock(m_mutex);
 	m_operation = m_robotArm->Move(m_axis, m_destination, this);
 }
 
 void MoveRobotArmOnAxisCommand::AbortImpl()
 {
-	std::unique_lock<std::mutex>(m_mutex);
+	std::unique_lock<std::mutex> lock(m_mutex);
     
 	if (m_operation)
     {

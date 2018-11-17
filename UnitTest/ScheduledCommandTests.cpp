@@ -91,17 +91,17 @@ namespace UnitTest
 	private:
 		static std::chrono::time_point<std::chrono::system_clock> Tomorrow()
 		{
-			return std::chrono::high_resolution_clock::now() + std::chrono::hours(24);
+			return std::chrono::system_clock::now() + std::chrono::hours(24);
 		}
 
 		static std::chrono::time_point<std::chrono::system_clock> Yesterday()
 		{
-			return std::chrono::high_resolution_clock::now() - std::chrono::hours(24);
+			return std::chrono::system_clock::now() - std::chrono::hours(24);
 		}
 
 		static std::chrono::time_point<std::chrono::system_clock> RealSoon()
 		{
-			return std::chrono::high_resolution_clock::now() + std::chrono::milliseconds(100);
+			return std::chrono::system_clock::now() + std::chrono::milliseconds(100);
 		}
 	};
 }

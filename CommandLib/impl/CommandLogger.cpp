@@ -44,8 +44,7 @@ std::string CommandLogger::FormHeader(const Command& command, const std::string&
 {
     long parentId = command.Parent() == nullptr ? 0 : command.Parent()->Id();
 	const std::string spaces(command.Depth(), ' ');
-	const std::chrono::system_clock::time_point now = std::chrono::high_resolution_clock::now();
-	time_t nowAsTimeT = std::chrono::system_clock::to_time_t(now);
+	std::time_t nowAsTimeT = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 	char timeString[64]; // more than big enough
 	timeString[0] = '\0';
 
