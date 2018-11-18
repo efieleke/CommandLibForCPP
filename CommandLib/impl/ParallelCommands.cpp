@@ -16,17 +16,6 @@ ParallelCommands::Ptr ParallelCommands::Create(bool abortUponFailure)
 
 ParallelCommands::ParallelCommands(bool abortUponFailure) : m_abortUponFailure(abortUponFailure)
 {
-	// We always need at least one command in the collection so that the 
-	// finished callback occurs properly even if the user of the class didn't
-	// add any commands.
-	Command::Ptr dummy = DummyCommand::Create();
-
-	if (!abortUponFailure)
-	{
-		TakeOwnership(dummy);
-	}
-
-	m_commands.push_back(dummy);
 }
 
 ParallelCommands::~ParallelCommands()
@@ -69,29 +58,31 @@ void ParallelCommands::Clear()
     }
 
     m_commands.clear();
-
-    // We always need at least one command in the collection so that the 
-    // finished callback occurs properly even if the user of the class didn't
-    // add any commands.
-    Add(DummyCommand::Create());
 }
 
 std::string ParallelCommands::ExtendedDescription() const
 {
-	return "Number of commands: " + std::to_string(m_commands.size() - 1) + "; Abort upon failure ? " + std::to_string(m_abortUponFailure);
+	return "Number of commands: " + std::to_string(m_commands.size()) + "; Abort upon failure ? " + std::to_string(m_abortUponFailure);
 }
 
 void ParallelCommands::AsyncExecuteImpl(CommandListener* listener)
 {
-    size_t startIndex = (m_commands.size() == 1 ? 0 : 1);
-    std::unique_ptr<Listener> eventHandler(new Listener(this, listener));
+	if (m_commands.empty())
+	{
+		Command::Ptr dummyCmd = AbortLinkedCommand::Create(DummyCommand::Create(), shared_from_this());
+		dummyCmd->AsyncExecute(listener);
+	}
+	else
+	{
+		std::unique_ptr<Listener> eventHandler(new Listener(this, listener));
 
-    for (size_t i = startIndex; i < m_commands.size(); ++i)
-    {
-        m_commands[i]->AsyncExecute(eventHandler.get());
-    }
+		for (size_t i = 0; i < m_commands.size(); ++i)
+		{
+			m_commands[i]->AsyncExecute(eventHandler.get());
+		}
 
-	eventHandler.release();
+		eventHandler.release();
+	}
 }
 
 ParallelCommands::Listener::Listener(ParallelCommands* command, CommandListener* listener) : m_command(command), m_listener(listener)
@@ -99,11 +90,6 @@ ParallelCommands::Listener::Listener(ParallelCommands* command, CommandListener*
 	m_failCount = 0;
 	m_abortCount = 0;
     m_remaining = m_command->m_commands.size();
-
-    if (m_remaining > 1)
-    {
-        --m_remaining; // we don't run the dummy command unless it's the only one
-    }
 }
 
 void ParallelCommands::Listener::CommandSucceeded()
