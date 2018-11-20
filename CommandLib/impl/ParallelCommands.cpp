@@ -65,6 +65,16 @@ std::string ParallelCommands::ExtendedDescription() const
 	return "Number of commands: " + std::to_string(m_commands.size()) + "; Abort upon failure ? " + std::to_string(m_abortUponFailure);
 }
 
+class DummyCommand : public SyncCommand
+{
+public:
+	static Ptr Create() { return Ptr(new DummyCommand); }
+	virtual std::string ClassName() const override { return "DummyCommand"; }
+private:
+	DummyCommand() {}
+	virtual void SyncExeImpl() final {}
+};
+
 void ParallelCommands::AsyncExecuteImpl(CommandListener* listener)
 {
 	if (m_commands.empty())
@@ -145,22 +155,4 @@ void ParallelCommands::Listener::OnCommandFinished()
             m_listener->CommandSucceeded();
         }
     }
-}
-
-Command::Ptr ParallelCommands::DummyCommand::Create()
-{
-	return Ptr(new DummyCommand());
-}
-
-ParallelCommands::DummyCommand::DummyCommand()
-{
-}
-
-void ParallelCommands::DummyCommand::SyncExeImpl()
-{
-}
-
-std::string ParallelCommands::DummyCommand::ClassName() const
-{
-	return "DummyCommand";
 }

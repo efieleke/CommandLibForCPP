@@ -6,7 +6,7 @@ namespace CommandLib
 	/// <summary>
 	/// SequentialCommands is a <see cref="Command"/> object which contains a collection of commands which are run in sequence
 	/// </summary>
-	class SequentialCommands : public SyncCommand
+	class SequentialCommands : public Command
     {
 	public:
 		/// <summary>Shared pointer to a non-modifyable SequentialCommands object</summary>
@@ -43,13 +43,34 @@ namespace CommandLib
 
 		/// <inheritdoc/>
 		virtual std::string ClassName() const override;
+
+		/// <inheritdoc/>
+		virtual bool IsNaturallySynchronous() const final;
 	protected:
 		/// <summary>
 		/// This constructor is not public so as to enforce creation using the Create() methods.
 		/// </summary>
 		SequentialCommands();
 	private:
-		virtual void SyncExeImpl() final;
+		class Listener : public CommandListener
+		{
+		public:
+			void CommandSucceeded() override;
+			void CommandAborted() override;
+			void CommandFailed(const std::exception& exc, std::exception_ptr excPtr);
+			void SetExternalListener(CommandListener* listener);
+			void SetCommands(std::list<Command::Ptr>::iterator iter, std::list<Command::Ptr>::iterator end);
+		private:
+			std::list<Command::Ptr>::iterator m_iter;
+			std::list<Command::Ptr>::iterator m_end;
+			CommandListener* volatile m_externalListener;
+		};
+
+		virtual void SyncExecuteImpl() final;
+		virtual void AsyncExecuteImpl(CommandListener* listener) final;
+		void DoAsyncExecute(CommandListener* listener, std::list<Command::Ptr>::iterator iter, std::list<Command::Ptr>::iterator end);
+
         std::list<Command::Ptr> m_commands;
+		Listener m_listener;
 	};
 }

@@ -9,6 +9,9 @@ namespace CommandLib
 	/// </summary>
 	class AsyncCommand : public Command
     {
+	public:
+		/// <inheritdoc/>
+		virtual bool IsNaturallySynchronous() const final;
 	private:
 		virtual void SyncExecuteImpl() final;
 

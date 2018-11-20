@@ -74,16 +74,6 @@ namespace CommandLib
             std::exception_ptr m_error;
 		};
 
-        class DummyCommand : public SyncCommand
-        {
-		public:
-			static Ptr Create();
-			virtual std::string ClassName() const override;
-		private:
-			DummyCommand();
-			virtual void SyncExeImpl() final;
-		};
-
         std::vector<Command::Ptr> m_commands;
         const bool m_abortUponFailure;
 	};

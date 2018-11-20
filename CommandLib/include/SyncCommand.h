@@ -11,6 +11,9 @@ namespace CommandLib
 	class SyncCommand : public Command
     {
 	public:
+		/// <inheritdoc/>
+		virtual bool IsNaturallySynchronous() const final;
+
 		virtual ~SyncCommand();
 	private:
 		static void ExecuteRoutine(SyncCommand* syncCmd, CommandListener* listener);

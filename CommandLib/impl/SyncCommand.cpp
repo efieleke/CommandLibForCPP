@@ -16,6 +16,11 @@ void SyncCommand::PrepareExecute()
 {
 }
 
+bool SyncCommand::IsNaturallySynchronous() const
+{
+	return true;
+}
+
 void SyncCommand::AsyncExecuteImpl(CommandListener* listener)
 {
     PrepareExecute();

@@ -172,6 +172,13 @@ namespace CommandLib
 		/// </remarks>
 		virtual std::string ExtendedDescription() const;
 
+		/// <summary>
+		/// Returns true if this command's most efficient form of execution is synchronous.
+		/// This information is used on occasion to determine how to best execute a command.
+		/// </summary>
+		/// <returns>true, if this command is most efficient when run synchronously</returns>
+		virtual bool IsNaturallySynchronous() const = 0;
+
 		/// <summary>Executes the command and does not return until it finishes.</summary>
 		/// <exception cref="CommandAbortedException">Thrown when execution is aborted</exception>
 		/// <exception cref="std::exception">

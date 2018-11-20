@@ -3,6 +3,11 @@
 
 using namespace CommandLib;
 
+bool AsyncCommand::IsNaturallySynchronous() const
+{
+	return false;
+}
+
 void AsyncCommand::SyncExecuteImpl()
 {
 	m_doneEvent.Reset();
