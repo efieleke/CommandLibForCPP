@@ -1,0 +1,174 @@
+\hypertarget{class_command_lib_1_1_scheduled_command}{}\section{Command\+Lib\+:\+:Scheduled\+Command Class Reference}
+\label{class_command_lib_1_1_scheduled_command}\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+
+
+Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that executes at a given time. When a \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} is executed, it will enter an efficient wait state until the time arrives at which to execute the underlying command.  
+
+
+
+
+{\ttfamily \#include $<$Scheduled\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Scheduled\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_scheduled_command}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a67af8cec078bd99c942eb30c60a59a33}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_ae5efd86637fd8da3ce36b11bc007836d}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a283025c9c8efe2cad78a7bcdb724c614}{Get\+Time\+Of\+Execution}} () const
+\begin{DoxyCompactList}\small\item\em Gets the time at which to execute the command to run\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a12535fdcde6fe3ca5646a12b53c5302e}{Set\+Time\+Of\+Execution}} (const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&time)
+\begin{DoxyCompactList}\small\item\em Sets the time at which to execute the command to run\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a4437a8661c9617790a032376d650e482}{Skip\+Wait}} ()
+\begin{DoxyCompactList}\small\item\em Skips the current wait time before the execution of the underlying command and executes it immediately\end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a3a4da8459441ce57379753e947467025}{Extended\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Returns diagnostic information about this object\textquotesingle{}s state \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_ae01bdda88e63460a380579e08ced9eda}\label{class_command_lib_1_1_scheduled_command_ae01bdda88e63460a380579e08ced9eda}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_ae01bdda88e63460a380579e08ced9eda}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_abf6008570965c8931d9c1bd8cd4f7b6a}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&time\+Of\+Execution, bool run\+Immediately\+If\+Time\+Is\+Past)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a4f22a429c29a9e28f547f1f9f2578f93}{Scheduled\+Command}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&time\+Of\+Execution, bool run\+Immediately\+If\+Time\+Is\+Past)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_abf6008570965c8931d9c1bd8cd4f7b6a}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that executes at a given time. When a \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} is executed, it will enter an efficient wait state until the time arrives at which to execute the underlying command. 
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_a67af8cec078bd99c942eb30c60a59a33}\label{class_command_lib_1_1_scheduled_command_a67af8cec078bd99c942eb30c60a59a33}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a67af8cec078bd99c942eb30c60a59a33}{Command\+Lib\+::\+Scheduled\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_ae5efd86637fd8da3ce36b11bc007836d}\label{class_command_lib_1_1_scheduled_command_ae5efd86637fd8da3ce36b11bc007836d}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_ae5efd86637fd8da3ce36b11bc007836d}{Command\+Lib\+::\+Scheduled\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_a4f22a429c29a9e28f547f1f9f2578f93}\label{class_command_lib_1_1_scheduled_command_a4f22a429c29a9e28f547f1f9f2578f93}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Scheduled\+Command@{Scheduled\+Command}}
+\index{Scheduled\+Command@{Scheduled\+Command}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Scheduled\+Command()}{ScheduledCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Scheduled\+Command\+::\+Scheduled\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&}]{time\+Of\+Execution,  }\item[{bool}]{run\+Immediately\+If\+Time\+Is\+Past }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_abf6008570965c8931d9c1bd8cd4f7b6a}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_abf6008570965c8931d9c1bd8cd4f7b6a}\label{class_command_lib_1_1_scheduled_command_abf6008570965c8931d9c1bd8cd4f7b6a}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Scheduled\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&}]{time\+Of\+Execution,  }\item[{bool}]{run\+Immediately\+If\+Time\+Is\+Past }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. The passed command will be disposed when this \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object is disposed. \\
+\hline
+{\em time\+Of\+Execution} & The time at which to execute the command to run. Note that unless this \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object is actually executed, the command to run will never execute. \\
+\hline
+{\em run\+Immediately\+If\+Time\+Is\+Past} & If, when this \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} is executed, the time of execution is in the past, it will execute immediately if this parameter is set to true (otherwise it will throw an Invalid\+Operation exception). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_a3a4da8459441ce57379753e947467025}\label{class_command_lib_1_1_scheduled_command_a3a4da8459441ce57379753e947467025}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Extended\+Description@{Extended\+Description}}
+\index{Extended\+Description@{Extended\+Description}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Extended\+Description()}{ExtendedDescription()}}
+{\footnotesize\ttfamily virtual std\+::string Command\+Lib\+::\+Scheduled\+Command\+::\+Extended\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns diagnostic information about this object\textquotesingle{}s state 
+
+\begin{DoxyReturn}{Returns}
+The returned text includes the time to execute as well as whether to run immediately if the scheduled time is in the past. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_command_lib_1_1_command_a795a185509e7b0fc1606b3b62fe17fbb}{Command\+Lib\+::\+Command}}.
+
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_a283025c9c8efe2cad78a7bcdb724c614}\label{class_command_lib_1_1_scheduled_command_a283025c9c8efe2cad78a7bcdb724c614}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Get\+Time\+Of\+Execution@{Get\+Time\+Of\+Execution}}
+\index{Get\+Time\+Of\+Execution@{Get\+Time\+Of\+Execution}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Get\+Time\+Of\+Execution()}{GetTimeOfExecution()}}
+{\footnotesize\ttfamily std\+::chrono\+::time\+\_\+point$<$std\+::chrono\+::system\+\_\+clock$>$ Command\+Lib\+::\+Scheduled\+Command\+::\+Get\+Time\+Of\+Execution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the time at which to execute the command to run
+
+\begin{DoxyReturn}{Returns}
+The time at which to execute the command to run. Note that unless this \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object is actually executed, the command to run will never execute. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_a12535fdcde6fe3ca5646a12b53c5302e}\label{class_command_lib_1_1_scheduled_command_a12535fdcde6fe3ca5646a12b53c5302e}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Set\+Time\+Of\+Execution@{Set\+Time\+Of\+Execution}}
+\index{Set\+Time\+Of\+Execution@{Set\+Time\+Of\+Execution}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Set\+Time\+Of\+Execution()}{SetTimeOfExecution()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Scheduled\+Command\+::\+Set\+Time\+Of\+Execution (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&}]{time }\end{DoxyParamCaption})}
+
+
+
+Sets the time at which to execute the command to run
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & The time at which to execute the command to run. Note that unless this \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object is actually executed, the command to run will never execute. \\
+\hline
+\end{DoxyParams}
+
+
+It is safe to change this property while this command is executing, although if the underlying command to run has already begun execution, it will have no effect. \mbox{\Hypertarget{class_command_lib_1_1_scheduled_command_a4437a8661c9617790a032376d650e482}\label{class_command_lib_1_1_scheduled_command_a4437a8661c9617790a032376d650e482}} 
+\index{Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}!Skip\+Wait@{Skip\+Wait}}
+\index{Skip\+Wait@{Skip\+Wait}!Command\+Lib\+::\+Scheduled\+Command@{Command\+Lib\+::\+Scheduled\+Command}}
+\subsubsection{\texorpdfstring{Skip\+Wait()}{SkipWait()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Scheduled\+Command\+::\+Skip\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Skips the current wait time before the execution of the underlying command and executes it immediately
+
+This is a no-\/op if this \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object is not currently executing
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Scheduled\+Command.\+h\end{DoxyCompactItemize}

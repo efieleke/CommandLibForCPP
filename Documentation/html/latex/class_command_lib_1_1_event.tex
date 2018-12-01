@@ -1,0 +1,117 @@
+\hypertarget{class_command_lib_1_1_event}{}\section{Command\+Lib\+:\+:Event Class Reference}
+\label{class_command_lib_1_1_event}\index{Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}}
+
+
+This object mimics a Windows manual reset event, and can be added to a \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} so that it\textquotesingle{}s possible to wait upon multiple \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_command_lib_1_1_event}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} $>$ \mbox{\hyperlink{class_command_lib_1_1_event_a3ac4eb982c0456c1216859a61198c073}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to an \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_event_a165569ddb4788df6b3fad0e52df5e78c}{Event}} ()
+\begin{DoxyCompactList}\small\item\em Construct an unsignaled \mbox{\hyperlink{class_command_lib_1_1_event}{Event}}\end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_command_lib_1_1_event_a6b00a5faf7e17ea1b5b2984e33309277}{Event}} (bool initially\+Signaled)
+\begin{DoxyCompactList}\small\item\em Construct an \mbox{\hyperlink{class_command_lib_1_1_event}{Event}}$>$\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_event_a321cb0c97c92012908816b0ced0dcc84}{Set}} ()
+\begin{DoxyCompactList}\small\item\em Signal this event\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_event_a9674a73be80ce75b7438c1d03942bd9e}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Make this event not signaled\end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_event_a943dcf40e6b9fa09df19cd3fa870788e}\label{class_command_lib_1_1_event_a943dcf40e6b9fa09df19cd3fa870788e}} 
+virtual bool \mbox{\hyperlink{class_command_lib_1_1_event_a943dcf40e6b9fa09df19cd3fa870788e}{Is\+Signaled}} () const override final
+\begin{DoxyCompactList}\small\item\em Indicates whether or not this object is in a signaled state \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_event_a26986edd42eaa6b85b5a4ddc32af60ae}\label{class_command_lib_1_1_event_a26986edd42eaa6b85b5a4ddc32af60ae}} 
+virtual void \mbox{\hyperlink{class_command_lib_1_1_event_a26986edd42eaa6b85b5a4ddc32af60ae}{Wait}} () const override final
+\begin{DoxyCompactList}\small\item\em Waits until this object is in a signaled state \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_event_a395777fd83828fea3d225b2c192d70dd}\label{class_command_lib_1_1_event_a395777fd83828fea3d225b2c192d70dd}} 
+virtual bool \mbox{\hyperlink{class_command_lib_1_1_event_a395777fd83828fea3d225b2c192d70dd}{Wait}} (long long ms) const override final
+\begin{DoxyCompactList}\small\item\em Waits the given milliseconds until this object is in a signaled state \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This object mimics a Windows manual reset event, and can be added to a \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} so that it\textquotesingle{}s possible to wait upon multiple \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} objects. 
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_event_a3ac4eb982c0456c1216859a61198c073}\label{class_command_lib_1_1_event_a3ac4eb982c0456c1216859a61198c073}} 
+\index{Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_event}{Event}}$>$ \mbox{\hyperlink{class_command_lib_1_1_event_a3ac4eb982c0456c1216859a61198c073}{Command\+Lib\+::\+Event\+::\+Ptr}}}
+
+
+
+Shared pointer to an \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_event_a165569ddb4788df6b3fad0e52df5e78c}\label{class_command_lib_1_1_event_a165569ddb4788df6b3fad0e52df5e78c}} 
+\index{Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}!Event@{Event}}
+\index{Event@{Event}!Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}}
+\subsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Event\+::\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct an unsignaled \mbox{\hyperlink{class_command_lib_1_1_event}{Event}}
+
+\mbox{\Hypertarget{class_command_lib_1_1_event_a6b00a5faf7e17ea1b5b2984e33309277}\label{class_command_lib_1_1_event_a6b00a5faf7e17ea1b5b2984e33309277}} 
+\index{Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}!Event@{Event}}
+\index{Event@{Event}!Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}}
+\subsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Event\+::\+Event (\begin{DoxyParamCaption}\item[{bool}]{initially\+Signaled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct an \mbox{\hyperlink{class_command_lib_1_1_event}{Event}}$>$
+
+
+\begin{DoxyParams}{Parameters}
+{\em initially\+Signaled} & Whether the event should be initially signaled\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_event_a9674a73be80ce75b7438c1d03942bd9e}\label{class_command_lib_1_1_event_a9674a73be80ce75b7438c1d03942bd9e}} 
+\index{Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}!Reset@{Reset}}
+\index{Reset@{Reset}!Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}}
+\subsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Event\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Make this event not signaled
+
+This object will stay not signaled until \mbox{\hyperlink{class_command_lib_1_1_event_a321cb0c97c92012908816b0ced0dcc84}{Set}} is called. It is safe to call this multiple times in a row. \mbox{\Hypertarget{class_command_lib_1_1_event_a321cb0c97c92012908816b0ced0dcc84}\label{class_command_lib_1_1_event_a321cb0c97c92012908816b0ced0dcc84}} 
+\index{Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}!Set@{Set}}
+\index{Set@{Set}!Command\+Lib\+::\+Event@{Command\+Lib\+::\+Event}}
+\subsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Event\+::\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Signal this event
+
+This object will stay signaled until \mbox{\hyperlink{class_command_lib_1_1_event_a9674a73be80ce75b7438c1d03942bd9e}{Reset}} is called. It is safe to call this multiple times in a row. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Event.\+h\end{DoxyCompactItemize}

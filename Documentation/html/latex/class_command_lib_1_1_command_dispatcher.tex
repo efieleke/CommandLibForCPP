@@ -1,0 +1,116 @@
+\hypertarget{class_command_lib_1_1_command_dispatcher}{}\section{Command\+Lib\+:\+:Command\+Dispatcher Class Reference}
+\label{class_command_lib_1_1_command_dispatcher}\index{Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}}
+
+
+Dispatches \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects for asynchronous execution.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Dispatcher.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_a9ef89de55c915fbd5f2e61784d67d8a0}{Command\+Dispatcher}} (size\+\_\+t max\+Concurrent)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher}{Command\+Dispatcher}} object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_a2995e97c734165b7d0b3491d606c547b}{Add\+Monitor}} (\mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} $\ast$monitor)
+\begin{DoxyCompactList}\small\item\em Adds a listener that will receive callbacks about the status of commands executed by this dispatcher\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_a2a1db45e830c48a4085bb2b86e47c692}{Dispatch}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command)
+\begin{DoxyCompactList}\small\item\em If there is room in the pool, asynchronously executes the command immediately. Otherwise, places the command in a queue for processing when room in the pool becomes available. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_ade1b36f9203de1426d7dff4f83808bec}{Abort}} ()
+\begin{DoxyCompactList}\small\item\em Aborts all dispatched commands, and empties the queue of not yet executed commands. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_ad5f8cae272c637ac628977c1556171c6}{Wait}} ()
+\begin{DoxyCompactList}\small\item\em Waits for all dispatched commands to finish execution \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_a324fd9debb368929cbc5357440bd8111}{Abort\+And\+Wait}} ()
+\begin{DoxyCompactList}\small\item\em Exact same effect as calling \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_ade1b36f9203de1426d7dff4f83808bec}{Abort}} followed immediately by a call to \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_ad5f8cae272c637ac628977c1556171c6}{Wait}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dispatches \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects for asynchronous execution. 
+
+This class can be useful when commands are dynamically generated at runtime, and must be dynamically executed upon generation. (for example, asynchronous handling of requests sent over a data stream). 
+
+Upon destruction, this object will wait until all dispatched commands finish execution. For a faster shutdown, you may wish to call \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_ade1b36f9203de1426d7dff4f83808bec}{Command\+Dispatcher\+::\+Abort()}} before destructing the dispatcher. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_command_dispatcher_a9ef89de55c915fbd5f2e61784d67d8a0}\label{class_command_lib_1_1_command_dispatcher_a9ef89de55c915fbd5f2e61784d67d8a0}} 
+\index{Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}!Command\+Dispatcher@{Command\+Dispatcher}}
+\index{Command\+Dispatcher@{Command\+Dispatcher}!Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}}
+\subsubsection{\texorpdfstring{Command\+Dispatcher()}{CommandDispatcher()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Command\+Dispatcher\+::\+Command\+Dispatcher (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{max\+Concurrent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher}{Command\+Dispatcher}} object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Concurrent} & The maximum number of commands that can be executed concurrently by this dispatcher. If this limit is reached, commands will be queued and only executed when enough prior dispatched commands finish execution. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_command_dispatcher_ade1b36f9203de1426d7dff4f83808bec}\label{class_command_lib_1_1_command_dispatcher_ade1b36f9203de1426d7dff4f83808bec}} 
+\index{Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}!Abort@{Abort}}
+\index{Abort@{Abort}!Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}}
+\subsubsection{\texorpdfstring{Abort()}{Abort()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+Dispatcher\+::\+Abort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Aborts all dispatched commands, and empties the queue of not yet executed commands. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_dispatcher_a324fd9debb368929cbc5357440bd8111}\label{class_command_lib_1_1_command_dispatcher_a324fd9debb368929cbc5357440bd8111}} 
+\index{Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}!Abort\+And\+Wait@{Abort\+And\+Wait}}
+\index{Abort\+And\+Wait@{Abort\+And\+Wait}!Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}}
+\subsubsection{\texorpdfstring{Abort\+And\+Wait()}{AbortAndWait()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+Dispatcher\+::\+Abort\+And\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exact same effect as calling \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_ade1b36f9203de1426d7dff4f83808bec}{Abort}} followed immediately by a call to \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher_ad5f8cae272c637ac628977c1556171c6}{Wait}}. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_dispatcher_a2995e97c734165b7d0b3491d606c547b}\label{class_command_lib_1_1_command_dispatcher_a2995e97c734165b7d0b3491d606c547b}} 
+\index{Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}!Add\+Monitor@{Add\+Monitor}}
+\index{Add\+Monitor@{Add\+Monitor}!Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}}
+\subsubsection{\texorpdfstring{Add\+Monitor()}{AddMonitor()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+Dispatcher\+::\+Add\+Monitor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} $\ast$}]{monitor }\end{DoxyParamCaption})}
+
+
+
+Adds a listener that will receive callbacks about the status of commands executed by this dispatcher
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_dispatcher_a2a1db45e830c48a4085bb2b86e47c692}\label{class_command_lib_1_1_command_dispatcher_a2a1db45e830c48a4085bb2b86e47c692}} 
+\index{Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}!Dispatch@{Dispatch}}
+\index{Dispatch@{Dispatch}!Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}}
+\subsubsection{\texorpdfstring{Dispatch()}{Dispatch()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+Dispatcher\+::\+Dispatch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command }\end{DoxyParamCaption})}
+
+
+
+If there is room in the pool, asynchronously executes the command immediately. Otherwise, places the command in a queue for processing when room in the pool becomes available. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to execute as soon as there is room in the pool. The command must be top-\/level (that is, it must have no parent). \\
+\hline
+\end{DoxyParams}
+Note that it will cause undefined behavior to dispatch a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object that is currently executing, or that has already been dispatched but has not yet executed. 
+
+When the command evenutally finishes execution, the \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} subscribers will be notified on a different thread. \mbox{\Hypertarget{class_command_lib_1_1_command_dispatcher_ad5f8cae272c637ac628977c1556171c6}\label{class_command_lib_1_1_command_dispatcher_ad5f8cae272c637ac628977c1556171c6}} 
+\index{Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}!Wait@{Wait}}
+\index{Wait@{Wait}!Command\+Lib\+::\+Command\+Dispatcher@{Command\+Lib\+::\+Command\+Dispatcher}}
+\subsubsection{\texorpdfstring{Wait()}{Wait()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+Dispatcher\+::\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Waits for all dispatched commands to finish execution 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Command\+Dispatcher.\+h\end{DoxyCompactItemize}

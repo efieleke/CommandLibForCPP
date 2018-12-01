@@ -1,0 +1,155 @@
+\hypertarget{class_command_lib_1_1_sequential_commands}{}\section{Command\+Lib\+:\+:Sequential\+Commands Class Reference}
+\label{class_command_lib_1_1_sequential_commands}\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+
+
+\mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} is a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object which contains a collection of commands which are run in sequence  
+
+
+
+
+{\ttfamily \#include $<$Sequential\+Commands.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Sequential\+Commands\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_command_lib_1_1_sequential_commands}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} $>$ \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_a833e8df5749f6f13b93eaa1d724799e9}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} $>$ \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_adf77d8fcaebe414c283e553ba0604228}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_af0100e15f7897471ce84802ab6c25e00}{Add}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} to the collection to execute.\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_ad022ea238a8c3ac1c1f71a5b71f6d94f}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em Empties all commands from the collection. Behavior is undefined if you call this while this command is executing. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_a8109d8d9b2c4a191cad02164ca173709}{Extended\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Returns diagnostic information about this object\textquotesingle{}s state \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_abbfd93499d508c3f0d2d817bd59e7080}\label{class_command_lib_1_1_sequential_commands_abbfd93499d508c3f0d2d817bd59e7080}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_abbfd93499d508c3f0d2d817bd59e7080}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_a47c2a881bfeab639064e36d202e32e0f}\label{class_command_lib_1_1_sequential_commands_a47c2a881bfeab639064e36d202e32e0f}} 
+virtual bool \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_a47c2a881bfeab639064e36d202e32e0f}{Is\+Naturally\+Synchronous}} () const final
+\begin{DoxyCompactList}\small\item\em Returns true if this command\textquotesingle{}s most efficient form of execution is synchronous. This information is used on occasion to determine how to best execute a command.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_aaacdef25d7dba29bae8ff7763c55017e}{Create}} ()
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_sequential_commands_ab4cbf775a047942c6fce735980f19bb0}{Sequential\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_aaacdef25d7dba29bae8ff7763c55017e}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} is a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object which contains a collection of commands which are run in sequence 
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_a833e8df5749f6f13b93eaa1d724799e9}\label{class_command_lib_1_1_sequential_commands_a833e8df5749f6f13b93eaa1d724799e9}} 
+\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}}$>$ \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_a833e8df5749f6f13b93eaa1d724799e9}{Command\+Lib\+::\+Sequential\+Commands\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_adf77d8fcaebe414c283e553ba0604228}\label{class_command_lib_1_1_sequential_commands_adf77d8fcaebe414c283e553ba0604228}} 
+\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}}$>$ \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_adf77d8fcaebe414c283e553ba0604228}{Command\+Lib\+::\+Sequential\+Commands\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_ab4cbf775a047942c6fce735980f19bb0}\label{class_command_lib_1_1_sequential_commands_ab4cbf775a047942c6fce735980f19bb0}} 
+\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}!Sequential\+Commands@{Sequential\+Commands}}
+\index{Sequential\+Commands@{Sequential\+Commands}!Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+\subsubsection{\texorpdfstring{Sequential\+Commands()}{SequentialCommands()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Sequential\+Commands\+::\+Sequential\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_aaacdef25d7dba29bae8ff7763c55017e}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_af0100e15f7897471ce84802ab6c25e00}\label{class_command_lib_1_1_sequential_commands_af0100e15f7897471ce84802ab6c25e00}} 
+\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}!Add@{Add}}
+\index{Add@{Add}!Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+\subsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Sequential\+Commands\+::\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} to the collection to execute.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to add\\
+\hline
+\end{DoxyParams}
+
+
+This object takes ownership of any commands that are added, so the passed command must not already have an owner. 
+
+Behavior is undefined if you add a command while this Seqential\+Commands object is executing\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_ad022ea238a8c3ac1c1f71a5b71f6d94f}\label{class_command_lib_1_1_sequential_commands_ad022ea238a8c3ac1c1f71a5b71f6d94f}} 
+\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}!Clear@{Clear}}
+\index{Clear@{Clear}!Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+\subsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Sequential\+Commands\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Empties all commands from the collection. Behavior is undefined if you call this while this command is executing. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_aaacdef25d7dba29bae8ff7763c55017e}\label{class_command_lib_1_1_sequential_commands_aaacdef25d7dba29bae8ff7763c55017e}} 
+\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+\subsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Sequential\+Commands\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} object 
+
+\mbox{\Hypertarget{class_command_lib_1_1_sequential_commands_a8109d8d9b2c4a191cad02164ca173709}\label{class_command_lib_1_1_sequential_commands_a8109d8d9b2c4a191cad02164ca173709}} 
+\index{Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}!Extended\+Description@{Extended\+Description}}
+\index{Extended\+Description@{Extended\+Description}!Command\+Lib\+::\+Sequential\+Commands@{Command\+Lib\+::\+Sequential\+Commands}}
+\subsubsection{\texorpdfstring{Extended\+Description()}{ExtendedDescription()}}
+{\footnotesize\ttfamily virtual std\+::string Command\+Lib\+::\+Sequential\+Commands\+::\+Extended\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns diagnostic information about this object\textquotesingle{}s state 
+
+\begin{DoxyReturn}{Returns}
+The returned text includes the number of commands in the collection 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_command_lib_1_1_command_a795a185509e7b0fc1606b3b62fe17fbb}{Command\+Lib\+::\+Command}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Sequential\+Commands.\+h\end{DoxyCompactItemize}

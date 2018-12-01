@@ -1,0 +1,146 @@
+\hypertarget{class_command_lib_1_1_time_limited_command}{}\section{Command\+Lib\+:\+:Time\+Limited\+Command Class Reference}
+\label{class_command_lib_1_1_time_limited_command}\index{Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}}
+
+
+This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}, throwing a Timeout\+Exception if a specified interval elapses before the underlying command finishes execution.  
+
+
+
+
+{\ttfamily \#include $<$Time\+Limited\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Time\+Limited\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_time_limited_command}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_ae2953ea50b6e131e481a2cd309b3a943}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_aecfced587f9da8eb1493b7bbc8759b8b}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_aaf7018c66b91a5d1a519325b99dc3f55}{Extended\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Returns diagnostic information about this object\textquotesingle{}s state \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_time_limited_command_a2a5063ef124f555229b90f7bd82f362e}\label{class_command_lib_1_1_time_limited_command_a2a5063ef124f555229b90f7bd82f362e}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_a2a5063ef124f555229b90f7bd82f362e}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_a7b8515c4f2780c7f5d8bc942affbc12b}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command\+To\+Run, long long timeout\+MS)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_a14e7e2915d660199c4433972a93515e7}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command\+To\+Run, const std\+::chrono\+::duration$<$ Rep, Period $>$ \&timeout)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_time_limited_command_add0fd2d4443a1c44b99e3291ae4982e3}{Time\+Limited\+Command}} (long long timeout\+MS)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_a7b8515c4f2780c7f5d8bc942affbc12b}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}, throwing a Timeout\+Exception if a specified interval elapses before the underlying command finishes execution. 
+
+The underlying command to execute must be responsive to abort requests in order for the timeout interval to be honored. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_time_limited_command_ae2953ea50b6e131e481a2cd309b3a943}\label{class_command_lib_1_1_time_limited_command_ae2953ea50b6e131e481a2cd309b3a943}} 
+\index{Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_ae2953ea50b6e131e481a2cd309b3a943}{Command\+Lib\+::\+Time\+Limited\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_time_limited_command_aecfced587f9da8eb1493b7bbc8759b8b}\label{class_command_lib_1_1_time_limited_command_aecfced587f9da8eb1493b7bbc8759b8b}} 
+\index{Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_aecfced587f9da8eb1493b7bbc8759b8b}{Command\+Lib\+::\+Time\+Limited\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_time_limited_command_add0fd2d4443a1c44b99e3291ae4982e3}\label{class_command_lib_1_1_time_limited_command_add0fd2d4443a1c44b99e3291ae4982e3}} 
+\index{Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}!Time\+Limited\+Command@{Time\+Limited\+Command}}
+\index{Time\+Limited\+Command@{Time\+Limited\+Command}!Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}}
+\subsubsection{\texorpdfstring{Time\+Limited\+Command()}{TimeLimitedCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Time\+Limited\+Command\+::\+Time\+Limited\+Command (\begin{DoxyParamCaption}\item[{long long}]{timeout\+MS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_a7b8515c4f2780c7f5d8bc942affbc12b}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_time_limited_command_a7b8515c4f2780c7f5d8bc942affbc12b}\label{class_command_lib_1_1_time_limited_command_a7b8515c4f2780c7f5d8bc942affbc12b}} 
+\index{Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Time\+Limited\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command\+To\+Run,  }\item[{long long}]{timeout\+MS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+To\+Run} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. \\
+\hline
+{\em timeout\+MS} & The timeout interval, in milliseconds. The countdown does not begin until this command is executed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_time_limited_command_a14e7e2915d660199c4433972a93515e7}\label{class_command_lib_1_1_time_limited_command_a14e7e2915d660199c4433972a93515e7}} 
+\index{Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Time\+Limited\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command\+To\+Run,  }\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+To\+Run} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. \\
+\hline
+{\em timeout} & The timeout interval. The countdown does not begin until this command is executed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_time_limited_command_aaf7018c66b91a5d1a519325b99dc3f55}\label{class_command_lib_1_1_time_limited_command_aaf7018c66b91a5d1a519325b99dc3f55}} 
+\index{Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}!Extended\+Description@{Extended\+Description}}
+\index{Extended\+Description@{Extended\+Description}!Command\+Lib\+::\+Time\+Limited\+Command@{Command\+Lib\+::\+Time\+Limited\+Command}}
+\subsubsection{\texorpdfstring{Extended\+Description()}{ExtendedDescription()}}
+{\footnotesize\ttfamily virtual std\+::string Command\+Lib\+::\+Time\+Limited\+Command\+::\+Extended\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns diagnostic information about this object\textquotesingle{}s state 
+
+\begin{DoxyReturn}{Returns}
+The returned text includes the timeout duration. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_command_lib_1_1_command_a795a185509e7b0fc1606b3b62fe17fbb}{Command\+Lib\+::\+Command}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Time\+Limited\+Command.\+h\end{DoxyCompactItemize}

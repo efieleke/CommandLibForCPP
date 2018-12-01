@@ -1,0 +1,267 @@
+\hypertarget{class_command_lib_1_1_pause_command}{}\section{Command\+Lib\+:\+:Pause\+Command Class Reference}
+\label{class_command_lib_1_1_pause_command}\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+
+
+A \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that efficiently does nothing for a specified duration. 
+
+
+
+
+{\ttfamily \#include $<$Pause\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Pause\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_pause_command}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_pause_command_ad14df8483794045a09d0b08007cbf289}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_pause_command_ac4c00381b2c560c5d072a0eedaefa92b}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_command_lib_1_1_pause_command_a1a02c8ebd44bd32cdc72731d2a16d232}{Cut\+Short}} ()
+\begin{DoxyCompactList}\small\item\em If currently executing, finishes the pause now. Does {\itshape not} cause this command to be aborted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_pause_command_abb0980872e2376aece3e184a2decd861}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em If currently executing, starts the pause all over again, with the currently set duration value \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\std\+::chrono\+::duration$<$ Rep, Period $>$ \mbox{\hyperlink{class_command_lib_1_1_pause_command_aa6bf4dfa9880d58f4995090d0cd6859c}{Get\+Duration}} () const
+\begin{DoxyCompactList}\small\item\em Gets the amount of time to pause \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{class_command_lib_1_1_pause_command_a8b92e16e0d088945b64c78437d357cb1}{Get\+Duration\+MS}} () const
+\begin{DoxyCompactList}\small\item\em The amount of time to pause in milliseconds \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\void \mbox{\hyperlink{class_command_lib_1_1_pause_command_a1ee11b6870b84a56521caa0b8e43c560}{Set\+Duration}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&dur)
+\begin{DoxyCompactList}\small\item\em Sets the amount of time to pause \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_pause_command_a87681b8e122468292369874bad63bc8e}{Set\+Duration\+MS}} (long long ms)
+\begin{DoxyCompactList}\small\item\em Sets the amount of time to pause in milliseconds \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_a211772cefb139755c74495f190a9a607}\label{class_command_lib_1_1_pause_command_a211772cefb139755c74495f190a9a607}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_pause_command_a211772cefb139755c74495f190a9a607}{Extended\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Information about the command (beyond its type and id), if available, for diagnostic purposes.  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_afcdddf1fa8b52a3bfec665b1db736cc5}\label{class_command_lib_1_1_pause_command_afcdddf1fa8b52a3bfec665b1db736cc5}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_pause_command_afcdddf1fa8b52a3bfec665b1db736cc5}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_pause_command_acf08990d56d99bcec76588d786c980e7}{Create}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&dur)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}\end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_pause_command_a8c0effc409aae3b87b2126261599f77b}{Create}} (long long ms)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}\end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_pause_command_a907d1e6292bfbe4af719515534363c40}{Create}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&dur, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} stop\+Event)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}\end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_pause_command_a76090daf88f99b4e36414a853f3eb447}{Create}} (long long ms, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} stop\+Event)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_pause_command_a777f5a05a5ed78abeafcfbc7e1d27072}{Pause\+Command}} (long long ms, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} stop\+Event)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_pause_command_acf08990d56d99bcec76588d786c980e7}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that efficiently does nothing for a specified duration.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_ad14df8483794045a09d0b08007cbf289}\label{class_command_lib_1_1_pause_command_ad14df8483794045a09d0b08007cbf289}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_pause_command_ad14df8483794045a09d0b08007cbf289}{Command\+Lib\+::\+Pause\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_ac4c00381b2c560c5d072a0eedaefa92b}\label{class_command_lib_1_1_pause_command_ac4c00381b2c560c5d072a0eedaefa92b}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_pause_command_ac4c00381b2c560c5d072a0eedaefa92b}{Command\+Lib\+::\+Pause\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_a777f5a05a5ed78abeafcfbc7e1d27072}\label{class_command_lib_1_1_pause_command_a777f5a05a5ed78abeafcfbc7e1d27072}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Pause\+Command@{Pause\+Command}}
+\index{Pause\+Command@{Pause\+Command}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Pause\+Command()}{PauseCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Pause\+Command\+::\+Pause\+Command (\begin{DoxyParamCaption}\item[{long long}]{ms,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{stop\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_pause_command_acf08990d56d99bcec76588d786c980e7}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_acf08990d56d99bcec76588d786c980e7}\label{class_command_lib_1_1_pause_command_acf08990d56d99bcec76588d786c980e7}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Pause\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{dur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dur} & The amount of time to pause\\
+\hline
+\end{DoxyParams}
+
+
+The \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} used in the implemention of this class uses std\+::condition\+\_\+variable\+\_\+any. In my experience, Windows systems will not behave properly if you pass a value that equates to more milliseconds than can fit into the max value of a Windows D\+W\+O\+RD (which is under a month long duration). \mbox{\Hypertarget{class_command_lib_1_1_pause_command_a8c0effc409aae3b87b2126261599f77b}\label{class_command_lib_1_1_pause_command_a8c0effc409aae3b87b2126261599f77b}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Pause\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{long long}]{ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ms} & The number of milliseconds to pause.\\
+\hline
+\end{DoxyParams}
+
+
+The \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} used in the implemention of this class uses std\+::condition\+\_\+variable\+\_\+any. In my experience, Windows systems will not behave properly if you pass a value that equates to more milliseconds than can fit into the max value of a Windows D\+W\+O\+RD (which is under a month long duration). \mbox{\Hypertarget{class_command_lib_1_1_pause_command_a907d1e6292bfbe4af719515534363c40}\label{class_command_lib_1_1_pause_command_a907d1e6292bfbe4af719515534363c40}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Pause\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{dur,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{stop\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Constructs a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dur} & The amount of time to pause\\
+\hline
+{\em stop\+Event} & Optional event to indicate that the \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} should stop. Raising this event is equivalent to calling \mbox{\hyperlink{class_command_lib_1_1_pause_command_a1a02c8ebd44bd32cdc72731d2a16d232}{Cut\+Short}} \\
+\hline
+\end{DoxyParams}
+
+
+The \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} used in the implemention of this class uses std\+::condition\+\_\+variable\+\_\+any. In my experience, Windows systems will not behave properly if you pass a value that equates to more milliseconds than can fit into the max value of a Windows D\+W\+O\+RD (which is under a month long duration). \mbox{\Hypertarget{class_command_lib_1_1_pause_command_a76090daf88f99b4e36414a853f3eb447}\label{class_command_lib_1_1_pause_command_a76090daf88f99b4e36414a853f3eb447}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Pause\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{long long}]{ms,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{stop\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Constructs a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ms} & The number of milliseconds to pause\\
+\hline
+{\em stop\+Event} & Optional event to indicate that the \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} should stop. Raising this event is equivalent to calling \mbox{\hyperlink{class_command_lib_1_1_pause_command_a1a02c8ebd44bd32cdc72731d2a16d232}{Cut\+Short}} \\
+\hline
+\end{DoxyParams}
+
+
+The \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} used in the implemention of this class uses std\+::condition\+\_\+variable\+\_\+any. In my experience, Windows systems will not behave properly if you pass a value that equates to more milliseconds than can fit into the max value of a Windows D\+W\+O\+RD (which is under a month long duration). \mbox{\Hypertarget{class_command_lib_1_1_pause_command_a1a02c8ebd44bd32cdc72731d2a16d232}\label{class_command_lib_1_1_pause_command_a1a02c8ebd44bd32cdc72731d2a16d232}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Cut\+Short@{Cut\+Short}}
+\index{Cut\+Short@{Cut\+Short}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Cut\+Short()}{CutShort()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Pause\+Command\+::\+Cut\+Short (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+If currently executing, finishes the pause now. Does {\itshape not} cause this command to be aborted. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_aa6bf4dfa9880d58f4995090d0cd6859c}\label{class_command_lib_1_1_pause_command_aa6bf4dfa9880d58f4995090d0cd6859c}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Get\+Duration@{Get\+Duration}}
+\index{Get\+Duration@{Get\+Duration}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Get\+Duration()}{GetDuration()}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+std\+::chrono\+::duration$<$Rep, Period$>$ Command\+Lib\+::\+Pause\+Command\+::\+Get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the amount of time to pause 
+
+\begin{DoxyReturn}{Returns}
+The amount of time to pause
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_a8b92e16e0d088945b64c78437d357cb1}\label{class_command_lib_1_1_pause_command_a8b92e16e0d088945b64c78437d357cb1}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Get\+Duration\+MS@{Get\+Duration\+MS}}
+\index{Get\+Duration\+MS@{Get\+Duration\+MS}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Get\+Duration\+M\+S()}{GetDurationMS()}}
+{\footnotesize\ttfamily long long Command\+Lib\+::\+Pause\+Command\+::\+Get\+Duration\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The amount of time to pause in milliseconds 
+
+\begin{DoxyReturn}{Returns}
+The amount of time to pause
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_abb0980872e2376aece3e184a2decd861}\label{class_command_lib_1_1_pause_command_abb0980872e2376aece3e184a2decd861}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Reset@{Reset}}
+\index{Reset@{Reset}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Pause\+Command\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+If currently executing, starts the pause all over again, with the currently set duration value 
+
+\mbox{\Hypertarget{class_command_lib_1_1_pause_command_a1ee11b6870b84a56521caa0b8e43c560}\label{class_command_lib_1_1_pause_command_a1ee11b6870b84a56521caa0b8e43c560}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Set\+Duration@{Set\+Duration}}
+\index{Set\+Duration@{Set\+Duration}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Set\+Duration()}{SetDuration()}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+void Command\+Lib\+::\+Pause\+Command\+::\+Set\+Duration (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{dur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the amount of time to pause 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dur} & The amount of time to pause\\
+\hline
+\end{DoxyParams}
+
+
+It is safe to change this while the command is executing, but doing so will have no effect until the next time it is executed.\mbox{\Hypertarget{class_command_lib_1_1_pause_command_a87681b8e122468292369874bad63bc8e}\label{class_command_lib_1_1_pause_command_a87681b8e122468292369874bad63bc8e}} 
+\index{Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}!Set\+Duration\+MS@{Set\+Duration\+MS}}
+\index{Set\+Duration\+MS@{Set\+Duration\+MS}!Command\+Lib\+::\+Pause\+Command@{Command\+Lib\+::\+Pause\+Command}}
+\subsubsection{\texorpdfstring{Set\+Duration\+M\+S()}{SetDurationMS()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Pause\+Command\+::\+Set\+Duration\+MS (\begin{DoxyParamCaption}\item[{long long}]{ms }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of time to pause in milliseconds 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ms} & The amount of milliseconds to pause\\
+\hline
+\end{DoxyParams}
+
+
+It is safe to change this property while the command is executing, but doing so will have no effect until the next time it is executed.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Pause\+Command.\+h\end{DoxyCompactItemize}

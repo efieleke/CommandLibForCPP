@@ -1,0 +1,143 @@
+\hypertarget{class_command_lib_1_1_recurring_command}{}\section{Command\+Lib\+:\+:Recurring\+Command Class Reference}
+\label{class_command_lib_1_1_recurring_command}\index{Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}}
+
+
+Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that repeatedly executes at times specified by the caller 
+
+
+
+
+{\ttfamily \#include $<$Recurring\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Recurring\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_recurring_command}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_command_lib_1_1_recurring_command_1_1_execution_time_callback}{Execution\+Time\+Callback}}
+\begin{DoxyCompactList}\small\item\em Defines at what times the underlying command executes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a99bd5afbc77fa5d574fd0804146f0858}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a458574df1804d7f1e4ba75e7aeb701e5}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a11e19f7c0cbc93c33e36f6c75d858b0f}{Skip\+Current\+Wait}} ()
+\begin{DoxyCompactList}\small\item\em If currently waiting until the time to next execute the command to run, skip the wait and execute the command right away.\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a954ee8723b21944ab9aa01df0740b690}{Set\+Next\+Execution\+Time}} (const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&time)
+\begin{DoxyCompactList}\small\item\em If currently waiting until the time to next execute the command to run, resets that time to the time specified. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_recurring_command_a4e2073b92185dd5f7b545d774afbb929}\label{class_command_lib_1_1_recurring_command_a4e2073b92185dd5f7b545d774afbb929}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a4e2073b92185dd5f7b545d774afbb929}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_recurring_command_afac0e064cbce4cea8fe5d734367b7c3a}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, \mbox{\hyperlink{class_command_lib_1_1_recurring_command_1_1_execution_time_callback}{Execution\+Time\+Callback}} $\ast$callback)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_recurring_command_a46723429ffa56b961949931cc4e51e22}{Recurring\+Command}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, \mbox{\hyperlink{class_command_lib_1_1_recurring_command_1_1_execution_time_callback}{Execution\+Time\+Callback}} $\ast$callback)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_recurring_command_afac0e064cbce4cea8fe5d734367b7c3a}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that repeatedly executes at times specified by the caller
+
+If the interval between execution times is fixed, it would be simpler to use \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} instead. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_recurring_command_a99bd5afbc77fa5d574fd0804146f0858}\label{class_command_lib_1_1_recurring_command_a99bd5afbc77fa5d574fd0804146f0858}} 
+\index{Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a99bd5afbc77fa5d574fd0804146f0858}{Command\+Lib\+::\+Recurring\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_recurring_command_a458574df1804d7f1e4ba75e7aeb701e5}\label{class_command_lib_1_1_recurring_command_a458574df1804d7f1e4ba75e7aeb701e5}} 
+\index{Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a458574df1804d7f1e4ba75e7aeb701e5}{Command\+Lib\+::\+Recurring\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_recurring_command_a46723429ffa56b961949931cc4e51e22}\label{class_command_lib_1_1_recurring_command_a46723429ffa56b961949931cc4e51e22}} 
+\index{Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}!Recurring\+Command@{Recurring\+Command}}
+\index{Recurring\+Command@{Recurring\+Command}!Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}}
+\subsubsection{\texorpdfstring{Recurring\+Command()}{RecurringCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Recurring\+Command\+::\+Recurring\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_recurring_command_1_1_execution_time_callback}{Execution\+Time\+Callback}} $\ast$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_recurring_command_afac0e064cbce4cea8fe5d734367b7c3a}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_recurring_command_afac0e064cbce4cea8fe5d734367b7c3a}\label{class_command_lib_1_1_recurring_command_afac0e064cbce4cea8fe5d734367b7c3a}} 
+\index{Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Recurring\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_recurring_command_1_1_execution_time_callback}{Execution\+Time\+Callback}} $\ast$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. \\
+\hline
+{\em callback} & Defines at what times the underlying command executes\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_recurring_command_a954ee8723b21944ab9aa01df0740b690}\label{class_command_lib_1_1_recurring_command_a954ee8723b21944ab9aa01df0740b690}} 
+\index{Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}!Set\+Next\+Execution\+Time@{Set\+Next\+Execution\+Time}}
+\index{Set\+Next\+Execution\+Time@{Set\+Next\+Execution\+Time}!Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}}
+\subsubsection{\texorpdfstring{Set\+Next\+Execution\+Time()}{SetNextExecutionTime()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Recurring\+Command\+::\+Set\+Next\+Execution\+Time (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \&}]{time }\end{DoxyParamCaption})}
+
+
+
+If currently waiting until the time to next execute the command to run, resets that time to the time specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & The time to execute the command to run. If a time in the past is specified, the command to run will execute immediately. \\
+\hline
+\end{DoxyParams}
+
+
+This is a no-\/op if this \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} object is not currently executing. command is executing. \mbox{\Hypertarget{class_command_lib_1_1_recurring_command_a11e19f7c0cbc93c33e36f6c75d858b0f}\label{class_command_lib_1_1_recurring_command_a11e19f7c0cbc93c33e36f6c75d858b0f}} 
+\index{Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}!Skip\+Current\+Wait@{Skip\+Current\+Wait}}
+\index{Skip\+Current\+Wait@{Skip\+Current\+Wait}!Command\+Lib\+::\+Recurring\+Command@{Command\+Lib\+::\+Recurring\+Command}}
+\subsubsection{\texorpdfstring{Skip\+Current\+Wait()}{SkipCurrentWait()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Recurring\+Command\+::\+Skip\+Current\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+If currently waiting until the time to next execute the command to run, skip the wait and execute the command right away.
+
+This is a no-\/op if this \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} object is not currently executing
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Recurring\+Command.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,141 @@
+\hypertarget{class_command_lib_1_1_abort_linked_command}{}\section{Command\+Lib\+:\+:Abort\+Linked\+Command Class Reference}
+\label{class_command_lib_1_1_abort_linked_command}\index{Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}}
+
+
+A \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wrapper that, in addition to responding to normal \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Command\+::\+Abort}} requests, also aborts in response to either 1) a request to abort a different, specified \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} instance, or 2) the signaling of a specified \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} (typically an \mbox{\hyperlink{class_command_lib_1_1_event}{Event}}).  
+
+
+
+
+{\ttfamily \#include $<$Abort\+Linked\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Abort\+Linked\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_abort_linked_command}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_a45ac62243ddc4bff695a1abba7363dd8}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to an \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_lib_1_1_abort_linked_command_a014c2c8177e18e27f651aa122b58c90e}\label{class_command_lib_1_1_abort_linked_command_a014c2c8177e18e27f651aa122b58c90e}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_a014c2c8177e18e27f651aa122b58c90e}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Command\+::\+Const\+Ptr}} \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_ab61bc8cebde56e75016aa5bcea1ac175}{Command\+To\+Watch}} () const
+\begin{DoxyCompactList}\small\item\em The command that will be monitored for abort events\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_ab359541aab47533699365c2d74af1c5c}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command\+To\+Run, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} abort\+Signal)
+\begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_ab3f6ae763ac98e85ce485d1cb7286960}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command\+To\+Run, \mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Command\+::\+Const\+Ptr}} command\+To\+Watch)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_a0141b7dda2d5927ea405c888876224ec}{Abort\+Linked\+Command}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command\+To\+Run, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} abort\+Event, \mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Command\+::\+Const\+Ptr}} command\+To\+Watch)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_ab359541aab47533699365c2d74af1c5c}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wrapper that, in addition to responding to normal \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Command\+::\+Abort}} requests, also aborts in response to either 1) a request to abort a different, specified \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} instance, or 2) the signaling of a specified \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} (typically an \mbox{\hyperlink{class_command_lib_1_1_event}{Event}}). 
+
+\mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} objects must be top level. Any attempt by another \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} to take ownership of an \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} will raise an exception. For example, adding this type to a \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} will raise an exception because \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} would attempt to assume ownership. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_abort_linked_command_a45ac62243ddc4bff695a1abba7363dd8}\label{class_command_lib_1_1_abort_linked_command_a45ac62243ddc4bff695a1abba7363dd8}} 
+\index{Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_a45ac62243ddc4bff695a1abba7363dd8}{Command\+Lib\+::\+Abort\+Linked\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}\label{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}} 
+\index{Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}{Command\+Lib\+::\+Abort\+Linked\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to an \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_abort_linked_command_a0141b7dda2d5927ea405c888876224ec}\label{class_command_lib_1_1_abort_linked_command_a0141b7dda2d5927ea405c888876224ec}} 
+\index{Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}!Abort\+Linked\+Command@{Abort\+Linked\+Command}}
+\index{Abort\+Linked\+Command@{Abort\+Linked\+Command}!Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}}
+\subsubsection{\texorpdfstring{Abort\+Linked\+Command()}{AbortLinkedCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Abort\+Linked\+Command\+::\+Abort\+Linked\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command\+To\+Run,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{abort\+Event,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Command\+::\+Const\+Ptr}}}]{command\+To\+Watch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_ab359541aab47533699365c2d74af1c5c}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_abort_linked_command_ab61bc8cebde56e75016aa5bcea1ac175}\label{class_command_lib_1_1_abort_linked_command_ab61bc8cebde56e75016aa5bcea1ac175}} 
+\index{Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}!Command\+To\+Watch@{Command\+To\+Watch}}
+\index{Command\+To\+Watch@{Command\+To\+Watch}!Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}}
+\subsubsection{\texorpdfstring{Command\+To\+Watch()}{CommandToWatch()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Command\+::\+Const\+Ptr}} Command\+Lib\+::\+Abort\+Linked\+Command\+::\+Command\+To\+Watch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The command that will be monitored for abort events
+
+\begin{DoxyReturn}{Returns}
+The same value that was passed to the overloaded form of Create. This may be null, if that Create method was not used
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_abort_linked_command_ab359541aab47533699365c2d74af1c5c}\label{class_command_lib_1_1_abort_linked_command_ab359541aab47533699365c2d74af1c5c}} 
+\index{Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}{Ptr}} Command\+Lib\+::\+Abort\+Linked\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command\+To\+Run,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{abort\+Signal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates an \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+To\+Run} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. \\
+\hline
+{\em abort\+Signal} & When signaled, the command to run will be aborted. This object does not take ownership of this parameter. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_abort_linked_command_ab3f6ae763ac98e85ce485d1cb7286960}\label{class_command_lib_1_1_abort_linked_command_ab3f6ae763ac98e85ce485d1cb7286960}} 
+\index{Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Abort\+Linked\+Command@{Command\+Lib\+::\+Abort\+Linked\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command_acb916ab386f796250b4978538d9eabd8}{Ptr}} Command\+Lib\+::\+Abort\+Linked\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command\+To\+Run,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Command\+::\+Const\+Ptr}}}]{command\+To\+Watch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Constructs an \mbox{\hyperlink{class_command_lib_1_1_abort_linked_command}{Abort\+Linked\+Command}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+To\+Run} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. \\
+\hline
+{\em command\+To\+Watch} & When this \textquotesingle{}command\+To\+Watch\textquotesingle{} is aborted, the command to run will also be aborted. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Abort\+Linked\+Command.\+h\end{DoxyCompactItemize}

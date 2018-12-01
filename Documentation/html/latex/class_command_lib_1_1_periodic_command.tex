@@ -1,0 +1,364 @@
+\hypertarget{class_command_lib_1_1_periodic_command}{}\section{Command\+Lib\+:\+:Periodic\+Command Class Reference}
+\label{class_command_lib_1_1_periodic_command}\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+
+
+Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that repeats periodically at a specified interval 
+
+
+
+
+{\ttfamily \#include $<$Periodic\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Periodic\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_periodic_command}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}} \{ \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31ea9df9cbfe0251b1b5670ee8ce058bd287}{Interval\+Type\+::\+Pause\+Before}}, 
+\mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31ea4ccaa10bfe2d79ac758dfa35d4ca588f}{Interval\+Type\+::\+Pause\+After}}
+ \}
+\begin{DoxyCompactList}\small\item\em Defines how the interval between command executions is performed within a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} \end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ad004e7ccaad4b0413f341dac73d050fc}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a4aa1af2412d7688c7b9a5d76b240b38a}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Unit $>$ }\\Unit \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a4be16b8f26b54d9ca41f01f723eb7faf}{Get\+Interval}} () const
+\begin{DoxyCompactList}\small\item\em Gets the interval of time between command executions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\void \mbox{\hyperlink{class_command_lib_1_1_periodic_command_af344626ecaa9e0ecb85fd2f98100eba9}{Set\+Interval}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&interval)
+\begin{DoxyCompactList}\small\item\em Sets the interval of time between command executions. \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{class_command_lib_1_1_periodic_command_abef034455e746be6367651cc05702344}{Get\+Interval\+MS}} () const
+\begin{DoxyCompactList}\small\item\em Gets the interval of time between command executions in milliseconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ae4f9588a25154969bfb9dbf10cf5e367}{Set\+Interval\+MS}} (long long interval)
+\begin{DoxyCompactList}\small\item\em Sets the number of milliseconds between command executions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a59a83d1c32419d61d326040d7aa040ef}{Stop}} ()
+\begin{DoxyCompactList}\small\item\em Causes the command to stop repeating. This will not cause the command to be aborted. If the command to run is currently executing when this is called, it will be allowed to finish. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a537aa24d843d7ca7a4fe1d9a9e5f1d24}{Skip\+Current\+Wait}} ()
+\begin{DoxyCompactList}\small\item\em If currently in the interval between command executions, skips the wait and executes the command right away. This only skips the current wait. It will not skip subsequent waits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ad07aa39b59712f784b16419fe055783c}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Rewinds the current pause to its full duration. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a330571debdbd7f7b306dd7f2718e84e5}{Extended\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Returns diagnostic information about this object\textquotesingle{}s state \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_a77c34a0f31ae4e7f0c642a356bd5d6ef}\label{class_command_lib_1_1_periodic_command_a77c34a0f31ae4e7f0c642a356bd5d6ef}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a77c34a0f31ae4e7f0c642a356bd5d6ef}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_periodic_command_aa553fa62e0e5774b39c1105caf3dd087}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, size\+\_\+t repeat\+Count, std\+::chrono\+::duration$<$ Rep, Period $>$ interval, \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}} interval\+Type, bool interval\+Is\+Inclusive)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_periodic_command_aa6ae89b0c0a0a61388748856074596b8}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, size\+\_\+t repeat\+Count, long long interval\+MS, \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}} interval\+Type, bool interval\+Is\+Inclusive)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a22783c7b42c443ebe6a6392d380efe51}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, size\+\_\+t repeat\+Count, std\+::chrono\+::duration$<$ Rep, Period $>$ interval, \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}} interval\+Type, bool interval\+Is\+Inclusive, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} stop\+Event)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_periodic_command_aeaa8112e6cab67aa63eb906bea96e5d2}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, size\+\_\+t repeat\+Count, long long interval\+MS, \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}} interval\+Type, bool interval\+Is\+Inclusive, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} stop\+Event)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::atomic\+\_\+uint \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ab6e63dc1cc0fa2dc39eded7ca5f1fd94}{m\+\_\+repeat\+Count}}
+\begin{DoxyCompactList}\small\item\em The total number of times the command to run will execute. If the command to run is currently executing when this is changed, it will be allowed to finish, even if the repeat count is set to a number lower than the number of times already executed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_periodic_command_ae01a26a099f4ffd1006e9d8451568964}{Periodic\+Command}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, size\+\_\+t repeat\+Count, long long interval\+MS, \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}} interval\+Type, bool interval\+Is\+Inclusive, \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} stop\+Event)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_periodic_command_aa553fa62e0e5774b39c1105caf3dd087}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that repeats periodically at a specified interval
+
+If more dynamic control is needed around the period of time between executions, use \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} instead. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ad004e7ccaad4b0413f341dac73d050fc}\label{class_command_lib_1_1_periodic_command_ad004e7ccaad4b0413f341dac73d050fc}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ad004e7ccaad4b0413f341dac73d050fc}{Command\+Lib\+::\+Periodic\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_a4aa1af2412d7688c7b9a5d76b240b38a}\label{class_command_lib_1_1_periodic_command_a4aa1af2412d7688c7b9a5d76b240b38a}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a4aa1af2412d7688c7b9a5d76b240b38a}{Command\+Lib\+::\+Periodic\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}\label{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Interval\+Type@{Interval\+Type}}
+\index{Interval\+Type@{Interval\+Type}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Interval\+Type}{IntervalType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Command\+Lib\+::\+Periodic\+Command\+::\+Interval\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Defines how the interval between command executions is performed within a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pause\+Before@{Pause\+Before}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Pause\+Before@{Pause\+Before}}}\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31ea9df9cbfe0251b1b5670ee8ce058bd287}\label{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31ea9df9cbfe0251b1b5670ee8ce058bd287}} 
+Pause\+Before&Pause first, then run the command, and repeat as many times as specified \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pause\+After@{Pause\+After}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Pause\+After@{Pause\+After}}}\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31ea4ccaa10bfe2d79ac758dfa35d4ca588f}\label{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31ea4ccaa10bfe2d79ac758dfa35d4ca588f}} 
+Pause\+After&Run the command first, then pause, and repeat as many times as specified. There is no pause after the last execution of the command. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ae01a26a099f4ffd1006e9d8451568964}\label{class_command_lib_1_1_periodic_command_ae01a26a099f4ffd1006e9d8451568964}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Periodic\+Command@{Periodic\+Command}}
+\index{Periodic\+Command@{Periodic\+Command}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Periodic\+Command()}{PeriodicCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Periodic\+Command\+::\+Periodic\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{size\+\_\+t}]{repeat\+Count,  }\item[{long long}]{interval\+MS,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}}}]{interval\+Type,  }\item[{bool}]{interval\+Is\+Inclusive,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{stop\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_periodic_command_aa553fa62e0e5774b39c1105caf3dd087}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_aa553fa62e0e5774b39c1105caf3dd087}\label{class_command_lib_1_1_periodic_command_aa553fa62e0e5774b39c1105caf3dd087}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Periodic\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{size\+\_\+t}]{repeat\+Count,  }\item[{std\+::chrono\+::duration$<$ Rep, Period $>$}]{interval,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}}}]{interval\+Type,  }\item[{bool}]{interval\+Is\+Inclusive }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to run periodically. This object takes ownership of the command, so the passed command must not already have an owner. The passed command will be disposed when this \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object is disposed. \\
+\hline
+{\em repeat\+Count} & The number of times to repeat the command\\
+\hline
+{\em interval} & The interval of time between repetitions\\
+\hline
+{\em interval\+Type} & Specifies whether the pause interval occurs before or after the command executes\\
+\hline
+{\em interval\+Is\+Inclusive} & If false, the interval represents the time between when the command finishes and when it starts next. If true, the interval represents the time between the start of successive command executions (in this case, if the command execution takes longer than the interval, the next repetition will start immediately). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_aa6ae89b0c0a0a61388748856074596b8}\label{class_command_lib_1_1_periodic_command_aa6ae89b0c0a0a61388748856074596b8}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Periodic\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{size\+\_\+t}]{repeat\+Count,  }\item[{long long}]{interval\+MS,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}}}]{interval\+Type,  }\item[{bool}]{interval\+Is\+Inclusive }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to run periodically. This object takes ownership of the command, so the passed command must not already have an owner. The passed command will be disposed when this \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object is disposed. \\
+\hline
+{\em repeat\+Count} & The number of times to repeat the command\\
+\hline
+{\em interval\+MS} & The number of milliseconds between repetitions\\
+\hline
+{\em interval\+Type} & Specifies whether the pause interval occurs before or after the command executes\\
+\hline
+{\em interval\+Is\+Inclusive} & If false, the interval represents the time between when the command finishes and when it starts next. If true, the interval represents the time between the start of successive command executions (in this case, if the command execution takes longer than the interval, the next repetition will start immediately). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_a22783c7b42c443ebe6a6392d380efe51}\label{class_command_lib_1_1_periodic_command_a22783c7b42c443ebe6a6392d380efe51}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Periodic\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{size\+\_\+t}]{repeat\+Count,  }\item[{std\+::chrono\+::duration$<$ Rep, Period $>$}]{interval,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}}}]{interval\+Type,  }\item[{bool}]{interval\+Is\+Inclusive,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{stop\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to run periodically. This object takes ownership of the command, so the passed command must not already have an owner. The passed command will be disposed when this \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object is disposed. \\
+\hline
+{\em repeat\+Count} & The number of times to repeat the command\\
+\hline
+{\em interval} & The interval of time between repetitions\\
+\hline
+{\em interval\+Type} & Specifies whether the pause interval occurs before or after the command executes\\
+\hline
+{\em interval\+Is\+Inclusive} & If false, the interval represents the time between when the command finishes and when it starts next. If true, the interval represents the time between the start of successive command executions (in this case, if the command execution takes longer than the interval, the next repetition will start immediately). \\
+\hline
+{\em stop\+Event} & \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} to indicate that the perdiodic command should stop. Raising this event is equivalent to calling \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a59a83d1c32419d61d326040d7aa040ef}{Stop}} You can pass the \mbox{\hyperlink{class_command_lib_1_1_command_a5f163dafd55fe63a5ed351e1543d02a3}{Command\+::\+Done\+Event}} of a different \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} as the stop event, which will cause this periodic command to stop when the other command finishes, but be sure that the other command begins execution before this command if you choose to do this. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_aeaa8112e6cab67aa63eb906bea96e5d2}\label{class_command_lib_1_1_periodic_command_aeaa8112e6cab67aa63eb906bea96e5d2}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Periodic\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{size\+\_\+t}]{repeat\+Count,  }\item[{long long}]{interval\+MS,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_periodic_command_ac32ef93cf679cd652da30a0ad373d31e}{Interval\+Type}}}]{interval\+Type,  }\item[{bool}]{interval\+Is\+Inclusive,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{stop\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to run periodically. This object takes ownership of the command, so the passed command must not already have an owner. The passed command will be disposed when this \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} object is disposed. \\
+\hline
+{\em repeat\+Count} & The number of times to repeat the command\\
+\hline
+{\em interval\+MS} & The number of milliseconds between repetitions\\
+\hline
+{\em interval\+Type} & Specifies whether the pause interval occurs before or after the command executes\\
+\hline
+{\em interval\+Is\+Inclusive} & If false, the interval represents the time between when the command finishes and when it starts next. If true, the interval represents the time between the start of successive command executions (in this case, if the command execution takes longer than the interval, the next repetition will start immediately). \\
+\hline
+{\em stop\+Event} & \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} to indicate that the perdiodic command should stop. Raising this event is equivalent to calling \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a59a83d1c32419d61d326040d7aa040ef}{Stop}} You can pass the \mbox{\hyperlink{class_command_lib_1_1_command_a5f163dafd55fe63a5ed351e1543d02a3}{Command\+::\+Done\+Event}} of a different \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} as the stop event, which will cause this periodic command to stop when the other command finishes, but be sure that the other command begins execution before this command if you choose to do this. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_a330571debdbd7f7b306dd7f2718e84e5}\label{class_command_lib_1_1_periodic_command_a330571debdbd7f7b306dd7f2718e84e5}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Extended\+Description@{Extended\+Description}}
+\index{Extended\+Description@{Extended\+Description}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Extended\+Description()}{ExtendedDescription()}}
+{\footnotesize\ttfamily virtual std\+::string Command\+Lib\+::\+Periodic\+Command\+::\+Extended\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns diagnostic information about this object\textquotesingle{}s state 
+
+\begin{DoxyReturn}{Returns}
+The returned text includes the repetition count, the duration between executions, whether to start with a pause, as well as whether an external stop event is defined 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_command_lib_1_1_command_a795a185509e7b0fc1606b3b62fe17fbb}{Command\+Lib\+::\+Command}}.
+
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_a4be16b8f26b54d9ca41f01f723eb7faf}\label{class_command_lib_1_1_periodic_command_a4be16b8f26b54d9ca41f01f723eb7faf}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Get\+Interval@{Get\+Interval}}
+\index{Get\+Interval@{Get\+Interval}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Get\+Interval()}{GetInterval()}}
+{\footnotesize\ttfamily template$<$typename Unit $>$ \\
+Unit Command\+Lib\+::\+Periodic\+Command\+::\+Get\+Interval (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the interval of time between command executions. 
+
+\begin{DoxyReturn}{Returns}
+The interval of time between command executions
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_abef034455e746be6367651cc05702344}\label{class_command_lib_1_1_periodic_command_abef034455e746be6367651cc05702344}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Get\+Interval\+MS@{Get\+Interval\+MS}}
+\index{Get\+Interval\+MS@{Get\+Interval\+MS}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Get\+Interval\+M\+S()}{GetIntervalMS()}}
+{\footnotesize\ttfamily long long Command\+Lib\+::\+Periodic\+Command\+::\+Get\+Interval\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the interval of time between command executions in milliseconds. 
+
+\begin{DoxyReturn}{Returns}
+The interval of time between command executions in milliseconds
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ad07aa39b59712f784b16419fe055783c}\label{class_command_lib_1_1_periodic_command_ad07aa39b59712f784b16419fe055783c}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Reset@{Reset}}
+\index{Reset@{Reset}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Periodic\+Command\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rewinds the current pause to its full duration. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_af344626ecaa9e0ecb85fd2f98100eba9}\label{class_command_lib_1_1_periodic_command_af344626ecaa9e0ecb85fd2f98100eba9}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Set\+Interval@{Set\+Interval}}
+\index{Set\+Interval@{Set\+Interval}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Set\+Interval()}{SetInterval()}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+void Command\+Lib\+::\+Periodic\+Command\+::\+Set\+Interval (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{interval }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the interval of time between command executions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & the interval of time between command executions\\
+\hline
+\end{DoxyParams}
+
+
+It is safe to change this property while the command is executing\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ae4f9588a25154969bfb9dbf10cf5e367}\label{class_command_lib_1_1_periodic_command_ae4f9588a25154969bfb9dbf10cf5e367}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Set\+Interval\+MS@{Set\+Interval\+MS}}
+\index{Set\+Interval\+MS@{Set\+Interval\+MS}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Set\+Interval\+M\+S()}{SetIntervalMS()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Periodic\+Command\+::\+Set\+Interval\+MS (\begin{DoxyParamCaption}\item[{long long}]{interval }\end{DoxyParamCaption})}
+
+
+
+Sets the number of milliseconds between command executions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & the number of milliseconds between command executions\\
+\hline
+\end{DoxyParams}
+
+
+It is safe to change this property while the command is executing\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_a537aa24d843d7ca7a4fe1d9a9e5f1d24}\label{class_command_lib_1_1_periodic_command_a537aa24d843d7ca7a4fe1d9a9e5f1d24}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Skip\+Current\+Wait@{Skip\+Current\+Wait}}
+\index{Skip\+Current\+Wait@{Skip\+Current\+Wait}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Skip\+Current\+Wait()}{SkipCurrentWait()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Periodic\+Command\+::\+Skip\+Current\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+If currently in the interval between command executions, skips the wait and executes the command right away. This only skips the current wait. It will not skip subsequent waits. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_a59a83d1c32419d61d326040d7aa040ef}\label{class_command_lib_1_1_periodic_command_a59a83d1c32419d61d326040d7aa040ef}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!Stop@{Stop}}
+\index{Stop@{Stop}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Periodic\+Command\+::\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Causes the command to stop repeating. This will not cause the command to be aborted. If the command to run is currently executing when this is called, it will be allowed to finish. 
+
+This is a no-\/op if this \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} instance is not currently executing
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_periodic_command_ab6e63dc1cc0fa2dc39eded7ca5f1fd94}\label{class_command_lib_1_1_periodic_command_ab6e63dc1cc0fa2dc39eded7ca5f1fd94}} 
+\index{Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}!m\+\_\+repeat\+Count@{m\+\_\+repeat\+Count}}
+\index{m\+\_\+repeat\+Count@{m\+\_\+repeat\+Count}!Command\+Lib\+::\+Periodic\+Command@{Command\+Lib\+::\+Periodic\+Command}}
+\subsubsection{\texorpdfstring{m\+\_\+repeat\+Count}{m\_repeatCount}}
+{\footnotesize\ttfamily std\+::atomic\+\_\+uint Command\+Lib\+::\+Periodic\+Command\+::m\+\_\+repeat\+Count}
+
+
+
+The total number of times the command to run will execute. If the command to run is currently executing when this is changed, it will be allowed to finish, even if the repeat count is set to a number lower than the number of times already executed. 
+
+It is safe to change this member while this command is executing
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Periodic\+Command.\+h\end{DoxyCompactItemize}

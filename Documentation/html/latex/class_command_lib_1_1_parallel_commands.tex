@@ -1,0 +1,143 @@
+\hypertarget{class_command_lib_1_1_parallel_commands}{}\section{Command\+Lib\+:\+:Parallel\+Commands Class Reference}
+\label{class_command_lib_1_1_parallel_commands}\index{Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}}
+
+
+Represents a collection of \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects that execute in parallel, wrapped in a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object 
+
+
+
+
+{\ttfamily \#include $<$Parallel\+Commands.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+:\+:Parallel\+Commands\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_parallel_commands}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} $>$ \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_a8ad2164f54391fa1cdffb5d44298580e}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} object\end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} $>$ \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_affafd160eae15443666daaf2608fd441}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} object\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_a36085841c237794fc8015ed400e552ad}{Add}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} to the collection to execute.\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_aba3f6e3abd06e1483c640eb6d9a82788}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em Empties all commands from the collection.\end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_a5c079ef465fe007bc3b8e893554c5610}\label{class_command_lib_1_1_parallel_commands_a5c079ef465fe007bc3b8e893554c5610}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_a5c079ef465fe007bc3b8e893554c5610}{Extended\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Information about the command (beyond its type and id), if available, for diagnostic purposes.  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_aada3d28f970e82d1d057ac2b499453ac}\label{class_command_lib_1_1_parallel_commands_aada3d28f970e82d1d057ac2b499453ac}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_aada3d28f970e82d1d057ac2b499453ac}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_ab75ed6ec91fa1c4652a796a6c0f6868e}{Create}} (bool abort\+Upon\+Failure)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_parallel_commands_a795b2df9523b7a154261a52971b29bef}{Parallel\+Commands}} (bool abort\+Upon\+Failure)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_ab75ed6ec91fa1c4652a796a6c0f6868e}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Represents a collection of \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects that execute in parallel, wrapped in a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_a8ad2164f54391fa1cdffb5d44298580e}\label{class_command_lib_1_1_parallel_commands_a8ad2164f54391fa1cdffb5d44298580e}} 
+\index{Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}!Const\+Ptr@{Const\+Ptr}}
+\index{Const\+Ptr@{Const\+Ptr}!Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}}
+\subsubsection{\texorpdfstring{Const\+Ptr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}}$>$ \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_a8ad2164f54391fa1cdffb5d44298580e}{Command\+Lib\+::\+Parallel\+Commands\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} object
+
+\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_affafd160eae15443666daaf2608fd441}\label{class_command_lib_1_1_parallel_commands_affafd160eae15443666daaf2608fd441}} 
+\index{Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}}
+\subsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}}$>$ \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_affafd160eae15443666daaf2608fd441}{Command\+Lib\+::\+Parallel\+Commands\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} object
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_a795b2df9523b7a154261a52971b29bef}\label{class_command_lib_1_1_parallel_commands_a795b2df9523b7a154261a52971b29bef}} 
+\index{Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}!Parallel\+Commands@{Parallel\+Commands}}
+\index{Parallel\+Commands@{Parallel\+Commands}!Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}}
+\subsubsection{\texorpdfstring{Parallel\+Commands()}{ParallelCommands()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Parallel\+Commands\+::\+Parallel\+Commands (\begin{DoxyParamCaption}\item[{bool}]{abort\+Upon\+Failure }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_ab75ed6ec91fa1c4652a796a6c0f6868e}{Create()}} methods. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_a36085841c237794fc8015ed400e552ad}\label{class_command_lib_1_1_parallel_commands_a36085841c237794fc8015ed400e552ad}} 
+\index{Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}!Add@{Add}}
+\index{Add@{Add}!Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}}
+\subsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Parallel\+Commands\+::\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} to the collection to execute.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to add\\
+\hline
+\end{DoxyParams}
+
+
+This object takes ownership of any commands that are added, so the passed command must not already have an owner. 
+
+Behavior is undefined if you add a command while this \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} object is executing
+
+If multiple commands fail, only the first failure reason is reported via \mbox{\hyperlink{class_command_lib_1_1_command_listener}{Command\+Listener}}.\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_aba3f6e3abd06e1483c640eb6d9a82788}\label{class_command_lib_1_1_parallel_commands_aba3f6e3abd06e1483c640eb6d9a82788}} 
+\index{Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}!Clear@{Clear}}
+\index{Clear@{Clear}!Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}}
+\subsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Parallel\+Commands\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Empties all commands from the collection.
+
+Behavior is undefined if you call this while this command is executing.\mbox{\Hypertarget{class_command_lib_1_1_parallel_commands_ab75ed6ec91fa1c4652a796a6c0f6868e}\label{class_command_lib_1_1_parallel_commands_ab75ed6ec91fa1c4652a796a6c0f6868e}} 
+\index{Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}!Create@{Create}}
+\index{Create@{Create}!Command\+Lib\+::\+Parallel\+Commands@{Command\+Lib\+::\+Parallel\+Commands}}
+\subsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Parallel\+Commands\+::\+Create (\begin{DoxyParamCaption}\item[{bool}]{abort\+Upon\+Failure }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} object as a top-\/level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em abort\+Upon\+Failure} & If true, and any \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} within the collection fails, the rest of the executing commands will immediately be aborted \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efieleke/\+Documents/\+Git\+Hub/\+Command\+Lib\+For\+C\+P\+P/\+Command\+Lib/include/Parallel\+Commands.\+h\end{DoxyCompactItemize}
