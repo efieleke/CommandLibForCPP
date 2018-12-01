@@ -6,7 +6,7 @@
 namespace CommandLib
 {
 	/// <summary>
-	/// Dispatches <see cref="Command"/> objects to a pool for asynchronous execution.
+	/// Dispatches <see cref="Command"/> objects for asynchronous execution.
 	/// </summary>
 	/// <remarks>
 	/// This class can be useful when commands are dynamically generated at runtime, and must be dynamically executed upon generation.
@@ -22,8 +22,12 @@ namespace CommandLib
 		/// <summary>
 		/// Constructs a CommandDispatcher object
 		/// </summary>
-		/// <param name="poolSize">The maximum number of commands that can be executed concurrently by this dispatcher.</param>
-		explicit CommandDispatcher(size_t poolSize);
+		/// <param name="maxConcurrent">
+		/// The maximum number of commands that can be executed concurrently by this dispatcher. If this
+		/// limit is reached, commands will be queued and only executed when enough prior dispatched commands
+		/// finish execution.
+		/// </param>
+		explicit CommandDispatcher(size_t maxConcurrent);
 
 		virtual ~CommandDispatcher();
 
@@ -78,7 +82,7 @@ namespace CommandLib
             CommandDispatcher* const m_dispatcher;
 		};
 
-        const size_t m_poolSize;
+        const size_t m_maxConcurrent;
 		std::list<CommandMonitor*> m_monitors;
         std::vector<Command::Ptr> m_runningCommands;
 		std::queue<Command::Ptr> m_commandBacklog;

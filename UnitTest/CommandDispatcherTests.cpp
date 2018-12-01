@@ -9,11 +9,34 @@
 #include "TestMonitors.h"
 #include "FailingCommand.h"
 #include "SequentialCommands.h"
+#include "AsyncCommand.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
 {
+	class BumAsyncCommand : public CommandLib::AsyncCommand
+	{
+	public:
+		class BumException : public std::exception
+		{
+		public:
+			BumException(const char* what) : std::exception(what) {}
+		};
+
+		typedef std::shared_ptr<BumAsyncCommand> Ptr;
+		static BumAsyncCommand::Ptr Create() { return Ptr(new BumAsyncCommand()); }
+
+		virtual std::string ClassName() const override { return "BumAsyncCommand"; }
+	private:
+		BumAsyncCommand() {}
+
+		virtual void AsyncExecuteImpl(CommandLib::CommandListener* listener) override final
+		{
+			throw BumException("boo hoo");
+		}
+	};
+
 	class Monitor : public CommandLib::CommandMonitor
 	{
 	public:
@@ -92,6 +115,49 @@ namespace UnitTest
 
 			Assert::AreEqual(5U, monitor.m_completed.operator size_t());
 			Assert::AreEqual(1U, monitor.m_failed.operator size_t());
+			Assert::AreEqual(0U, monitor.m_aborted.operator size_t());
+		}
+
+		TEST_METHOD(CommandDispatcher_TestBumAsyncCommand)
+		{
+			Monitor monitor;
+
+			{
+				CommandLib::CommandDispatcher dispatcher(1);
+				dispatcher.AddMonitor(&monitor);
+				dispatcher.Dispatch(CommandLib::PauseCommand::Create(10));
+				dispatcher.Dispatch(BumAsyncCommand::Create());
+				dispatcher.Dispatch(BumAsyncCommand::Create());
+			}
+
+			Assert::AreEqual(1U, monitor.m_completed.operator size_t());
+			Assert::AreEqual(2U, monitor.m_failed.operator size_t());
+			Assert::AreEqual(0U, monitor.m_aborted.operator size_t());
+			monitor.Reset();
+
+			{
+				CommandLib::CommandDispatcher dispatcher(1);
+				dispatcher.AddMonitor(&monitor);
+                Assert::ExpectException<BumAsyncCommand::BumException>([&dispatcher]() { dispatcher.Dispatch(BumAsyncCommand::Create()); }, L"Caught unexpected type of exception");
+			}
+
+			Assert::AreEqual(0U, monitor.m_completed.operator size_t());
+			Assert::AreEqual(0U, monitor.m_failed.operator size_t());
+			Assert::AreEqual(0U, monitor.m_aborted.operator size_t());
+			monitor.Reset();
+
+			{
+				CommandLib::CommandDispatcher dispatcher(10);
+				dispatcher.AddMonitor(&monitor);
+				dispatcher.Dispatch(CommandLib::PauseCommand::Create(10));
+				Assert::ExpectException<BumAsyncCommand::BumException>([&dispatcher]() { dispatcher.Dispatch(BumAsyncCommand::Create()); }, L"Caught unexpected type of exception");
+				Assert::ExpectException<BumAsyncCommand::BumException>([&dispatcher]() { dispatcher.Dispatch(BumAsyncCommand::Create()); }, L"Caught unexpected type of exception");
+				dispatcher.Dispatch(CommandLib::PauseCommand::Create(0));
+				Assert::ExpectException<BumAsyncCommand::BumException>([&dispatcher]() { dispatcher.Dispatch(BumAsyncCommand::Create()); }, L"Caught unexpected type of exception");
+			}
+
+			Assert::AreEqual(2U, monitor.m_completed.operator size_t());
+			Assert::AreEqual(0U, monitor.m_failed.operator size_t());
 			Assert::AreEqual(0U, monitor.m_aborted.operator size_t());
 		}
 

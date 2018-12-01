@@ -3,11 +3,11 @@
 
 using namespace CommandLib;
 
-CommandDispatcher::CommandDispatcher(size_t poolSize) : m_poolSize(poolSize), m_nothingToDoEvent(true)
+CommandDispatcher::CommandDispatcher(size_t maxConcurrent) : m_maxConcurrent(maxConcurrent), m_nothingToDoEvent(true)
 {
-    if (m_poolSize == 0)
+    if (m_maxConcurrent == 0)
     {
-        throw std::invalid_argument("poolSize must be greater than 0");
+        throw std::invalid_argument("maxConcurrent must be greater than 0");
     }
 }
 
@@ -27,7 +27,7 @@ void CommandDispatcher::Dispatch(Command::Ptr command)
 	m_nothingToDoEvent.Reset();
 	m_finishedCommands.clear();
 
-    if (m_runningCommands.size() == m_poolSize)
+    if (m_runningCommands.size() == m_maxConcurrent)
     {
         m_commandBacklog.push(command);
     }
@@ -35,8 +35,23 @@ void CommandDispatcher::Dispatch(Command::Ptr command)
     {
         m_runningCommands.push_back(command);
 		std::unique_ptr<Listener> listener(new Listener(this, command));
-        command->AsyncExecute(listener.get());
-		listener.release();
+
+		try
+		{
+			command->AsyncExecute(listener.get());
+			listener.release();
+		}
+		catch(...)
+		{
+			m_runningCommands.pop_back();
+
+			if (m_runningCommands.empty())
+			{
+				m_nothingToDoEvent.Set();
+			}
+
+			throw;
+		}
     }
 }
 
@@ -88,6 +103,7 @@ void CommandDispatcher::OnCommandFinished(Command::Ptr command, const std::excep
     {
         if (m_runningCommands.empty())
         {
+			lock.unlock();
 			m_nothingToDoEvent.Set();
         }
     }
@@ -104,6 +120,7 @@ void CommandDispatcher::OnCommandFinished(Command::Ptr command, const std::excep
 		}
 		catch (std::exception exc)
 		{
+			lock.unlock();
 			OnCommandFinished(nextInLine, &exc);
 		}
 

@@ -21,7 +21,7 @@
 * features and usage, read the CommandLib namespace detailed documentation. The CommandLibSample project provides
 * example usage.
 *
-* Note that this was compiled using Visual Studio 2013. The unit tests make use of Microsoft-specific classes.
+* Note that this was compiled using Visual Studio 2017. The unit tests make use of Microsoft-specific classes.
 */
 
 /// <summary>
@@ -32,7 +32,7 @@
 /// Using <see cref="ParallelCommands"/>, you can run a collection of <see cref="Command"/> objects concurrently, and using
 /// <see cref="SequentialCommands"/>, you can run a collection of <see cref="Command"/> objects in sequence. Any command
 /// can be added to these two types (including <see cref="ParallelCommands"/> and <see cref="SequentialCommands"/> themselves,
-/// because they are <see cref="Command"/> objects), so it's possible to create a deep nesting of coordinated activities.
+/// because they are <see cref="Command"/> objects), so it's possible to compose deep levels of coordinated activities.
 /// </para>
 /// <para>
 /// <see cref="PeriodicCommand"/> repeats its action at a given interval, <see cref="ScheduledCommand"/> runs once at a specific
@@ -48,7 +48,7 @@
 /// something of interest. It is expected that users of this library will create their own <see cref="Command"/>-derived classes.
 /// </para>
 /// <para>
-/// <see cref="CommandDispatcher"/> provides the capability to set up a pool for command execution.
+/// <see cref="CommandDispatcher"/> manages asynchronous execution of dynamically generated commands.
 /// </para>
 /// <para>
 /// Documentation for <see cref="Command"/>, <see cref="AsyncCommand"/> and <see cref="SyncCommand"/> should be read before
