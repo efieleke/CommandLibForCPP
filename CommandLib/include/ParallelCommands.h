@@ -1,4 +1,4 @@
-﻿#pragma once;
+﻿#pragma once
 #include "AsyncCommand.h"
 #include "CommandListener.h"
 #include "SyncCommand.h"

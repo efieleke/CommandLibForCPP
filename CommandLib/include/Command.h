@@ -21,7 +21,7 @@
 * features and usage, read the CommandLib namespace detailed documentation. The CommandLibSample project provides
 * example usage.
 *
-* Note that this was compiled using Visual Studio 2017. The unit tests make use of Microsoft-specific classes.
+* Note that this was compiled using Visual Studio 2019. The unit tests make use of Microsoft-specific classes.
 */
 
 /// <summary>

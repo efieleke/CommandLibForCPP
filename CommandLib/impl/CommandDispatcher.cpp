@@ -35,6 +35,7 @@ void CommandDispatcher::Dispatch(Command::Ptr command)
     {
         m_runningCommands.push_back(command);
 		std::unique_ptr<Listener> listener(new Listener(this, command));
+		lock.unlock();
 
 		try
 		{
@@ -43,6 +44,7 @@ void CommandDispatcher::Dispatch(Command::Ptr command)
 		}
 		catch(...)
 		{
+			lock.lock();
 			m_runningCommands.pop_back();
 
 			if (m_runningCommands.empty())
@@ -113,6 +115,7 @@ void CommandDispatcher::OnCommandFinished(Command::Ptr command, const std::excep
 		m_commandBacklog.pop();
         m_runningCommands.push_back(nextInLine);
 		std::unique_ptr<Listener> listener(new Listener(this, nextInLine));
+		lock.unlock();
 
 		try
 		{
@@ -120,7 +123,6 @@ void CommandDispatcher::OnCommandFinished(Command::Ptr command, const std::excep
 		}
 		catch (std::exception exc)
 		{
-			lock.unlock();
 			OnCommandFinished(nextInLine, &exc);
 		}
 

@@ -1,4 +1,4 @@
-﻿#pragma once;
+﻿#pragma once
 #include "SyncCommand.h"
 
 namespace CommandLib
@@ -63,7 +63,7 @@ namespace CommandLib
 		private:
 			std::list<Command::Ptr>::iterator m_iter;
 			std::list<Command::Ptr>::iterator m_end;
-			CommandListener* volatile m_externalListener;
+			CommandListener* volatile m_externalListener = nullptr;
 		};
 
 		virtual void SyncExecuteImpl() final;

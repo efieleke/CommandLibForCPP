@@ -1,6 +1,8 @@
 ﻿#include "ParallelCommands.h"
 #include "AbortLinkedCommand.h"
 #include "CommandAbortedException.h"
+#include <thread>
+#include <future>
 
 using namespace CommandLib;
 
@@ -38,7 +40,7 @@ void ParallelCommands::Add(Command::Ptr command)
         // wrapped in topmost AbortEventedCommand objects. These top level objects will
         // still respond to abort requests to this ParallelCommands object via the
         // 'this' pointer we pass as an argument.
-		m_commands.push_back(AbortLinkedCommand::Create(command, shared_from_this()));
+        m_commands.push_back(AbortLinkedCommand::Create(command, shared_from_this()));
     }
     else
     {
@@ -65,23 +67,12 @@ std::string ParallelCommands::ExtendedDescription() const
 	return "Number of commands: " + std::to_string(m_commands.size()) + "; Abort upon failure ? " + std::to_string(m_abortUponFailure);
 }
 
-class DummyCommand : public SyncCommand
-{
-public:
-	static Ptr Create() { return Ptr(new DummyCommand); }
-	virtual std::string ClassName() const override { return "DummyCommand"; }
-private:
-	DummyCommand() {}
-	virtual void SyncExeImpl() final {}
-};
-
 void ParallelCommands::AsyncExecuteImpl(CommandListener* listener)
 {
 	if (m_commands.empty())
 	{
-		Command::Ptr dummyCmd = AbortLinkedCommand::Create(DummyCommand::Create(), shared_from_this());
-		dummyCmd->AsyncExecute(listener);
-	}
+        auto _ = std::async(std::launch::async, [listener]() { listener->CommandSucceeded(); });
+    }
 	else
 	{
 		std::unique_ptr<Listener> eventHandler(new Listener(this, listener));

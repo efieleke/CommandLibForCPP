@@ -1,12 +1,10 @@
 ﻿#include "ScheduledCommand.h"
-
 using namespace CommandLib;
 
 namespace
 {
 	std::string TimeAsText(const std::chrono::time_point<std::chrono::system_clock>& time)
 	{
-		std::chrono::system_clock::now();
 		const time_t asTimeT = std::chrono::system_clock::to_time_t(time);
 		char timeString[64]; // more than big enough
 		timeString[0] = '\0';

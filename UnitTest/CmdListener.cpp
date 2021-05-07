@@ -15,7 +15,7 @@ void CmdListener::Reset(CallbackType expectedCallback)
 {
 	m_expectedCallback = expectedCallback;
 	m_actualCallback = CallbackType::None;
-	m_excPtr == nullptr;
+	m_excPtr = nullptr;
 }
 
 void CmdListener::CommandSucceeded()

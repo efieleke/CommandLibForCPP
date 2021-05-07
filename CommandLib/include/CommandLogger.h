@@ -1,4 +1,4 @@
-﻿#pragma once;
+﻿#pragma once
 #include "CommandMonitor.h"
 #include <string>
 #include <mutex>

@@ -2,6 +2,8 @@
 #include "CommandAbortedException.h"
 #include "AbortLinkedCommand.h"
 #include <algorithm>
+#include <thread>
+#include <future>
 
 using namespace CommandLib;
 
@@ -42,15 +44,7 @@ std::string SequentialCommands::ExtendedDescription() const
 
 bool SequentialCommands::IsNaturallySynchronous() const
 {
-	for (Command::Ptr cmd : m_commands)
-	{
-		if (!cmd->IsNaturallySynchronous())
-		{
-			return false;
-		}
-	}
-
-	return true;
+	return std::all_of(m_commands.begin(), m_commands.end(), [](Command::Ptr cmd) { return cmd->IsNaturallySynchronous(); });
 }
 
 class DelegateListener : public CommandListener
@@ -113,23 +107,12 @@ void SequentialCommands::SyncExecuteImpl()
 	}
 }
 
-class DummyCommand : public SyncCommand
-{
-public:
-	static Ptr Create() { return Ptr(new DummyCommand); }
-	virtual std::string ClassName() const override { return "DummyCommand"; }
-private:
-	DummyCommand() {}
-	virtual void SyncExeImpl() final {}
-};
-
 void SequentialCommands::AsyncExecuteImpl(CommandListener* listener)
 {
 	if (m_commands.empty())
 	{
 		// No commands in the collection. We must still notify the caller on a separate thread.
-		Command::Ptr dummyCmd = AbortLinkedCommand::Create(DummyCommand::Create(), shared_from_this());
-		dummyCmd->AsyncExecute(listener);
+		auto _ = std::async(std::launch::async, [listener]() { listener->CommandSucceeded(); });
 		return;
 	}
 

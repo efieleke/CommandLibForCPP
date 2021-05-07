@@ -65,7 +65,7 @@ namespace CommandLib
 			virtual void CommandFailed(const std::exception& exc, std::exception_ptr excPtr) override final;
 		private:
 			Listener(const Listener&);
-			Listener& operator= (const Listener&);
+			Listener& operator= (const Listener&) = delete;
 			AbortLinkedCommand* const m_cmd;
 		};
 
