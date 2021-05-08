@@ -45,10 +45,11 @@ void CommandDispatcher::Dispatch(Command::Ptr command)
 		catch(...)
 		{
 			lock.lock();
-			m_runningCommands.pop_back();
+			m_runningCommands.erase(std::remove(m_runningCommands.begin(), m_runningCommands.end(), command), m_runningCommands.end());
 
-			if (m_runningCommands.empty())
+			if (m_runningCommands.empty() && m_commandBacklog.empty())
 			{
+				lock.unlock();
 				m_nothingToDoEvent.Set();
 			}
 

@@ -136,7 +136,7 @@ namespace CommandLib
 		/// <summary>The command under which this command is nested, if any</summary>
 		/// <returns>
 		/// The owner, or the command that an <see cref="AbortLinkedCommand"/> is linked to (if any).
-		/// </summary>
+		/// </returns>
 		const Command* Parent() const;
 
 		/// <summary>How deeply nested this command is</summary>

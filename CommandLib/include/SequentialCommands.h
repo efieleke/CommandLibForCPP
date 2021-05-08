@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "SyncCommand.h"
+#include <thread>
 
 namespace CommandLib
 {
@@ -19,6 +20,8 @@ namespace CommandLib
 		/// Creates a SequentialCommands object
 		/// </summary>
 		static Ptr Create();
+
+		virtual ~SequentialCommands();
 
 		/// <summary>Adds a <see cref="Command"/> to the collection to execute.</summary>
 		/// <param name="command">The command to add</param>
@@ -72,5 +75,6 @@ namespace CommandLib
 
         std::list<Command::Ptr> m_commands;
 		Listener m_listener;
+		std::unique_ptr<std::thread> m_thread;
 	};
 }

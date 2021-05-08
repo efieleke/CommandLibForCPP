@@ -76,5 +76,6 @@ namespace CommandLib
 
         std::vector<Command::Ptr> m_commands;
         const bool m_abortUponFailure;
+		std::unique_ptr<std::thread> m_thread;
 	};
 }

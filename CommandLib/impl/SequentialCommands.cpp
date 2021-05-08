@@ -21,6 +21,14 @@ SequentialCommands::SequentialCommands()
 {
 }
 
+SequentialCommands::~SequentialCommands()
+{
+	if (m_thread)
+	{
+		m_thread->join();
+	}
+}
+
 void SequentialCommands::Add(Command::Ptr command)
 {
     TakeOwnership(command);
@@ -112,7 +120,12 @@ void SequentialCommands::AsyncExecuteImpl(CommandListener* listener)
 	if (m_commands.empty())
 	{
 		// No commands in the collection. We must still notify the caller on a separate thread.
-		auto _ = std::async(std::launch::async, [listener]() { listener->CommandSucceeded(); });
+		if (m_thread)
+		{
+			m_thread->join();
+		}
+
+		m_thread.reset(new std::thread([listener]() {listener->CommandSucceeded(); }));
 		return;
 	}
 

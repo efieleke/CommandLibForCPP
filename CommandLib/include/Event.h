@@ -50,7 +50,7 @@ namespace CommandLib
 		virtual bool Wait(long long ms) const override final;
 	private:
 		Event(const Event&);
-		Event& operator=(const Event&);
+		Event& operator=(const Event&) = delete;
 		bool m_signaled;
 		mutable std::condition_variable_any m_condition;
 		mutable std::recursive_mutex m_mutex;

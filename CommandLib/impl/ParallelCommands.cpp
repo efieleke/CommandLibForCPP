@@ -29,6 +29,11 @@ ParallelCommands::~ParallelCommands()
 			cmd->Wait(); // because these were top level, we must make sure they're really done
 		}
 	}
+
+    if (m_thread)
+    {
+        m_thread->join();
+    }
 }
 
 void ParallelCommands::Add(Command::Ptr command)
@@ -71,7 +76,12 @@ void ParallelCommands::AsyncExecuteImpl(CommandListener* listener)
 {
 	if (m_commands.empty())
 	{
-        auto _ = std::async(std::launch::async, [listener]() { listener->CommandSucceeded(); });
+        if (m_thread)
+        {
+            m_thread->join();
+        }
+
+        m_thread.reset(new std::thread([listener]() {listener->CommandSucceeded(); }));
     }
 	else
 	{
