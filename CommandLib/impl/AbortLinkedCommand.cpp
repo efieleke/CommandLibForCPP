@@ -22,7 +22,7 @@ AbortLinkedCommand::AbortLinkedCommand(Command::Ptr commandToRun, Waitable::Ptr 
 
 std::string AbortLinkedCommand::ClassName() const
 {
-	return "AbortEventedCommand";
+	return "AbortLinkedCommand";
 }
 
 const Command::ConstPtr AbortLinkedCommand::CommandToWatch() const
@@ -43,7 +43,7 @@ void AbortLinkedCommand::SyncExeImpl()
 
 		if (waitResult == 1)
 		{
-			Abort();
+			AbortChildCommand(m_commandToRun);
 		}
 	}
 
@@ -53,11 +53,6 @@ void AbortLinkedCommand::SyncExeImpl()
 	{
 		std::rethrow_exception(m_lastException);
 	}
-}
-
-bool AbortLinkedCommand::MustBeTopLevel() const
-{
-    return true;
 }
 
 Waitable::Ptr AbortLinkedCommand::ExternalAbortEvent() const

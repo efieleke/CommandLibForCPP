@@ -22,14 +22,6 @@ ParallelCommands::ParallelCommands(bool abortUponFailure) : m_abortUponFailure(a
 
 ParallelCommands::~ParallelCommands()
 {
-	if (m_abortUponFailure)
-	{
-		for (Command::Ptr cmd : m_commands)
-		{
-			cmd->Wait(); // because these were top level, we must make sure they're really done
-		}
-	}
-
     if (m_thread)
     {
         m_thread->join();
@@ -38,20 +30,8 @@ ParallelCommands::~ParallelCommands()
 
 void ParallelCommands::Add(Command::Ptr command)
 {
-    if (m_abortUponFailure)
-    {
-        // Because we need to abort running commands in case one of them fails,
-        // and we don't want the topmost command to abort as well, we keep these commands 
-        // wrapped in topmost AbortEventedCommand objects. These top level objects will
-        // still respond to abort requests to this ParallelCommands object via the
-        // 'this' pointer we pass as an argument.
-        m_commands.push_back(AbortLinkedCommand::Create(command, shared_from_this()));
-    }
-    else
-    {
-        TakeOwnership(command);
-        m_commands.push_back(command);
-    }
+    TakeOwnership(command);
+    m_commands.push_back(command);
 }
 
 void ParallelCommands::Clear()
@@ -81,7 +61,7 @@ void ParallelCommands::AsyncExecuteImpl(CommandListener* listener)
             m_thread->join();
         }
 
-        m_thread.reset(new std::thread([listener]() {listener->CommandSucceeded(); }));
+        m_thread.reset(new std::thread([listener]() { listener->CommandSucceeded(); }));
     }
 	else
 	{
@@ -124,7 +104,7 @@ void ParallelCommands::Listener::CommandFailed(const std::exception&, std::excep
         {
 			for (Command::Ptr cmd : m_command->m_commands)
             {
-                cmd->Abort();
+                m_command->AbortChildCommand(cmd);
             }
         }
     }

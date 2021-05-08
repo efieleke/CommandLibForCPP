@@ -61,7 +61,7 @@ namespace CommandLib
 		/// <summary>
 		/// This constructor is not public so as to enforce creation using the Create() methods.
 		/// </summary>
-		explicit TimeLimitedCommand(long long timeoutMS);
+		explicit TimeLimitedCommand(long long timeoutMS, Command::Ptr commandToRun);
 	private:
 		virtual void SyncExeImpl() override final;
 

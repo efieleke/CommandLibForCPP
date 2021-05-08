@@ -70,7 +70,6 @@ namespace CommandLib
 		};
 
 		virtual void SyncExeImpl() final;
-		virtual bool MustBeTopLevel() const final;
 		Waitable::Ptr ExternalAbortEvent() const;
 
 		Command::Ptr m_commandToRun;

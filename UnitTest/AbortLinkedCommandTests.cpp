@@ -100,7 +100,6 @@ namespace UnitTest
 			CommandLib::PauseCommand::Ptr pauseCmd = CommandLib::PauseCommand::Create(10);
 			CommandLib::AbortLinkedCommand::Ptr abortLinkedPauseCmd = CommandLib::AbortLinkedCommand::Create(pauseCmd, abortEvent);
 			CommandLib::SequentialCommands::Ptr seqCmd = CommandLib::SequentialCommands::Create();
-			Assert::ExpectException<std::logic_error>([seqCmd, abortLinkedPauseCmd](){ seqCmd->Add(abortLinkedPauseCmd); }, L"AbortLinkedCommand was given an owner");
 			Assert::ExpectException<std::logic_error>([seqCmd, pauseCmd](){ seqCmd->Add(pauseCmd); }, L"PauseCommand already had an owner");
 		}
 	};

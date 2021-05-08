@@ -12,13 +12,12 @@ std::string TimeLimitedCommand::ClassName() const
 
 TimeLimitedCommand::Ptr TimeLimitedCommand::Create(Command::Ptr commandToRun, long long timeoutMS)
 {
-	Ptr result(new TimeLimitedCommand(timeoutMS));
-	result->m_commandToRun = AbortLinkedCommand::Create(commandToRun, result);
-	return result;
+	return Ptr(new TimeLimitedCommand(timeoutMS, commandToRun));
 }
 
-TimeLimitedCommand::TimeLimitedCommand(long long timeoutMS) : m_timeoutMS(timeoutMS)
+TimeLimitedCommand::TimeLimitedCommand(long long timeoutMS, Command::Ptr commandToRun) : m_timeoutMS(timeoutMS), m_commandToRun(commandToRun)
 {
+	TakeOwnership(m_commandToRun);
 }
 
 std::string TimeLimitedCommand::ExtendedDescription() const
@@ -35,7 +34,9 @@ void TimeLimitedCommand::SyncExeImpl()
 
     if (!finished)
     {
-		m_commandToRun->AbortAndWait();
+		AbortChildCommand(m_commandToRun);
+		m_commandToRun->Wait();
+		ResetChildAbortEvent(m_commandToRun);
 		throw CommandTimeoutException("Timed out after waiting " + std::to_string(m_timeoutMS) + "ms for command '" + m_commandToRun->Description() + "' to finish");
     }
 

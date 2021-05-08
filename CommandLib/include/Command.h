@@ -330,6 +330,22 @@ namespace CommandLib
 		/// order to respond to an abort request in a timely manner.
 		/// </summary>
 		void CheckAbortFlag() const;
+		
+		/// <summary>
+		/// Resets the abort event of a command that is owned by this command. Derived implementations may need to call this
+		/// execute a child command regardless of whether its owner was aborted. This method only exists for special cases.
+		/// </summary>
+		/// <param name="childCommand">The owned command. This must be an immediate child (not a grandchild, for example).</param>
+		void ResetChildAbortEvent(Ptr childCommand);
+
+		/// <summary>
+		/// Aborts a command that is owned by this command. Derived implementations may need to call this to halt an owned
+		/// command's execution without effecting the execution state of the owning command. Note that when a command is
+		/// aborted via normal means (via <see cref="Command.Abort()"/>), all of its owned commands are also aborted. This
+		/// method only exists for special cases.
+		/// </summary>
+		/// <param name="childCommand">The owned command. This must be an immediate child (not a grandchild, for example).</param>
+		void AbortChildCommand(Ptr childCommand);
 	private:
 		class ListenerProxy : public CommandLib::CommandListener
 		{
@@ -356,6 +372,8 @@ namespace CommandLib
 
 		static const Command* Parent(const Command* command);
 		static void AbortImplAllDescendents(Command* command);
+
+		static void ResetCancelEvents(Ptr command);
 
 		Command(const Command&) = delete;
 		Command& operator= (const Command&) = delete;
@@ -384,13 +402,6 @@ namespace CommandLib
 		/// </remarks>
 		virtual void AsyncExecuteImpl(CommandListener* listener) = 0;
 
-		/// <summary>
-		/// Implementations should override to return false if their Command class must never be owned by another Command.
-		/// This is expected to be a rare restriction. Within CommandLib, only <see cref="AbortLinkedCommand"/> has this restriction.
-		/// </summary>
-		/// <returns>true if the Command subclass must be top level. Default is false.</returns>
-		virtual bool MustBeTopLevel() const;
-
 		/// <summary>Implementations should override if there's something in particular they can do to more effectively respond to an abort request.</summary>
 		/// <remarks>
 		/// Note that <see cref="AsyncCommand"/>-derived classes are likely to need to override this method. <see cref="SyncCommand"/>-derived classes will
@@ -402,7 +413,7 @@ namespace CommandLib
 		/// </remarks>
 		virtual void AbortImpl();
 
-		void SetAbortEvent(Ptr target) const;
+		void Abort(bool mustBeTopLevel);
 		void PreExecute();
 		void DecrementExecuting(CommandListener* listener, const std::exception* exc, std::exception_ptr excPtr);
 		void InformCommandStarting() const;

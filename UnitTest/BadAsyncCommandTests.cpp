@@ -17,7 +17,7 @@ namespace UnitTest
     {
 	public:
 		typedef std::shared_ptr<BadAsyncCommand> Ptr;
-		enum FinishType { Succeed, Fail, Abort };
+		enum class FinishType { Succeed, Fail, Abort };
 
 		static Ptr Create(FinishType finishType)
 		{
@@ -33,13 +33,13 @@ namespace UnitTest
 		{
             switch(m_finishType)
             {
-                case Abort:
+			case FinishType::Abort:
                     listener->CommandAborted();
                     break;
-                case Fail:
+			case FinishType::Fail:
                     listener->CommandFailed(m_error, std::make_exception_ptr(m_error));
                     break;
-                case Succeed:
+			case FinishType::Succeed:
                     listener->CommandSucceeded();
                     break;
             }

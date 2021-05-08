@@ -22,6 +22,7 @@
     <ClInclude Include="include\CommandTimeoutException.h" />
     <ClInclude Include="include\CommandTracer.h" />
     <ClInclude Include="include\Event.h" />
+    <ClInclude Include="include\FinallyCommand.h" />
     <ClInclude Include="include\ParallelCommands.h" />
     <ClInclude Include="include\PauseCommand.h" />
     <ClInclude Include="include\PeriodicCommand.h" />
@@ -47,6 +48,7 @@
     <ClCompile Include="impl\CommandTimeoutException.cpp" />
     <ClCompile Include="impl\CommandTracer.cpp" />
     <ClCompile Include="impl\Event.cpp" />
+    <ClCompile Include="impl\FinallyCommand.cpp" />
     <ClCompile Include="impl\ParallelCommands.cpp" />
     <ClCompile Include="impl\PauseCommand.cpp" />
     <ClCompile Include="impl\PeriodicCommand.cpp" />

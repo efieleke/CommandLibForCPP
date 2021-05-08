@@ -139,15 +139,7 @@ void Command::AsyncExecute(CommandListener* listener)
 
 void Command::Abort()
 {
-    // Calling Abort on a child command makes no sense, because children follow the parent in this regard.
-    if (m_owner != nullptr)
-    {
-        throw std::logic_error("Abort can only be called on top-level commands");
-    }
-
-	m_abortEvent->Set();
-    AbortImplAllDescendents(this);
-    AbortImpl();
+    Abort(true);
 }
 
 void Command::Wait() const
@@ -197,22 +189,12 @@ Command::~Command()
 
 void Command::TakeOwnership(Ptr orphan)
 {
-    if (orphan->MustBeTopLevel())
-    {
-        throw std::logic_error(orphan->ClassName() + " objects may only be top level");
-    }
-
 	std::unique_lock<std::mutex> lock(m_mutex);
 
     if (orphan->m_owner != nullptr)
     {
         throw std::logic_error("Attempt to assume ownership of a command that already has an owner.");
     }
-
-    // Only top level owners have the abort event. All of its children share the
-    // same single event. Besides saving a bit on resources, it really helps make
-    // synchronization easier around aborts.
-    SetAbortEvent(orphan);
 
     // Maintaining children and owner simplifies management of abort and wait operations.
     orphan->m_owner = this;
@@ -229,12 +211,6 @@ void Command::RelinquishOwnership(Ptr command)
     }
 
     command->m_owner = nullptr;
-	command->m_abortEvent.reset(new Event(false));
-
-	for (Ptr child : command->m_children)
-    {
-		SetAbortEvent(child);
-    }
 }
 
 void Command::CheckAbortFlag() const
@@ -243,11 +219,6 @@ void Command::CheckAbortFlag() const
     {
         throw CommandAbortedException();
     }
-}
-
-bool Command::MustBeTopLevel() const
-{
-    return false;
 }
 
 void Command::AbortImpl()
@@ -271,64 +242,92 @@ const Command* Command::Parent(const Command* command)
     return nullptr;
 }
 
+void Command::Abort(bool mustBeTopLevel)
+{
+    // Calling Abort on a child command makes no sense, because children follow the parent in this regard.
+    if (mustBeTopLevel && m_owner != nullptr)
+    {
+        throw std::logic_error("Abort can only be called on top-level commands. AbortChildCommand might serve your needs.");
+    }
+
+    m_abortEvent->Set();
+    AbortImplAllDescendents(this);
+    AbortImpl();
+}
+
+void Command::ResetChildAbortEvent(Ptr childCommand)
+{
+    if (childCommand->Parent() != this)
+    {
+        throw std::logic_error("Only immediate children may be passed as an argument to ResetChildAbortEvent");
+    }
+
+    childCommand->m_abortEvent->Reset();
+    std::unique_lock<std::mutex> lock(childCommand->m_mutex);
+
+    for(Ptr cmd : childCommand->m_children)
+    {
+        childCommand->ResetChildAbortEvent(cmd);
+    }
+}
+
 void Command::AbortImplAllDescendents(Command* command)
 {
 	std::unique_lock<std::mutex> lock(command->m_mutex);
 
 	for (Ptr child : command->m_children)
 	{
+        child->m_abortEvent->Set();
 		AbortImplAllDescendents(child.get());
 		child->AbortImpl();
 	}
 }
 
-void Command::SetAbortEvent(Ptr target) const
+void Command::AbortChildCommand(Ptr childCommand)
 {
-	target->m_abortEvent = m_abortEvent;
-
-	for (Ptr child : target->m_children)
+    if (childCommand->Parent() != this)
     {
-		target->SetAbortEvent(child);
+        throw std::logic_error("Only immediate children may be passed as an argument to AbortChildCommand");
     }
+
+    childCommand->Abort(false);
 }
 
 void Command::SyncExecute()
 {
-    PreExecute();
-
-    try
-    {
-		InformCommandStarting();
-        SyncExecuteImpl();
-        DecrementExecuting(nullptr, nullptr, nullptr);
-    }
-    catch (std::exception& exc)
-    {
-        DecrementExecuting(nullptr, &exc, std::current_exception());
-        throw;
-    }
-	catch (...)
-	{
-		std::exception exc("Unexpected exception type in Command::BaseSyncExecute");
-		DecrementExecuting(nullptr, &exc, std::current_exception());
-		throw;
-	}
+    SyncExecute(nullptr);
 }
 
 void Command::SyncExecute(Command* owner)
 {
-	Ptr thisCommand = shared_from_this();
+    PreExecute();
+    Ptr thisCommand = shared_from_this();
 
 	if (owner != nullptr)
 	{
 		owner->TakeOwnership(thisCommand);
-	}
+    }
 
-	try
-	{
-		SyncExecute();
-	}
-	catch (...)
+    try
+    {
+        try
+        {
+            InformCommandStarting();
+            SyncExecuteImpl();
+        }
+        catch (std::exception& exc)
+        {
+            DecrementExecuting(nullptr, &exc, std::current_exception());
+            throw;
+        }
+        catch (...)
+        {
+            std::exception exc("Unexpected exception type in Command::BaseSyncExecute");
+            DecrementExecuting(nullptr, &exc, std::current_exception());
+            throw;
+        }
+    }
+    catch (...)
 	{
 		if (owner != nullptr)
 		{
@@ -338,7 +337,9 @@ void Command::SyncExecute(Command* owner)
 		throw;
 	}
 
-	if (owner != nullptr)
+    DecrementExecuting(nullptr, nullptr, nullptr);
+    
+    if (owner != nullptr)
 	{
 		owner->RelinquishOwnership(thisCommand);
 	}
@@ -355,13 +356,25 @@ void Command::PreExecute()
 
 	m_doneEvent->Reset();
 
-    // Don't reset the abort event for launched child commands
+    // Only reset the cancel events when the top level command is executed. Otherwise, child commands that are eventually
+    // run as part of the top level command could have their cancel events reset after the top level operation was aborted.
     if (m_owner == nullptr)
     {
-		m_abortEvent->Reset();
-	}
+        ResetCancelEvents(shared_from_this());
+    }
 
 	++m_executing;
+}
+
+void Command::ResetCancelEvents(Ptr command)
+{
+    command->m_abortEvent->Reset();
+    std::unique_lock<std::mutex> lock(command->m_mutex);
+
+    for (Ptr child : command->m_children)
+    {
+        ResetCancelEvents(child);
+    }
 }
 
 void Command::DecrementExecuting(CommandListener* listener, const std::exception* exc, std::exception_ptr excPtr)
