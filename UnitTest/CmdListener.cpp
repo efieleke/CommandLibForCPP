@@ -8,7 +8,6 @@ CmdListener::CmdListener(CallbackType expectedCallback) :
 	m_expectedCallback(expectedCallback),
 	m_actualCallback(CallbackType::None)
 {
-	assert(expectedCallback != CallbackType::None);
 }
 
 void CmdListener::Reset(CallbackType expectedCallback)
