@@ -370,9 +370,7 @@ namespace CommandLib
 			bool operator()(const Ptr& a, const Ptr& b) const;
 		};
 
-		static const Command* Parent(const Command* command);
 		static void AbortImplAllDescendents(Command* command);
-
 		static void ResetCancelEvents(Ptr command);
 
 		Command(const Command&) = delete;

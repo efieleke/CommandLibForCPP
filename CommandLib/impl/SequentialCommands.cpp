@@ -1,6 +1,5 @@
 ﻿#include "SequentialCommands.h"
 #include "CommandAbortedException.h"
-#include "AbortLinkedCommand.h"
 #include <algorithm>
 #include <thread>
 #include <future>

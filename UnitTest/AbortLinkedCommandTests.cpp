@@ -26,7 +26,7 @@ namespace UnitTest
 			linkedCommand->AsyncExecute(&linkedCmdListener);
 
 			CommandLib::AbortLinkedCommand::Ptr abortLinkedPauseCmd =
-				CommandLib::AbortLinkedCommand::Create(CommandLib::PauseCommand::Create(std::chrono::hours(24)), linkedCommand);
+				CommandLib::AbortLinkedCommand::Create(CommandLib::PauseCommand::Create(std::chrono::hours(24)), linkedCommand->AbortEvent());
 
 			std::thread thread([abortLinkedPauseCmd]()
 			{

@@ -6,16 +6,11 @@ using namespace CommandLib;
 
 AbortLinkedCommand::Ptr AbortLinkedCommand::Create(Command::Ptr commandToRun, Waitable::Ptr abortEvent)
 {
-	return Ptr(new AbortLinkedCommand(commandToRun, abortEvent, Command::ConstPtr()));
+	return Ptr(new AbortLinkedCommand(commandToRun, abortEvent));
 }
 
-AbortLinkedCommand::Ptr AbortLinkedCommand::Create(Command::Ptr commandToRun, Command::ConstPtr commandToWatch)
-{
-	return Ptr(new AbortLinkedCommand(commandToRun, Waitable::Ptr(), commandToWatch));
-}
-
-AbortLinkedCommand::AbortLinkedCommand(Command::Ptr commandToRun, Waitable::Ptr abortEvent, Command::ConstPtr commandToWatch) :
-	m_commandToRun(commandToRun), m_abortEvent(abortEvent), m_commandToWatch(commandToWatch)
+AbortLinkedCommand::AbortLinkedCommand(Command::Ptr commandToRun, Waitable::Ptr abortEvent) :
+	m_commandToRun(commandToRun), m_abortEvent(abortEvent)
 {
 	TakeOwnership(commandToRun);
 }
@@ -25,17 +20,12 @@ std::string AbortLinkedCommand::ClassName() const
 	return "AbortLinkedCommand";
 }
 
-const Command::ConstPtr AbortLinkedCommand::CommandToWatch() const
-{
-     return m_commandToWatch;
-}
-
 void AbortLinkedCommand::SyncExeImpl()
 {
 	{
 		WaitGroup waitGroup;
 		waitGroup.AddWaitable(m_commandToRun->DoneEvent());
-		waitGroup.AddWaitable(ExternalAbortEvent());
+		waitGroup.AddWaitable(m_abortEvent);
 		std::unique_ptr<Listener> listener(new Listener(this));
 		m_commandToRun->AsyncExecute(listener.get());
 		const int waitResult = waitGroup.WaitForAny();
@@ -53,11 +43,6 @@ void AbortLinkedCommand::SyncExeImpl()
 	{
 		std::rethrow_exception(m_lastException);
 	}
-}
-
-Waitable::Ptr AbortLinkedCommand::ExternalAbortEvent() const
-{
-	return m_abortEvent.get() == nullptr ? m_commandToWatch->AbortEvent() : m_abortEvent;
 }
 
 AbortLinkedCommand::Listener::Listener(AbortLinkedCommand* cmd) : m_cmd(cmd)

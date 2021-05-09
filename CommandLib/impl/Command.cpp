@@ -52,14 +52,14 @@ long Command::Id() const
 
 const Command* Command::Parent() const
 {
-    return Parent(this);
+    return m_owner;
 }
 
 int Command::Depth() const
 {
     int result = 0;
 
-    for (const Command* parent = Parent(this); parent != nullptr; parent = Parent(parent))
+    for (const Command* parent = m_owner; parent != nullptr; parent = parent->m_owner)
     {
         ++result;
     }
@@ -71,7 +71,7 @@ std::string Command::Description() const
 {
     std::string result = ClassName();
 
-    for (const Command* parent = Parent(this); parent != nullptr; parent = Parent(parent))
+    for (const Command* parent = m_owner; parent != nullptr; parent = parent->m_owner)
     {
         result = parent->ClassName() + "=>" + result;
     }
@@ -223,23 +223,6 @@ void Command::CheckAbortFlag() const
 
 void Command::AbortImpl()
 {
-}
-
-const Command* Command::Parent(const Command* command)
-{
-    if (command->m_owner != nullptr)
-    {
-        return command->m_owner;
-    }
-
-	const AbortLinkedCommand* abortLinkedCommand = dynamic_cast<const AbortLinkedCommand*>(command);
-	
-	if (abortLinkedCommand != nullptr)
-    {
-        return abortLinkedCommand->CommandToWatch().get();
-    }
-
-    return nullptr;
 }
 
 void Command::Abort(bool mustBeTopLevel)

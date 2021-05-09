@@ -1,5 +1,4 @@
 ﻿#include "ParallelCommands.h"
-#include "AbortLinkedCommand.h"
 #include "CommandAbortedException.h"
 #include <thread>
 #include <future>
