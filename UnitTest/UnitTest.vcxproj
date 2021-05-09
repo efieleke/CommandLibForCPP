@@ -108,6 +108,7 @@
     <ClCompile Include="CommonTests.cpp" />
     <ClCompile Include="ComplexCommandTest.cpp" />
     <ClCompile Include="EventTest.cpp" />
+    <ClCompile Include="FinallyCommandTest.cpp" />
     <ClCompile Include="ParallelCommandsTests.cpp" />
     <ClCompile Include="PauseCommandTests.cpp" />
     <ClCompile Include="PeriodicCommandTests.cpp" />
