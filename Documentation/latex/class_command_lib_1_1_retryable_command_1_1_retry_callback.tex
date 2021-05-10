@@ -1,0 +1,51 @@
+\hypertarget{class_command_lib_1_1_retryable_command_1_1_retry_callback}{}\doxysection{Command\+Lib\+::Retryable\+Command\+::Retry\+Callback Class Reference}
+\label{class_command_lib_1_1_retryable_command_1_1_retry_callback}\index{CommandLib::RetryableCommand::RetryCallback@{CommandLib::RetryableCommand::RetryCallback}}
+
+
+Interface that defines aspects of retry behavior  
+
+
+
+
+{\ttfamily \#include $<$Retryable\+Command.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_command_lib_1_1_retryable_command_1_1_retry_callback_ad207fa406f939f7253a3ee5777d5e26f}{On\+Command\+Failed}} (size\+\_\+t fail\+Number, const std\+::exception \&reason, long long $\ast$wait\+MS)=0
+\begin{DoxyCompactList}\small\item\em Callback for when a command to be retried fails \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface that defines aspects of retry behavior 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_retryable_command_1_1_retry_callback_ad207fa406f939f7253a3ee5777d5e26f}\label{class_command_lib_1_1_retryable_command_1_1_retry_callback_ad207fa406f939f7253a3ee5777d5e26f}} 
+\index{CommandLib::RetryableCommand::RetryCallback@{CommandLib::RetryableCommand::RetryCallback}!OnCommandFailed@{OnCommandFailed}}
+\index{OnCommandFailed@{OnCommandFailed}!CommandLib::RetryableCommand::RetryCallback@{CommandLib::RetryableCommand::RetryCallback}}
+\doxysubsubsection{\texorpdfstring{OnCommandFailed()}{OnCommandFailed()}}
+{\footnotesize\ttfamily virtual bool Command\+Lib\+::\+Retryable\+Command\+::\+Retry\+Callback\+::\+On\+Command\+Failed (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{fail\+Number,  }\item[{const std\+::exception \&}]{reason,  }\item[{long long $\ast$}]{wait\+MS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Callback for when a command to be retried fails 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fail\+Number} & The number of times the command has failed (including this time)\\
+\hline
+{\em reason} & The reason for failure.\\
+\hline
+{\em wait\+MS} & The number of milliseconds to wait before retrying. This value is ignored if the method returns false. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if the command should not be retried (which will propogate the exception). Otherwise true to perform a retry after the specified wait time
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Retryable\+Command.\+h\end{DoxyCompactItemize}

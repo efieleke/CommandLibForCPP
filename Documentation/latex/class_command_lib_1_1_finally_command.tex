@@ -1,0 +1,109 @@
+\hypertarget{class_command_lib_1_1_finally_command}{}\doxysection{Command\+Lib\+::Finally\+Command Class Reference}
+\label{class_command_lib_1_1_finally_command}\index{CommandLib::FinallyCommand@{CommandLib::FinallyCommand}}
+
+
+This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another command, and runs a client-\/specified command upon either success of failure, and optionally upon abortion.  
+
+
+
+
+{\ttfamily \#include $<$Finally\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+::Finally\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_finally_command}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_finally_command_af1bd5cc159f8112cd6918793dea19d04}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object \end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_finally_command_a0f434d213345bf3b923320e177637a34}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_lib_1_1_finally_command_a91108eb6d3af7cf595c6c9fccc82fa49}\label{class_command_lib_1_1_finally_command_a91108eb6d3af7cf595c6c9fccc82fa49}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_finally_command_a91108eb6d3af7cf595c6c9fccc82fa49}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_finally_command_a7911d525e762eacdc3d66c145f771fdb}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command\+To\+Run, \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} upon\+Completion\+Command, bool even\+Upon\+Abort)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}} object as a top level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_finally_command_a24c42e67d7813c231e140071a49e471b}{Finally\+Command}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command\+To\+Run, \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} upon\+Completion\+Command, bool even\+Upon\+Abort)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_finally_command_a7911d525e762eacdc3d66c145f771fdb}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another command, and runs a client-\/specified command upon either success of failure, and optionally upon abortion. 
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_finally_command_af1bd5cc159f8112cd6918793dea19d04}\label{class_command_lib_1_1_finally_command_af1bd5cc159f8112cd6918793dea19d04}} 
+\index{CommandLib::FinallyCommand@{CommandLib::FinallyCommand}!ConstPtr@{ConstPtr}}
+\index{ConstPtr@{ConstPtr}!CommandLib::FinallyCommand@{CommandLib::FinallyCommand}}
+\doxysubsubsection{\texorpdfstring{ConstPtr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_finally_command_af1bd5cc159f8112cd6918793dea19d04}{Command\+Lib\+::\+Finally\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object 
+
+\mbox{\Hypertarget{class_command_lib_1_1_finally_command_a0f434d213345bf3b923320e177637a34}\label{class_command_lib_1_1_finally_command_a0f434d213345bf3b923320e177637a34}} 
+\index{CommandLib::FinallyCommand@{CommandLib::FinallyCommand}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!CommandLib::FinallyCommand@{CommandLib::FinallyCommand}}
+\doxysubsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_finally_command_a0f434d213345bf3b923320e177637a34}{Command\+Lib\+::\+Finally\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}} object 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_finally_command_a24c42e67d7813c231e140071a49e471b}\label{class_command_lib_1_1_finally_command_a24c42e67d7813c231e140071a49e471b}} 
+\index{CommandLib::FinallyCommand@{CommandLib::FinallyCommand}!FinallyCommand@{FinallyCommand}}
+\index{FinallyCommand@{FinallyCommand}!CommandLib::FinallyCommand@{CommandLib::FinallyCommand}}
+\doxysubsubsection{\texorpdfstring{FinallyCommand()}{FinallyCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Finally\+Command\+::\+Finally\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command\+To\+Run,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{upon\+Completion\+Command,  }\item[{bool}]{even\+Upon\+Abort }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_finally_command_a7911d525e762eacdc3d66c145f771fdb}{Create()}} methods. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_finally_command_a7911d525e762eacdc3d66c145f771fdb}\label{class_command_lib_1_1_finally_command_a7911d525e762eacdc3d66c145f771fdb}} 
+\index{CommandLib::FinallyCommand@{CommandLib::FinallyCommand}!Create@{Create}}
+\index{Create@{Create}!CommandLib::FinallyCommand@{CommandLib::FinallyCommand}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Finally\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command\+To\+Run,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{upon\+Completion\+Command,  }\item[{bool}]{even\+Upon\+Abort }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}} object as a top level \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+To\+Run} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. \\
+\hline
+{\em upon\+Completion\+Command} & The command to run upon success or failure (and optionally upon abortion). This command must not have an owner. It will be disposed when this \mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}} is disposed. \\
+\hline
+{\em even\+Upon\+Abort} & If this value is true, upon\+Completion\+Command will be run even upon abortion, and upon\+Completion\+Command will not be responsive to abort requests of this object. If false, upon\+Completion\+Command will not be run upon abortion, and if it is running while an abort request is made of this object, it will be aborted. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Finally\+Command.\+h\end{DoxyCompactItemize}

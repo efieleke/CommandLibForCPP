@@ -1,0 +1,64 @@
+\hypertarget{class_command_lib_1_1_wait_monitor}{}\doxysection{Command\+Lib\+::Wait\+Monitor Class Reference}
+\label{class_command_lib_1_1_wait_monitor}\index{CommandLib::WaitMonitor@{CommandLib::WaitMonitor}}
+
+
+Objects of this time can wait upon \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} objects  
+
+
+
+
+{\ttfamily \#include $<$Wait\+Monitor.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_wait_monitor}{Wait\+Monitor}} $>$ \mbox{\hyperlink{class_command_lib_1_1_wait_monitor_ae97f385185f20d67f215494278136052}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_wait_monitor}{Wait\+Monitor}} object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_command_lib_1_1_wait_monitor_a478cc2d9cc714ecb9b4844e47a67faa1}{Signaled}} (const \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} \&waitable)=0
+\begin{DoxyCompactList}\small\item\em Invoked when a \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} object becomes signaled \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Objects of this time can wait upon \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} objects 
+
+\mbox{\hyperlink{class_command_lib_1_1_wait_monitor}{Wait\+Monitor}} objects can be registered by calling \mbox{\hyperlink{class_command_lib_1_1_waitable_afa4d25c0eb13db4222575f95036fbb22}{Waitable\+::\+Add\+Listener}}
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_wait_monitor_ae97f385185f20d67f215494278136052}\label{class_command_lib_1_1_wait_monitor_ae97f385185f20d67f215494278136052}} 
+\index{CommandLib::WaitMonitor@{CommandLib::WaitMonitor}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!CommandLib::WaitMonitor@{CommandLib::WaitMonitor}}
+\doxysubsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_wait_monitor}{Wait\+Monitor}}$>$ \mbox{\hyperlink{class_command_lib_1_1_wait_monitor_ae97f385185f20d67f215494278136052}{Command\+Lib\+::\+Wait\+Monitor\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_wait_monitor}{Wait\+Monitor}} object 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_wait_monitor_a478cc2d9cc714ecb9b4844e47a67faa1}\label{class_command_lib_1_1_wait_monitor_a478cc2d9cc714ecb9b4844e47a67faa1}} 
+\index{CommandLib::WaitMonitor@{CommandLib::WaitMonitor}!Signaled@{Signaled}}
+\index{Signaled@{Signaled}!CommandLib::WaitMonitor@{CommandLib::WaitMonitor}}
+\doxysubsubsection{\texorpdfstring{Signaled()}{Signaled()}}
+{\footnotesize\ttfamily virtual void Command\+Lib\+::\+Wait\+Monitor\+::\+Signaled (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} \&}]{waitable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Invoked when a \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} object becomes signaled 
+
+
+\begin{DoxyParams}{Parameters}
+{\em waitable} & The object that became signaled\\
+\hline
+\end{DoxyParams}
+
+
+This object must have been registered with the waitable via \mbox{\hyperlink{class_command_lib_1_1_waitable_afa4d25c0eb13db4222575f95036fbb22}{Waitable\+::\+Add\+Listener}} in order for the callback to occur 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Wait\+Monitor.\+h\end{DoxyCompactItemize}

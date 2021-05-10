@@ -1,0 +1,547 @@
+\hypertarget{class_command_lib_1_1_command}{}\doxysection{Command\+Lib\+::Command Class Reference}
+\label{class_command_lib_1_1_command}\index{CommandLib::Command@{CommandLib::Command}}
+
+
+Represents an action that can be run synchronously or asynchronously.  
+
+
+
+
+{\ttfamily \#include $<$Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+::Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.323195cm]{class_command_lib_1_1_command}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object \end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{class_command_lib_1_1_command_a00a3047609fda3d69b828b7850624389}{Id}} () const
+\begin{DoxyCompactList}\small\item\em The unique identifier for this command \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} $\ast$ \mbox{\hyperlink{class_command_lib_1_1_command_a19a55aef338aad892fc105b2e1f8700f}{Parent}} () const
+\begin{DoxyCompactList}\small\item\em The command under which this command is nested, if any \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_command_lib_1_1_command_a28e3c6c7f6467cbeffe287984c3f012d}{Depth}} () const
+\begin{DoxyCompactList}\small\item\em How deeply nested this command is \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_command_lib_1_1_command_a03783e0aea82f820805b8c4e9cc8b43e}{Description}} () const
+\begin{DoxyCompactList}\small\item\em A description of the \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_command_a795a185509e7b0fc1606b3b62fe17fbb}{Extended\+Description}} () const
+\begin{DoxyCompactList}\small\item\em Information about the command (beyond its type and id), if available, for diagnostic purposes. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_command_lib_1_1_command_a4ccad987c43709c44c20132c3890b585}{Is\+Naturally\+Synchronous}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns true if this command\textquotesingle{}s most efficient form of execution is synchronous. This information is used on occasion to determine how to best execute a command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a5d33760ccb927d7f6349c02907ab4ff3}{Sync\+Execute}} ()
+\begin{DoxyCompactList}\small\item\em Executes the command and does not return until it finishes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a663d50889f527a4963eebd88bbcdc522}{Sync\+Execute}} (\mbox{\hyperlink{class_command_lib_1_1_command}{Command}} $\ast$owner)
+\begin{DoxyCompactList}\small\item\em Executes the command and does not return until it finishes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a44bad231a0f0a6de3d5405382d95f800}{Async\+Execute}} (\mbox{\hyperlink{class_command_lib_1_1_command_listener}{Command\+Listener}} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Starts executing the command and returns immediately. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} ()
+\begin{DoxyCompactList}\small\item\em Aborts a running command \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_ac4d49fbf9bbcc543fb57e4b04edf1ddb}{Wait}} () const
+\begin{DoxyCompactList}\small\item\em Waits for a running command to complete. Will return immediately if the command is not currently executing. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\bool \mbox{\hyperlink{class_command_lib_1_1_command_a0cd3c0e7ee280652c69a3e13a30b99e7}{Wait}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&interval) const
+\begin{DoxyCompactList}\small\item\em Waits a specified duration for a running command to complete. Will return immediately if the command is not currently executing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_lib_1_1_command_ad4cae3ab883426e4f872782b8de88597}{Wait}} (long long milliseconds) const
+\begin{DoxyCompactList}\small\item\em Waits the specified milliseconds for a running command to complete. Will return immediately if the command is not currently executing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a6afa9e7eab83d5e59746fe15e295e066}{Abort\+And\+Wait}} ()
+\begin{DoxyCompactList}\small\item\em The exact same effect as a call to \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} immediately followed by a call to \mbox{\hyperlink{class_command_lib_1_1_command_ac4d49fbf9bbcc543fb57e4b04edf1ddb}{Wait}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\bool \mbox{\hyperlink{class_command_lib_1_1_command_af51df64ba29324bbbbe13c647e708563}{Abort\+And\+Wait}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&interval) const
+\begin{DoxyCompactList}\small\item\em The exact same effect as a call to \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} immediately followed by a call to Wait(const std\+::chrono\+::duration$<$\+Rep, Period$>$\&) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_lib_1_1_command_ab7e0fd4eb4f1d2b6d98228c1432805e3}{Abort\+And\+Wait}} (long long milliseconds)
+\begin{DoxyCompactList}\small\item\em The exact same effect as a call to \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} immediately followed by a call to Wait(const std\+::chrono\+::duration$<$\+Rep, Period$>$\&) \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_command_a96f8ac531b436a41b21252fa2e17fd79}{Class\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} \mbox{\hyperlink{class_command_lib_1_1_command_a5f163dafd55fe63a5ed351e1543d02a3}{Done\+Event}} () const
+\begin{DoxyCompactList}\small\item\em Signaled when this command has finished execution, regardless of whether it succeeded, failed or was aborted. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} \mbox{\hyperlink{class_command_lib_1_1_command_a1fdc8e982866dbbfb763af5d755f76dd}{Abort\+Event}} () const
+\begin{DoxyCompactList}\small\item\em Signaled when this command is to be aborted. Note that this event is only reset when the command next begins execution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::list$<$ \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} $\ast$ $>$ \mbox{\hyperlink{class_command_lib_1_1_command_aa4ceb8d85a720bc5d9bac4be3afd7df5}{sm\+\_\+monitors}}
+\begin{DoxyCompactList}\small\item\em The objects that define command monitoring behavior. Monitoring is meant for logging and diagnostic purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_command_a31713edf2ee9c217f9090e5337dd1f44}{Command}} ()
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}{Take\+Ownership}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} orphan)
+\begin{DoxyCompactList}\small\item\em Make this command the owner of the command passed as an argument. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_ac872e76c74ed573668b60351fd9ffd1d}{Relinquish\+Ownership}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} command)
+\begin{DoxyCompactList}\small\item\em Makes what used to be an owned command a top-\/level command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a0e9fe77b6976159e86428ebcaeee0e82}{Check\+Abort\+Flag}} () const
+\begin{DoxyCompactList}\small\item\em Throws a \mbox{\hyperlink{class_command_lib_1_1_command_aborted_exception}{Command\+Aborted\+Exception}} if an abort is pending. Synchronous implementations may find this useful in order to respond to an abort request in a timely manner. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_a297473697514edc973b5ca9393f8d404}{Reset\+Child\+Abort\+Event}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} child\+Command)
+\begin{DoxyCompactList}\small\item\em Resets the abort event of a command that is owned by this command. Derived implementations may need to call this execute a child command regardless of whether its owner was aborted. This method only exists for special cases. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_command_ab8fb1bc11a4421953f83c09ce4247c22}{Abort\+Child\+Command}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} child\+Command)
+\begin{DoxyCompactList}\small\item\em Aborts a command that is owned by this command. Derived implementations may need to call this to halt an owned command\textquotesingle{}s execution without effecting the execution state of the owning command. Note that when a command is aborted via normal means (via \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Command.\+Abort()}}), all of its owned commands are also aborted. This method only exists for special cases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_lib_1_1_command_abff6f12669682d683b4c150859ce09fc}\label{class_command_lib_1_1_command_abff6f12669682d683b4c150859ce09fc}} 
+class {\bfseries Async\+Command}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an action that can be run synchronously or asynchronously. 
+
+Commands are abortable. Even a synchronously running command can be aborted from a separate thread. 
+
+\mbox{\hyperlink{class_command_lib_1_1_command}{Command}} types are only instantiable via static Create() methods. This is because commands often own other commands. It was necessary to either enforce clone interface support, or enforce working with smart pointers. Smart pointers felt like the easier approach for clients (writing clone methods is a nuisance). 
+
+When developing a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} subclass, be sure to inherit from either \mbox{\hyperlink{class_command_lib_1_1_sync_command}{Sync\+Command}} (if your command is naturally synchronous in its implementation) or \mbox{\hyperlink{class_command_lib_1_1_async_command}{Async\+Command}}. Those classes take care of the unnatural implementations (\mbox{\hyperlink{class_command_lib_1_1_sync_command}{Sync\+Command}} implements Async\+Execute\+Impl, and \mbox{\hyperlink{class_command_lib_1_1_async_command}{Async\+Command}} implements Sync\+Execute\+Impl). 
+
+Also, when developing a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} subclass, make sure that any member variables that are Commands are properly owned by calling \mbox{\hyperlink{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}{Take\+Ownership}} within your constructor body. The advantage of doing this is that owned commands will automatically respond to abort requests issued to the owner. 
+
+If you write a method that accepts a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} as an argument, you may wish to assume ownership of that \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}. \mbox{\hyperlink{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}{Take\+Ownership}} allows you to do this. The \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_af0100e15f7897471ce84802ab6c25e00}{Sequential\+Commands\+::\+Add}} member of \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} is an example of this behavior. 
+
+Generally speaking, when authoring Commands, it\textquotesingle{}s best to make them as granular as possible. That makes it much easier to reuse them while composing command structures. Also, ensure that your commands are responsive to abort requests if they take a noticeable amount of time to complete. 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}\label{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}} 
+\index{CommandLib::Command@{CommandLib::Command}!ConstPtr@{ConstPtr}}
+\index{ConstPtr@{ConstPtr}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{ConstPtr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_command_aee8fd78ff853a1f9c8e56959c3e81811}{Command\+Lib\+::\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object 
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}\label{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}} 
+\index{CommandLib::Command@{CommandLib::Command}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_command}{Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+Lib\+::\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a31713edf2ee9c217f9090e5337dd1f44}\label{class_command_lib_1_1_command_a31713edf2ee9c217f9090e5337dd1f44}} 
+\index{CommandLib::Command@{CommandLib::Command}!Command@{Command}}
+\index{Command@{Command}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Command()}{Command()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Command\+::\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Constructor 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}\label{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}} 
+\index{CommandLib::Command@{CommandLib::Command}!Abort@{Abort}}
+\index{Abort@{Abort}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Abort()}{Abort()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Abort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Aborts a running command 
+
+This method will have no effect on a command that is not running (nor will it cause a future execution of this command to abort). Synchronous execution will throw a \mbox{\hyperlink{class_command_lib_1_1_command_aborted_exception}{Command\+Aborted\+Exception}} if aborted, and asynchronous execution will invoke \mbox{\hyperlink{class_command_lib_1_1_command_listener_aa389ff6dd3895ce4ecc9447a23e4d9fc}{Command\+Listener\+::\+Command\+Aborted}} on the listener if aborted. Note that if a command is near completion, it may finish successfully (or fail) before an abort request is processed. 
+
+It is an error to call \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort()}} on anything other than a top level command. \mbox{\Hypertarget{class_command_lib_1_1_command_a6afa9e7eab83d5e59746fe15e295e066}\label{class_command_lib_1_1_command_a6afa9e7eab83d5e59746fe15e295e066}} 
+\index{CommandLib::Command@{CommandLib::Command}!AbortAndWait@{AbortAndWait}}
+\index{AbortAndWait@{AbortAndWait}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{AbortAndWait()}{AbortAndWait()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Abort\+And\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The exact same effect as a call to \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} immediately followed by a call to \mbox{\hyperlink{class_command_lib_1_1_command_ac4d49fbf9bbcc543fb57e4b04edf1ddb}{Wait}} 
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_af51df64ba29324bbbbe13c647e708563}\label{class_command_lib_1_1_command_af51df64ba29324bbbbe13c647e708563}} 
+\index{CommandLib::Command@{CommandLib::Command}!AbortAndWait@{AbortAndWait}}
+\index{AbortAndWait@{AbortAndWait}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{AbortAndWait()}{AbortAndWait()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+bool Command\+Lib\+::\+Command\+::\+Abort\+And\+Wait (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{interval }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The exact same effect as a call to \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} immediately followed by a call to Wait(const std\+::chrono\+::duration$<$\+Rep, Period$>$\&) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & The maximum amount of time to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the the command completed within \textquotesingle{}duration\textquotesingle{}, false otherwise
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_command_ab7e0fd4eb4f1d2b6d98228c1432805e3}\label{class_command_lib_1_1_command_ab7e0fd4eb4f1d2b6d98228c1432805e3}} 
+\index{CommandLib::Command@{CommandLib::Command}!AbortAndWait@{AbortAndWait}}
+\index{AbortAndWait@{AbortAndWait}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{AbortAndWait()}{AbortAndWait()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Command\+Lib\+::\+Command\+::\+Abort\+And\+Wait (\begin{DoxyParamCaption}\item[{long long}]{milliseconds }\end{DoxyParamCaption})}
+
+
+
+The exact same effect as a call to \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} immediately followed by a call to Wait(const std\+::chrono\+::duration$<$\+Rep, Period$>$\&) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em milliseconds} & The maximum number of milliseconds to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the the command completed within \textquotesingle{}duration\textquotesingle{}, false otherwise
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_command_ab8fb1bc11a4421953f83c09ce4247c22}\label{class_command_lib_1_1_command_ab8fb1bc11a4421953f83c09ce4247c22}} 
+\index{CommandLib::Command@{CommandLib::Command}!AbortChildCommand@{AbortChildCommand}}
+\index{AbortChildCommand@{AbortChildCommand}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{AbortChildCommand()}{AbortChildCommand()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Abort\+Child\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}}}]{child\+Command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Aborts a command that is owned by this command. Derived implementations may need to call this to halt an owned command\textquotesingle{}s execution without effecting the execution state of the owning command. Note that when a command is aborted via normal means (via \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Command.\+Abort()}}), all of its owned commands are also aborted. This method only exists for special cases. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child\+Command} & The owned command. This must be an immediate child (not a grandchild, for example).\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a1fdc8e982866dbbfb763af5d755f76dd}\label{class_command_lib_1_1_command_a1fdc8e982866dbbfb763af5d755f76dd}} 
+\index{CommandLib::Command@{CommandLib::Command}!AbortEvent@{AbortEvent}}
+\index{AbortEvent@{AbortEvent}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{AbortEvent()}{AbortEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} Command\+Lib\+::\+Command\+::\+Abort\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Signaled when this command is to be aborted. Note that this event is only reset when the command next begins execution. 
+
+\begin{DoxyReturn}{Returns}
+The object that can waited up for this command to be signaled to abort.
+\end{DoxyReturn}
+
+
+Note that this is signaled when the command should abort, which will be before the command finishes aborting itself\mbox{\Hypertarget{class_command_lib_1_1_command_a44bad231a0f0a6de3d5405382d95f800}\label{class_command_lib_1_1_command_a44bad231a0f0a6de3d5405382d95f800}} 
+\index{CommandLib::Command@{CommandLib::Command}!AsyncExecute@{AsyncExecute}}
+\index{AsyncExecute@{AsyncExecute}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{AsyncExecute()}{AsyncExecute()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Async\+Execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_listener}{Command\+Listener}} $\ast$}]{listener }\end{DoxyParamCaption})}
+
+
+
+Starts executing the command and returns immediately. 
+
+Call \mbox{\hyperlink{class_command_lib_1_1_command_ac4d49fbf9bbcc543fb57e4b04edf1ddb}{Wait}} if you need to block until the command finishes. 
+
+It is safe to call this any number of times, but it will cause undefined behavior to re-\/execute a command that is already executing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & One of the methods of this interface will be called upon completion, on a separate thread. See the \mbox{\hyperlink{class_command_lib_1_1_command_listener}{Command\+Listener}} documentation for details. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a0e9fe77b6976159e86428ebcaeee0e82}\label{class_command_lib_1_1_command_a0e9fe77b6976159e86428ebcaeee0e82}} 
+\index{CommandLib::Command@{CommandLib::Command}!CheckAbortFlag@{CheckAbortFlag}}
+\index{CheckAbortFlag@{CheckAbortFlag}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{CheckAbortFlag()}{CheckAbortFlag()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Check\+Abort\+Flag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Throws a \mbox{\hyperlink{class_command_lib_1_1_command_aborted_exception}{Command\+Aborted\+Exception}} if an abort is pending. Synchronous implementations may find this useful in order to respond to an abort request in a timely manner. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_a96f8ac531b436a41b21252fa2e17fd79}\label{class_command_lib_1_1_command_a96f8ac531b436a41b21252fa2e17fd79}} 
+\index{CommandLib::Command@{CommandLib::Command}!ClassName@{ClassName}}
+\index{ClassName@{ClassName}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{ClassName()}{ClassName()}}
+{\footnotesize\ttfamily virtual std\+::string Command\+Lib\+::\+Command\+::\+Class\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes. 
+
+The returned string should be the name of the derived class, without any namespace qualification. I could have used typeid instead, but that requires compiling with RTTI, which is not something that everyone wants. 
+
+Implemented in \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_a2a5063ef124f555229b90f7bd82f362e}{Command\+Lib\+::\+Time\+Limited\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_abbfd93499d508c3f0d2d817bd59e7080}{Command\+Lib\+::\+Sequential\+Commands}}, \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_ae01bdda88e63460a380579e08ced9eda}{Command\+Lib\+::\+Scheduled\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_retryable_command_ace5c335248d89b0bf162de17a9579a74}{Command\+Lib\+::\+Retryable\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_recurring_command_a4e2073b92185dd5f7b545d774afbb929}{Command\+Lib\+::\+Recurring\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a77c34a0f31ae4e7f0c642a356bd5d6ef}{Command\+Lib\+::\+Periodic\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_pause_command_afcdddf1fa8b52a3bfec665b1db736cc5}{Command\+Lib\+::\+Pause\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_aada3d28f970e82d1d057ac2b499453ac}{Command\+Lib\+::\+Parallel\+Commands}}, and \mbox{\hyperlink{class_command_lib_1_1_finally_command_a91108eb6d3af7cf595c6c9fccc82fa49}{Command\+Lib\+::\+Finally\+Command}}.
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_a28e3c6c7f6467cbeffe287984c3f012d}\label{class_command_lib_1_1_command_a28e3c6c7f6467cbeffe287984c3f012d}} 
+\index{CommandLib::Command@{CommandLib::Command}!Depth@{Depth}}
+\index{Depth@{Depth}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Depth()}{Depth()}}
+{\footnotesize\ttfamily int Command\+Lib\+::\+Command\+::\+Depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+How deeply nested this command is 
+
+\begin{DoxyReturn}{Returns}
+The number of parents until the top level command is reached
+
+
+\end{DoxyReturn}
+
+
+A parent is considered the owner\mbox{\Hypertarget{class_command_lib_1_1_command_a03783e0aea82f820805b8c4e9cc8b43e}\label{class_command_lib_1_1_command_a03783e0aea82f820805b8c4e9cc8b43e}} 
+\index{CommandLib::Command@{CommandLib::Command}!Description@{Description}}
+\index{Description@{Description}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Description()}{Description()}}
+{\footnotesize\ttfamily std\+::string Command\+Lib\+::\+Command\+::\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A description of the \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} 
+
+\begin{DoxyReturn}{Returns}
+The name of the concrete class of this command, preceded by the names of the classes of each parent, up to the top-\/level parent. This is followed with this command\textquotesingle{}s unique id (for example, \textquotesingle{}\mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}}=$>$Pause\+Command(23)\textquotesingle{}). The description ends with details of about the current state of the command, if available. 
+\end{DoxyReturn}
+
+
+A parent is considered the owner \mbox{\Hypertarget{class_command_lib_1_1_command_a5f163dafd55fe63a5ed351e1543d02a3}\label{class_command_lib_1_1_command_a5f163dafd55fe63a5ed351e1543d02a3}} 
+\index{CommandLib::Command@{CommandLib::Command}!DoneEvent@{DoneEvent}}
+\index{DoneEvent@{DoneEvent}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{DoneEvent()}{DoneEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} Command\+Lib\+::\+Command\+::\+Done\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Signaled when this command has finished execution, regardless of whether it succeeded, failed or was aborted. 
+
+\begin{DoxyReturn}{Returns}
+The object that can waited up for this command to be not executing.
+\end{DoxyReturn}
+
+
+Calling \mbox{\hyperlink{class_command_lib_1_1_command_ac4d49fbf9bbcc543fb57e4b04edf1ddb}{Wait}} has the same effect as waiting upon the object returned from this method. \mbox{\Hypertarget{class_command_lib_1_1_command_a795a185509e7b0fc1606b3b62fe17fbb}\label{class_command_lib_1_1_command_a795a185509e7b0fc1606b3b62fe17fbb}} 
+\index{CommandLib::Command@{CommandLib::Command}!ExtendedDescription@{ExtendedDescription}}
+\index{ExtendedDescription@{ExtendedDescription}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{ExtendedDescription()}{ExtendedDescription()}}
+{\footnotesize\ttfamily virtual std\+::string Command\+Lib\+::\+Command\+::\+Extended\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Information about the command (beyond its type and id), if available, for diagnostic purposes. 
+
+\begin{DoxyReturn}{Returns}
+Implementations should return information about the current state of the \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}, if available. Return an empty string or null if there is no useful state information to report. 
+\end{DoxyReturn}
+
+
+This information is included as part of Get\+Description. It is meant for diagnostic purposes. 
+
+Implementations must be thread safe, and they must not not throw. 
+
+Reimplemented in \mbox{\hyperlink{class_command_lib_1_1_time_limited_command_aaf7018c66b91a5d1a519325b99dc3f55}{Command\+Lib\+::\+Time\+Limited\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_a8109d8d9b2c4a191cad02164ca173709}{Command\+Lib\+::\+Sequential\+Commands}}, \mbox{\hyperlink{class_command_lib_1_1_scheduled_command_a3a4da8459441ce57379753e947467025}{Command\+Lib\+::\+Scheduled\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_periodic_command_a330571debdbd7f7b306dd7f2718e84e5}{Command\+Lib\+::\+Periodic\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_pause_command_a211772cefb139755c74495f190a9a607}{Command\+Lib\+::\+Pause\+Command}}, and \mbox{\hyperlink{class_command_lib_1_1_parallel_commands_a5c079ef465fe007bc3b8e893554c5610}{Command\+Lib\+::\+Parallel\+Commands}}.
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_a00a3047609fda3d69b828b7850624389}\label{class_command_lib_1_1_command_a00a3047609fda3d69b828b7850624389}} 
+\index{CommandLib::Command@{CommandLib::Command}!Id@{Id}}
+\index{Id@{Id}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Id()}{Id()}}
+{\footnotesize\ttfamily long Command\+Lib\+::\+Command\+::\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The unique identifier for this command 
+
+\begin{DoxyReturn}{Returns}
+The unique identifier for this command. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a4ccad987c43709c44c20132c3890b585}\label{class_command_lib_1_1_command_a4ccad987c43709c44c20132c3890b585}} 
+\index{CommandLib::Command@{CommandLib::Command}!IsNaturallySynchronous@{IsNaturallySynchronous}}
+\index{IsNaturallySynchronous@{IsNaturallySynchronous}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{IsNaturallySynchronous()}{IsNaturallySynchronous()}}
+{\footnotesize\ttfamily virtual bool Command\+Lib\+::\+Command\+::\+Is\+Naturally\+Synchronous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns true if this command\textquotesingle{}s most efficient form of execution is synchronous. This information is used on occasion to determine how to best execute a command. 
+
+\begin{DoxyReturn}{Returns}
+true, if this command is most efficient when run synchronously
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_command_lib_1_1_sync_command_a7541276e393c002979ed54523116b12e}{Command\+Lib\+::\+Sync\+Command}}, \mbox{\hyperlink{class_command_lib_1_1_sequential_commands_a47c2a881bfeab639064e36d202e32e0f}{Command\+Lib\+::\+Sequential\+Commands}}, and \mbox{\hyperlink{class_command_lib_1_1_async_command_a2c08165637770cc7bb8fdd814a93acec}{Command\+Lib\+::\+Async\+Command}}.
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_a19a55aef338aad892fc105b2e1f8700f}\label{class_command_lib_1_1_command_a19a55aef338aad892fc105b2e1f8700f}} 
+\index{CommandLib::Command@{CommandLib::Command}!Parent@{Parent}}
+\index{Parent@{Parent}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Parent()}{Parent()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}$\ast$ Command\+Lib\+::\+Command\+::\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The command under which this command is nested, if any 
+
+\begin{DoxyReturn}{Returns}
+The owning \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_command_ac872e76c74ed573668b60351fd9ffd1d}\label{class_command_lib_1_1_command_ac872e76c74ed573668b60351fd9ffd1d}} 
+\index{CommandLib::Command@{CommandLib::Command}!RelinquishOwnership@{RelinquishOwnership}}
+\index{RelinquishOwnership@{RelinquishOwnership}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{RelinquishOwnership()}{RelinquishOwnership()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Relinquish\+Ownership (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}}}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Makes what used to be an owned command a top-\/level command. 
+
+The caller of this method must be responsible for ensuring that the relinquished command is properly disposed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to relinquish ownership. Note that it must currently be a direct child command of this object (not a grandchild, for example)\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a297473697514edc973b5ca9393f8d404}\label{class_command_lib_1_1_command_a297473697514edc973b5ca9393f8d404}} 
+\index{CommandLib::Command@{CommandLib::Command}!ResetChildAbortEvent@{ResetChildAbortEvent}}
+\index{ResetChildAbortEvent@{ResetChildAbortEvent}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{ResetChildAbortEvent()}{ResetChildAbortEvent()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Reset\+Child\+Abort\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}}}]{child\+Command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Resets the abort event of a command that is owned by this command. Derived implementations may need to call this execute a child command regardless of whether its owner was aborted. This method only exists for special cases. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child\+Command} & The owned command. This must be an immediate child (not a grandchild, for example).\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a5d33760ccb927d7f6349c02907ab4ff3}\label{class_command_lib_1_1_command_a5d33760ccb927d7f6349c02907ab4ff3}} 
+\index{CommandLib::Command@{CommandLib::Command}!SyncExecute@{SyncExecute}}
+\index{SyncExecute@{SyncExecute}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{SyncExecute()}{SyncExecute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Sync\+Execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executes the command and does not return until it finishes. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{class_command_lib_1_1_command_aborted_exception}{Command\+Aborted\+Exception}}} & Thrown when execution is aborted\\
+\hline
+{\em std\+::exception} & Thrown if execution does not complete successfully. \\
+\hline
+\end{DoxyExceptions}
+
+
+It is safe to call this any number of times, but it will cause undefined behavior to re-\/execute a command that is already executing. \mbox{\Hypertarget{class_command_lib_1_1_command_a663d50889f527a4963eebd88bbcdc522}\label{class_command_lib_1_1_command_a663d50889f527a4963eebd88bbcdc522}} 
+\index{CommandLib::Command@{CommandLib::Command}!SyncExecute@{SyncExecute}}
+\index{SyncExecute@{SyncExecute}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{SyncExecute()}{SyncExecute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Sync\+Execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command}{Command}} $\ast$}]{owner }\end{DoxyParamCaption})}
+
+
+
+Executes the command and does not return until it finishes. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \mbox{\hyperlink{class_command_lib_1_1_command_aborted_exception}{Command\+Aborted\+Exception}}} & Thrown when execution is aborted\\
+\hline
+{\em std\+::exception} & Thrown if execution does not complete successfully. \\
+\hline
+\end{DoxyExceptions}
+
+
+It is safe to call this any number of times, but it will cause undefined behavior to re-\/execute a command that is already executing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & If you want this command to pay attention to abort requests of a different command, set this value to that command. Note that if this \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} is already assigned an owner, passing a non-\/null value will raise an exception. Also note that the owner assignment is only in effect during the scope of this call. Upon return, this command will not have an owner. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}\label{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}} 
+\index{CommandLib::Command@{CommandLib::Command}!TakeOwnership@{TakeOwnership}}
+\index{TakeOwnership@{TakeOwnership}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{TakeOwnership()}{TakeOwnership()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Take\+Ownership (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}}}]{orphan }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Make this command the owner of the command passed as an argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orphan} & The command to be owned. Only un-\/owned commands can take a new owner. Allowing other types of owner transfer would invite misuse and the bad behavior that results (e.\+g. adding the same \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} instance to \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} and \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_command_lib_1_1_command_ac4d49fbf9bbcc543fb57e4b04edf1ddb}\label{class_command_lib_1_1_command_ac4d49fbf9bbcc543fb57e4b04edf1ddb}} 
+\index{CommandLib::Command@{CommandLib::Command}!Wait@{Wait}}
+\index{Wait@{Wait}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Waits for a running command to complete. Will return immediately if the command is not currently executing. 
+
+\mbox{\Hypertarget{class_command_lib_1_1_command_a0cd3c0e7ee280652c69a3e13a30b99e7}\label{class_command_lib_1_1_command_a0cd3c0e7ee280652c69a3e13a30b99e7}} 
+\index{CommandLib::Command@{CommandLib::Command}!Wait@{Wait}}
+\index{Wait@{Wait}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+bool Command\+Lib\+::\+Command\+::\+Wait (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{interval }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Waits a specified duration for a running command to complete. Will return immediately if the command is not currently executing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & The maximum amount of time to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the the command completed within \textquotesingle{}duration\textquotesingle{}, false otherwise
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_command_ad4cae3ab883426e4f872782b8de88597}\label{class_command_lib_1_1_command_ad4cae3ab883426e4f872782b8de88597}} 
+\index{CommandLib::Command@{CommandLib::Command}!Wait@{Wait}}
+\index{Wait@{Wait}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Command\+Lib\+::\+Command\+::\+Wait (\begin{DoxyParamCaption}\item[{long long}]{milliseconds }\end{DoxyParamCaption}) const}
+
+
+
+Waits the specified milliseconds for a running command to complete. Will return immediately if the command is not currently executing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em milliseconds} & The maximum number of milliseconds to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the the command completed within \textquotesingle{}duration\textquotesingle{}, false otherwise
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_command_aa4ceb8d85a720bc5d9bac4be3afd7df5}\label{class_command_lib_1_1_command_aa4ceb8d85a720bc5d9bac4be3afd7df5}} 
+\index{CommandLib::Command@{CommandLib::Command}!sm\_monitors@{sm\_monitors}}
+\index{sm\_monitors@{sm\_monitors}!CommandLib::Command@{CommandLib::Command}}
+\doxysubsubsection{\texorpdfstring{sm\_monitors}{sm\_monitors}}
+{\footnotesize\ttfamily std\+::list$<$\mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}}$\ast$$>$ Command\+Lib\+::\+Command\+::sm\+\_\+monitors\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The objects that define command monitoring behavior. Monitoring is meant for logging and diagnostic purposes. 
+
+This static member is not thread-\/safe. Be sure not to change it while any commands are executing. 
+
+There are no default monitors. \mbox{\hyperlink{class_command_lib_1_1_command_tracer}{Command\+Tracer}} and \mbox{\hyperlink{class_command_lib_1_1_command_logger}{Command\+Logger}} are implementations of \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} that can be used. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Command.\+h\end{DoxyCompactItemize}

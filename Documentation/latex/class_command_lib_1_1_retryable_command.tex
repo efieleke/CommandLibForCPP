@@ -1,0 +1,112 @@
+\hypertarget{class_command_lib_1_1_retryable_command}{}\doxysection{Command\+Lib\+::Retryable\+Command Class Reference}
+\label{class_command_lib_1_1_retryable_command}\index{CommandLib::RetryableCommand@{CommandLib::RetryableCommand}}
+
+
+This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another command, allowing the command to be retried upon failure, up to any number of times.  
+
+
+
+
+{\ttfamily \#include $<$Retryable\+Command.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+::Retryable\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_command_lib_1_1_retryable_command}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_command_lib_1_1_retryable_command_1_1_retry_callback}{Retry\+Callback}}
+\begin{DoxyCompactList}\small\item\em Interface that defines aspects of retry behavior \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_retryable_command_a8fadc39a8e4e18ddf7f468299dc55098}{Const\+Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} object \end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} $>$ \mbox{\hyperlink{class_command_lib_1_1_retryable_command_a5bb8960c450efd6e72f93a2409c73d4c}{Ptr}}
+\begin{DoxyCompactList}\small\item\em Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_lib_1_1_retryable_command_ace5c335248d89b0bf162de17a9579a74}\label{class_command_lib_1_1_retryable_command_ace5c335248d89b0bf162de17a9579a74}} 
+virtual std\+::string \mbox{\hyperlink{class_command_lib_1_1_retryable_command_ace5c335248d89b0bf162de17a9579a74}{Class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the name of the runtime instance of this class. Used for logging and diagnostic purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} \mbox{\hyperlink{class_command_lib_1_1_retryable_command_ae37523bf0a28f0a3ad8953a59cc1a128}{Create}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, \mbox{\hyperlink{class_command_lib_1_1_retryable_command_1_1_retry_callback}{Retry\+Callback}} $\ast$callback)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_retryable_command_a0fc3a84697043a689c83106f9f9c6a4a}{Retryable\+Command}} (\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}} command, \mbox{\hyperlink{class_command_lib_1_1_retryable_command_1_1_retry_callback}{Retry\+Callback}} $\ast$callback)
+\begin{DoxyCompactList}\small\item\em This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_retryable_command_ae37523bf0a28f0a3ad8953a59cc1a128}{Create()}} methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another command, allowing the command to be retried upon failure, up to any number of times. 
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_retryable_command_a8fadc39a8e4e18ddf7f468299dc55098}\label{class_command_lib_1_1_retryable_command_a8fadc39a8e4e18ddf7f468299dc55098}} 
+\index{CommandLib::RetryableCommand@{CommandLib::RetryableCommand}!ConstPtr@{ConstPtr}}
+\index{ConstPtr@{ConstPtr}!CommandLib::RetryableCommand@{CommandLib::RetryableCommand}}
+\doxysubsubsection{\texorpdfstring{ConstPtr}{ConstPtr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$const \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_retryable_command_a8fadc39a8e4e18ddf7f468299dc55098}{Command\+Lib\+::\+Retryable\+Command\+::\+Const\+Ptr}}}
+
+
+
+Shared pointer to a non-\/modifyable \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} object 
+
+\mbox{\Hypertarget{class_command_lib_1_1_retryable_command_a5bb8960c450efd6e72f93a2409c73d4c}\label{class_command_lib_1_1_retryable_command_a5bb8960c450efd6e72f93a2409c73d4c}} 
+\index{CommandLib::RetryableCommand@{CommandLib::RetryableCommand}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!CommandLib::RetryableCommand@{CommandLib::RetryableCommand}}
+\doxysubsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}}$>$ \mbox{\hyperlink{class_command_lib_1_1_retryable_command_a5bb8960c450efd6e72f93a2409c73d4c}{Command\+Lib\+::\+Retryable\+Command\+::\+Ptr}}}
+
+
+
+Shared pointer to a \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} object 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_retryable_command_a0fc3a84697043a689c83106f9f9c6a4a}\label{class_command_lib_1_1_retryable_command_a0fc3a84697043a689c83106f9f9c6a4a}} 
+\index{CommandLib::RetryableCommand@{CommandLib::RetryableCommand}!RetryableCommand@{RetryableCommand}}
+\index{RetryableCommand@{RetryableCommand}!CommandLib::RetryableCommand@{CommandLib::RetryableCommand}}
+\doxysubsubsection{\texorpdfstring{RetryableCommand()}{RetryableCommand()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Retryable\+Command\+::\+Retryable\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_retryable_command_1_1_retry_callback}{Retry\+Callback}} $\ast$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This constructor is not public so as to enforce creation using the \mbox{\hyperlink{class_command_lib_1_1_retryable_command_ae37523bf0a28f0a3ad8953a59cc1a128}{Create()}} methods. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_retryable_command_ae37523bf0a28f0a3ad8953a59cc1a128}\label{class_command_lib_1_1_retryable_command_ae37523bf0a28f0a3ad8953a59cc1a128}} 
+\index{CommandLib::RetryableCommand@{CommandLib::RetryableCommand}!Create@{Create}}
+\index{Create@{Create}!CommandLib::RetryableCommand@{CommandLib::RetryableCommand}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Ptr}} Command\+Lib\+::\+Retryable\+Command\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command_a3b3e4f00144373299df5c6bb1acc319d}{Command\+::\+Ptr}}}]{command,  }\item[{\mbox{\hyperlink{class_command_lib_1_1_retryable_command_1_1_retry_callback}{Retry\+Callback}} $\ast$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to run. This object takes ownership of the command, so the passed command must not already have an owner. The passed command will be disposed when this \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} object is disposed. \\
+\hline
+{\em callback} & This object defines aspects of retry behavior\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Retryable\+Command.\+h\end{DoxyCompactItemize}

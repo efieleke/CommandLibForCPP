@@ -1,0 +1,56 @@
+\hypertarget{class_command_lib_1_1_command_logger}{}\doxysection{Command\+Lib\+::Command\+Logger Class Reference}
+\label{class_command_lib_1_1_command_logger}\index{CommandLib::CommandLogger@{CommandLib::CommandLogger}}
+
+
+Implements \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} by writing diagnostic information to a log file that can be parsed and dynamically displayed by the Command\+Log\+Viewer application included with the C\# version of this project (found at \href{https://github.com/efieleke/CommandLib.git}{\texttt{ https\+://github.\+com/efieleke/\+Command\+Lib.\+git}}).  
+
+
+
+
+{\ttfamily \#include $<$Command\+Logger.\+h$>$}
+
+Inheritance diagram for Command\+Lib\+::Command\+Logger\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_command_lib_1_1_command_logger}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_command_logger_ac655a681d1601506900d1a9e879a09e3}{Command\+Logger}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_command_logger_af0094fb705c199e54cf81f3d0accdbf3}\label{class_command_lib_1_1_command_logger_af0094fb705c199e54cf81f3d0accdbf3}} 
+virtual void \mbox{\hyperlink{class_command_lib_1_1_command_logger_af0094fb705c199e54cf81f3d0accdbf3}{Command\+Starting}} (const \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} \&command) override
+\begin{DoxyCompactList}\small\item\em Invoked when a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} (including owned commands) starts execution \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_lib_1_1_command_logger_a445d24aff515f378c9cf3daacd980e22}\label{class_command_lib_1_1_command_logger_a445d24aff515f378c9cf3daacd980e22}} 
+virtual void \mbox{\hyperlink{class_command_lib_1_1_command_logger_a445d24aff515f378c9cf3daacd980e22}{Command\+Finished}} (const \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} \&command, const std\+::exception $\ast$exc) override
+\begin{DoxyCompactList}\small\item\em Invoked by the framework whenever a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} (including owned commands) is finishing execution, for whatever reason (success, fail, or abort). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} by writing diagnostic information to a log file that can be parsed and dynamically displayed by the Command\+Log\+Viewer application included with the C\# version of this project (found at \href{https://github.com/efieleke/CommandLib.git}{\texttt{ https\+://github.\+com/efieleke/\+Command\+Lib.\+git}}). 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_command_logger_ac655a681d1601506900d1a9e879a09e3}\label{class_command_lib_1_1_command_logger_ac655a681d1601506900d1a9e879a09e3}} 
+\index{CommandLib::CommandLogger@{CommandLib::CommandLogger}!CommandLogger@{CommandLogger}}
+\index{CommandLogger@{CommandLogger}!CommandLib::CommandLogger@{CommandLib::CommandLogger}}
+\doxysubsubsection{\texorpdfstring{CommandLogger()}{CommandLogger()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Command\+Logger\+::\+Command\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the log file. Will be overwritten if it exists.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Command\+Logger.\+h\end{DoxyCompactItemize}

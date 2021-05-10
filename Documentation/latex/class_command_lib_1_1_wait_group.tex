@@ -1,0 +1,178 @@
+\hypertarget{class_command_lib_1_1_wait_group}{}\doxysection{Command\+Lib\+::Wait\+Group Class Reference}
+\label{class_command_lib_1_1_wait_group}\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+
+
+This class attempts to provide functionality like Windows\textquotesingle{} Wait\+For\+Multiple\+Objects. It provides a way to efficiently wait upon any number of \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} objects, until either one or all of the objects enter a signaled state.  
+
+
+
+
+{\ttfamily \#include $<$Wait\+Group.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_lib_1_1_wait_group_a813fba9c0d92994c177eee9e6289dc74}{Wait\+Group}} ()
+\begin{DoxyCompactList}\small\item\em Contructs a \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_wait_group_a2ad37bdf4b472ad67c660ceb2a9ca0c9}{Add\+Waitable}} (\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}} waitable)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} to this \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_command_lib_1_1_wait_group_aa119ca1edda12cc5b33602801b399839}{Wait\+For\+Any}} () const
+\begin{DoxyCompactList}\small\item\em Waits until any one of the waitable objects becomes signaled. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\int \mbox{\hyperlink{class_command_lib_1_1_wait_group_a607e5738e2ef6d34c70459954a752340}{Wait\+For\+Any}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&dur) const
+\begin{DoxyCompactList}\small\item\em Waits until any one of the waitable objects becomes signaled. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_command_lib_1_1_wait_group_a8c31c5a9acfaf1df818d22919a976ee2}{Wait\+For\+Any}} (long long ms) const
+\begin{DoxyCompactList}\small\item\em Waits until any one of the waitable objects becomes signaled. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_lib_1_1_wait_group_a4fb05642c6c71d13c0e809f429c4baa0}{Wait\+For\+All}} () const
+\begin{DoxyCompactList}\small\item\em Waits until all of the waitable objects have entered the signaled state. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename Period $>$ }\\bool \mbox{\hyperlink{class_command_lib_1_1_wait_group_a490ab91ba70877fa5aa6567fbfdec9ad}{Wait\+For\+All}} (const std\+::chrono\+::duration$<$ Rep, Period $>$ \&dur) const
+\begin{DoxyCompactList}\small\item\em Waits until all of the waitable objects have entered the signaled state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_lib_1_1_wait_group_a9f5c6931a0eb4948a9341a8faa3c26ce}{Wait\+For\+All}} (long long ms) const
+\begin{DoxyCompactList}\small\item\em Waits until all of the waitable objects are simulataneously signaled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class attempts to provide functionality like Windows\textquotesingle{} Wait\+For\+Multiple\+Objects. It provides a way to efficiently wait upon any number of \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} objects, until either one or all of the objects enter a signaled state. 
+
+Behavior is undefined if you access the same \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} object across multiple threads.
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_wait_group_a813fba9c0d92994c177eee9e6289dc74}\label{class_command_lib_1_1_wait_group_a813fba9c0d92994c177eee9e6289dc74}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!WaitGroup@{WaitGroup}}
+\index{WaitGroup@{WaitGroup}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{WaitGroup()}{WaitGroup()}}
+{\footnotesize\ttfamily Command\+Lib\+::\+Wait\+Group\+::\+Wait\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Contructs a \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_lib_1_1_wait_group_a2ad37bdf4b472ad67c660ceb2a9ca0c9}\label{class_command_lib_1_1_wait_group_a2ad37bdf4b472ad67c660ceb2a9ca0c9}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!AddWaitable@{AddWaitable}}
+\index{AddWaitable@{AddWaitable}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{AddWaitable()}{AddWaitable()}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Wait\+Group\+::\+Add\+Waitable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_waitable_ac74b6b91e48220146eada76a31cf2d9b}{Waitable\+::\+Ptr}}}]{waitable }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} to this \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em waitable} & The object to include in the group wait.\\
+\hline
+\end{DoxyParams}
+
+
+This object must remain in scope for as long as the item passed as a parameter, otherwise behavior is undefined. \mbox{\Hypertarget{class_command_lib_1_1_wait_group_a4fb05642c6c71d13c0e809f429c4baa0}\label{class_command_lib_1_1_wait_group_a4fb05642c6c71d13c0e809f429c4baa0}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!WaitForAll@{WaitForAll}}
+\index{WaitForAll@{WaitForAll}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{WaitForAll()}{WaitForAll()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Command\+Lib\+::\+Wait\+Group\+::\+Wait\+For\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Waits until all of the waitable objects have entered the signaled state. 
+
+Note that this will return after all of the items have been in the signaled at any time since the wait began. This does {\itshape not} wait until the items are simultaneously signaled. For example, if waiting upon two events, and the first becomes signaled, and is then reset, and then the second event becomes signaled, this method will return (even though the two events were never both in the signaled state at the same time). \mbox{\Hypertarget{class_command_lib_1_1_wait_group_a490ab91ba70877fa5aa6567fbfdec9ad}\label{class_command_lib_1_1_wait_group_a490ab91ba70877fa5aa6567fbfdec9ad}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!WaitForAll@{WaitForAll}}
+\index{WaitForAll@{WaitForAll}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{WaitForAll()}{WaitForAll()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+bool Command\+Lib\+::\+Wait\+Group\+::\+Wait\+For\+All (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{dur }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Waits until all of the waitable objects have entered the signaled state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dur} & The maximum amount of time to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all objects have entered the signaled state at some point before the duration expires, false otherwise 
+\end{DoxyReturn}
+
+
+Note that this will return after all of the items have been in the signaled at any time since the wait began (or the duration elapses). This does {\itshape not} wait until the items are simultaneously signaled. For example, if waiting upon two events, and the first becomes signaled, and is then reset, and then the second event becomes signaled, this method will return (even though the two events were never both in the signaled state at the same time). \mbox{\Hypertarget{class_command_lib_1_1_wait_group_a9f5c6931a0eb4948a9341a8faa3c26ce}\label{class_command_lib_1_1_wait_group_a9f5c6931a0eb4948a9341a8faa3c26ce}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!WaitForAll@{WaitForAll}}
+\index{WaitForAll@{WaitForAll}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{WaitForAll()}{WaitForAll()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Command\+Lib\+::\+Wait\+Group\+::\+Wait\+For\+All (\begin{DoxyParamCaption}\item[{long long}]{ms }\end{DoxyParamCaption}) const}
+
+
+
+Waits until all of the waitable objects are simulataneously signaled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ms} & The maximum amount of milliseconds to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all objects are simultaneously signaled before the duration expires, false otherwise
+\end{DoxyReturn}
+Note that this will return after all of the items have been in the signaled at any time since the wait began, or the duration elapses. This does {\itshape not} wait until the items are simultaneously signaled.\+For example, if waiting upon two events, and the first becomes signaled, and is then reset, and then the second event becomes signaled, this method will return (even though the two events were never both in the signaled state at the same time). \mbox{\Hypertarget{class_command_lib_1_1_wait_group_aa119ca1edda12cc5b33602801b399839}\label{class_command_lib_1_1_wait_group_aa119ca1edda12cc5b33602801b399839}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!WaitForAny@{WaitForAny}}
+\index{WaitForAny@{WaitForAny}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{WaitForAny()}{WaitForAny()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int Command\+Lib\+::\+Wait\+Group\+::\+Wait\+For\+Any (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Waits until any one of the waitable objects becomes signaled. 
+
+\begin{DoxyReturn}{Returns}
+The index of the first item to become signaled (\mbox{\hyperlink{class_command_lib_1_1_wait_group_a2ad37bdf4b472ad67c660ceb2a9ca0c9}{Add\+Waitable}} adds items in sequential order). 
+\end{DoxyReturn}
+
+
+If multiple items are simultaneously signaled, this will return the one with the lowest index \mbox{\Hypertarget{class_command_lib_1_1_wait_group_a607e5738e2ef6d34c70459954a752340}\label{class_command_lib_1_1_wait_group_a607e5738e2ef6d34c70459954a752340}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!WaitForAny@{WaitForAny}}
+\index{WaitForAny@{WaitForAny}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{WaitForAny()}{WaitForAny()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Rep , typename Period $>$ \\
+int Command\+Lib\+::\+Wait\+Group\+::\+Wait\+For\+Any (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ Rep, Period $>$ \&}]{dur }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Waits until any one of the waitable objects becomes signaled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dur} & The maximum amount of time to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the first item to become signaled (\mbox{\hyperlink{class_command_lib_1_1_wait_group_a2ad37bdf4b472ad67c660ceb2a9ca0c9}{Add\+Waitable}} adds items in sequential order). If none of the items are signaled before the duration elapses, this will return -\/1. 
+
+If multiple items are simultaneously signaled, this will return the one with the lowest index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_command_lib_1_1_wait_group_a8c31c5a9acfaf1df818d22919a976ee2}\label{class_command_lib_1_1_wait_group_a8c31c5a9acfaf1df818d22919a976ee2}} 
+\index{CommandLib::WaitGroup@{CommandLib::WaitGroup}!WaitForAny@{WaitForAny}}
+\index{WaitForAny@{WaitForAny}!CommandLib::WaitGroup@{CommandLib::WaitGroup}}
+\doxysubsubsection{\texorpdfstring{WaitForAny()}{WaitForAny()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int Command\+Lib\+::\+Wait\+Group\+::\+Wait\+For\+Any (\begin{DoxyParamCaption}\item[{long long}]{ms }\end{DoxyParamCaption}) const}
+
+
+
+Waits until any one of the waitable objects becomes signaled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ms} & The maximum amount of time to wait\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the first item to become signaled (\mbox{\hyperlink{class_command_lib_1_1_wait_group_a2ad37bdf4b472ad67c660ceb2a9ca0c9}{Add\+Waitable}} adds items in sequential order). If none of the items are signaled before the duration elapses, this will return -\/1. 
+\end{DoxyReturn}
+
+
+If multiple items are simultaneously signaled, this will return the one with the lowest index 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Wait\+Group.\+h\end{DoxyCompactItemize}

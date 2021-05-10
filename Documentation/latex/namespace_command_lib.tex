@@ -1,0 +1,74 @@
+\hypertarget{namespace_command_lib}{}\doxysection{Command\+Lib Namespace Reference}
+\label{namespace_command_lib}\index{CommandLib@{CommandLib}}
+
+
+\mbox{\hyperlink{namespace_command_lib}{Command\+Lib}} contains a set of classes that can be used to easily coordinate synchronous and asynchronous activities in complex ways. Most classes in this library inherit from \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}, which represents an action. Any \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} can be run synchronously or asynchronously, and may be aborted.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_command_lib_1_1_async_command}{Async\+Command}}
+\begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} which is most naturally asynchronous in its implementation. If you inherit from this class, you are responsible for implementing Command\+::\+Async\+Execute\+Impl. This class implements Command\+::\+Sync\+Execute\+Impl. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}
+\begin{DoxyCompactList}\small\item\em Represents an action that can be run synchronously or asynchronously. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command_aborted_exception}{Command\+Aborted\+Exception}}
+\begin{DoxyCompactList}\small\item\em This is thrown from \mbox{\hyperlink{class_command_lib_1_1_command_a5d33760ccb927d7f6349c02907ab4ff3}{Command.\+Sync\+Execute()}} when a command is aborted. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command_dispatcher}{Command\+Dispatcher}}
+\begin{DoxyCompactList}\small\item\em Dispatches \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects for asynchronous execution. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command_listener}{Command\+Listener}}
+\begin{DoxyCompactList}\small\item\em An object implementing this interface is required as a parameter to \mbox{\hyperlink{class_command_lib_1_1_command_a44bad231a0f0a6de3d5405382d95f800}{Command\+::\+Async\+Execute(\+Command\+Listener$\ast$)}}. Exactly one of its methods will eventually be called when a command is executed asynchronously, and it is guaranteed that the call will be on a thread different from the thread Async\+Execute was called from. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command_logger}{Command\+Logger}}
+\begin{DoxyCompactList}\small\item\em Implements \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} by writing diagnostic information to a log file that can be parsed and dynamically displayed by the Command\+Log\+Viewer application included with the C\# version of this project (found at \href{https://github.com/efieleke/CommandLib.git}{\texttt{ https\+://github.\+com/efieleke/\+Command\+Lib.\+git}}). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}}
+\begin{DoxyCompactList}\small\item\em This is a callback interface for \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} starting and finishing events. Its intended use is for logging and diagnostics. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command_timeout_exception}{Command\+Timeout\+Exception}}
+\begin{DoxyCompactList}\small\item\em The type of exception thrown by a \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} when times runs out \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_command_tracer}{Command\+Tracer}}
+\begin{DoxyCompactList}\small\item\em Implements \mbox{\hyperlink{class_command_lib_1_1_command_monitor}{Command\+Monitor}} by writing diagnostic information to an output stream. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_event}{Event}}
+\begin{DoxyCompactList}\small\item\em This object mimics a Windows manual reset event, and can be added to a \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} so that it\textquotesingle{}s possible to wait upon multiple \mbox{\hyperlink{class_command_lib_1_1_event}{Event}} objects. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_finally_command}{Finally\+Command}}
+\begin{DoxyCompactList}\small\item\em This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another command, and runs a client-\/specified command upon either success of failure, and optionally upon abortion. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}}
+\begin{DoxyCompactList}\small\item\em Represents a collection of \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects that execute in parallel, wrapped in a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_pause_command}{Pause\+Command}}
+\begin{DoxyCompactList}\small\item\em A \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that efficiently does nothing for a specified duration. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}}
+\begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that repeats periodically at a specified interval \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}}
+\begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that repeatedly executes at times specified by the caller \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}}
+\begin{DoxyCompactList}\small\item\em This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another command, allowing the command to be retried upon failure, up to any number of times. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}}
+\begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} that executes at a given time. When a \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} is executed, it will enter an efficient wait state until the time arrives at which to execute the underlying command. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} is a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} object which contains a collection of commands which are run in sequence \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_sync_command}{Sync\+Command}}
+\begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} which is most naturally synchronous in its implementation. If you inherit from this class, you are responsible for implementing Command\+::\+Sync\+Exe\+Impl. This class implements Command\+::\+Async\+Execute\+Impl. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}}
+\begin{DoxyCompactList}\small\item\em This \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} wraps another \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}, throwing a Timeout\+Exception if a specified interval elapses before the underlying command finishes execution. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}}
+\begin{DoxyCompactList}\small\item\em This class represents an object that can be waited upon until it enters a signaled state. The reason for its existence is so that it can be added to a \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}} object, thus allowing a wait for multiple objects (a feature available in Windows but not in other operating systems). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_wait_group}{Wait\+Group}}
+\begin{DoxyCompactList}\small\item\em This class attempts to provide functionality like Windows\textquotesingle{} Wait\+For\+Multiple\+Objects. It provides a way to efficiently wait upon any number of \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} objects, until either one or all of the objects enter a signaled state. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_command_lib_1_1_wait_monitor}{Wait\+Monitor}}
+\begin{DoxyCompactList}\small\item\em Objects of this time can wait upon \mbox{\hyperlink{class_command_lib_1_1_waitable}{Waitable}} objects \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespace_command_lib}{Command\+Lib}} contains a set of classes that can be used to easily coordinate synchronous and asynchronous activities in complex ways. Most classes in this library inherit from \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}, which represents an action. Any \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} can be run synchronously or asynchronously, and may be aborted. 
+
+Using \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}}, you can run a collection of \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects concurrently, and using \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}}, you can run a collection of \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects in sequence. Any command can be added to these two types (including \mbox{\hyperlink{class_command_lib_1_1_parallel_commands}{Parallel\+Commands}} and \mbox{\hyperlink{class_command_lib_1_1_sequential_commands}{Sequential\+Commands}} themselves, because they are \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects), so it\textquotesingle{}s possible to compose deep levels of coordinated activities. 
+
+\mbox{\hyperlink{class_command_lib_1_1_periodic_command}{Periodic\+Command}} repeats its action at a given interval, \mbox{\hyperlink{class_command_lib_1_1_scheduled_command}{Scheduled\+Command}} runs once at a specific time, and \mbox{\hyperlink{class_command_lib_1_1_recurring_command}{Recurring\+Command}} runs at times that are provided via a callback. 
+
+\mbox{\hyperlink{class_command_lib_1_1_retryable_command}{Retryable\+Command}} provides the option to keep retrying a failed command until the caller decides enough is enough, and \mbox{\hyperlink{class_command_lib_1_1_time_limited_command}{Time\+Limited\+Command}} fails with a timeout exception if a given duration elapses before the command finishes execution. 
+
+All of the above \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} classes are simply containers for \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} objects that presumably do something of interest. It is expected that users of this library will create their own \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}-\/derived classes. 
+
+\mbox{\hyperlink{class_command_lib_1_1_command_dispatcher}{Command\+Dispatcher}} manages asynchronous execution of dynamically generated commands. 
+
+Documentation for \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}, \mbox{\hyperlink{class_command_lib_1_1_async_command}{Async\+Command}} and \mbox{\hyperlink{class_command_lib_1_1_sync_command}{Sync\+Command}} should be read before developing a \mbox{\hyperlink{class_command_lib_1_1_command}{Command}}-\/derived class. 
+
+Windows implementations must be careful when specifying durations. The implementations of various routines in \mbox{\hyperlink{namespace_command_lib}{Command\+Lib}} make use of std\+::condition\+\_\+variable\+\_\+any. In my experience, Windows systems will not behave properly if you pass a value that equates to more milliseconds than can fit into the max value of a Windows DWORD (which is under a month long duration). This could be considered a bug in std\+::condition\+\_\+variable\+\_\+any. I have done nothing to work around it, so for now, it\textquotesingle{}s up to users of this library to be aware of this. 
