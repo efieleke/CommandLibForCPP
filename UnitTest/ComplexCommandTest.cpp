@@ -67,8 +67,7 @@ namespace UnitTest
 		protected:
 			virtual void SyncExeImpl() override
 			{
-				Assert::ExpectException<std::logic_error>([this]() { RelinquishOwnership(m_cmd); }, L"Relinquished ownership of an un-owned command");
-				m_cmd->SyncExecute(this);
+				m_cmd->SyncExecute();
 			}
 		private:
 			static CommandLib::ParallelCommands::Ptr GenerateParallelCommands(int maxPauseMS, bool insertFailure)
@@ -130,8 +129,10 @@ namespace UnitTest
 				m_cmd = CommandLib::TimeLimitedCommand::Create(periodic, std::chrono::hours(24));
 				TakeOwnership(m_cmd);
 
-				// For code coverage. Also, gives us an opportunity to try the third overload of SyncExecute.
+				// For code coverage.
 				RelinquishOwnership(m_cmd);
+
+				TakeOwnership(m_cmd);
 			}
 
 			CommandLib::Command::Ptr m_cmd;

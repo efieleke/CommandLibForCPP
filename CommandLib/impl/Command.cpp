@@ -277,54 +277,27 @@ void Command::AbortChildCommand(Ptr childCommand)
 
 void Command::SyncExecute()
 {
-    SyncExecute(nullptr);
-}
-
-void Command::SyncExecute(Command* owner)
-{
     PreExecute();
     Ptr thisCommand = shared_from_this();
 
-	if (owner != nullptr)
-	{
-		owner->TakeOwnership(thisCommand);
-    }
-
     try
     {
-        try
-        {
-            InformCommandStarting();
-            SyncExecuteImpl();
-        }
-        catch (std::exception& exc)
-        {
-            DecrementExecuting(nullptr, &exc, std::current_exception());
-            throw;
-        }
-        catch (...)
-        {
-            std::exception exc("Unexpected exception type in Command::BaseSyncExecute");
-            DecrementExecuting(nullptr, &exc, std::current_exception());
-            throw;
-        }
+        InformCommandStarting();
+        SyncExecuteImpl();
+    }
+    catch (std::exception& exc)
+    {
+        DecrementExecuting(nullptr, &exc, std::current_exception());
+        throw;
     }
     catch (...)
-	{
-		if (owner != nullptr)
-		{
-			owner->RelinquishOwnership(thisCommand);
-		}
-
-		throw;
-	}
+    {
+        std::exception exc("Unexpected exception type in Command::BaseSyncExecute");
+        DecrementExecuting(nullptr, &exc, std::current_exception());
+        throw;
+    }
 
     DecrementExecuting(nullptr, nullptr, nullptr);
-    
-    if (owner != nullptr)
-	{
-		owner->RelinquishOwnership(thisCommand);
-	}
 }
 
 void Command::PreExecute()

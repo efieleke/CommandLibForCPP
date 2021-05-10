@@ -180,23 +180,6 @@ namespace CommandLib
 		/// </remarks>
 		void SyncExecute();
 
-		/// <summary>Executes the command and does not return until it finishes.</summary>
-		/// <exception cref="CommandAbortedException">Thrown when execution is aborted</exception>
-		/// <exception cref="std::exception">
-		/// Thrown if execution does not complete successfully.
-		/// </exception>
-		/// <remarks>
-		/// It is safe to call this any number of times, but it will cause undefined behavior to re-execute a
-		/// command that is already executing.
-		/// </remarks>
-		/// <param name="owner">
-		/// If you want this command to pay attention to abort requests of a different command, set this value to that command.
-		/// Note that if this Command is already assigned an owner, passing a non-null value will raise an exception. Also note
-		/// that the owner assignment is only in effect during the scope of this call. Upon return, this command will not
-		/// have an owner.
-		/// </param>
-		void SyncExecute(Command* owner);
-
 		/// <summary>
 		/// Starts executing the command and returns immediately.
 		/// </summary>
