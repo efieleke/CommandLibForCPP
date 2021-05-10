@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\AbortLinkedCommand.h" />
     <ClInclude Include="include\AsyncCommand.h" />
     <ClInclude Include="include\Command.h" />
     <ClInclude Include="include\CommandAbortedException.h" />
@@ -37,7 +36,6 @@
     <ClInclude Include="include\WaitMonitor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="impl\AbortLinkedCommand.cpp" />
     <ClCompile Include="impl\AsyncCommand.cpp" />
     <ClCompile Include="impl\Command.cpp" />
     <ClCompile Include="impl\CommandAbortedException.cpp" />

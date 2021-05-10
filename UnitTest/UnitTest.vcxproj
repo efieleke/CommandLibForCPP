@@ -99,7 +99,6 @@
     <ClInclude Include="TestMonitors.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AbortLinkedCommandTests.cpp" />
     <ClCompile Include="AddCommand.cpp" />
     <ClCompile Include="BadAbortTests.cpp" />
     <ClCompile Include="BadAsyncCommandTests.cpp" />

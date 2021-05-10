@@ -1,6 +1,5 @@
 ﻿#include "Command.h"
 #include "CommandAbortedException.h"
-#include "AbortLinkedCommand.h"
 
 using namespace CommandLib;
 

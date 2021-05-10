@@ -52,8 +52,7 @@
 /// </para>
 /// <para>
 /// Documentation for <see cref="Command"/>, <see cref="AsyncCommand"/> and <see cref="SyncCommand"/> should be read before
-/// developing a <see cref="Command"/>-derived class. <see cref="AbortLinkedCommand"/> might also serve as an aid in the development
-/// of a <see cref="Command"/>.
+/// developing a <see cref="Command"/>-derived class.
 /// </para>
 /// <para>
 /// Windows implementations must be careful when specifying durations. The implementations of various routines in CommandLib
@@ -89,15 +88,6 @@ namespace CommandLib
 	/// <see cref="TakeOwnership"/> allows you to do this. The <see cref="SequentialCommands::Add"/> member of
 	/// <see cref="SequentialCommands"/> is an example of this behavior.
 	/// </para>
-	/// <para>
-	/// If you find that you need to create a Command object within the execution method of its owning command
-	/// (perhaps because which type of Command to create depends upon runtime conditions), there are some things to
-	/// consider. Owned commands are not destroyed until the owner is destroyed. If the owner is executed many times
-	/// before it is destroyed, and you create a new child command upon every execution, resource usage will grow unbounded.
-	/// The better approach is not assign an owner to the locally created command, but instead
-	/// have it run within the context of the launching command using <see cref="SyncExecute(Command*)"/>.
-	/// If you require asynchronous execution, you can make use of <see cref="AbortLinkedCommand"/>. This will return a
-	/// top-level command that responds to abort requests to the command that created it.
 	/// <para>
 	/// Generally speaking, when authoring Commands, it's best to make them as granular as possible. That makes it much easier
 	/// to reuse them while composing command structures. Also, ensure that your commands are responsive to abort requests if
@@ -135,7 +125,7 @@ namespace CommandLib
 
 		/// <summary>The command under which this command is nested, if any</summary>
 		/// <returns>
-		/// The owner, or the command that an <see cref="AbortLinkedCommand"/> is linked to (if any).
+		/// The owning Command.
 		/// </returns>
 		const Command* Parent() const;
 
@@ -143,7 +133,7 @@ namespace CommandLib
 		/// <returns>
 		/// The number of parents until the top level command is reached
 		/// </summary>
-		/// <remarks>A parent is considered an owner, or the command that an <see cref="AbortLinkedCommand"/> is linked to (if any).</remarks>
+		/// <remarks>A parent is considered the owner</remarks>
 		int Depth() const;
 
 		/// <summary>A description of the Command</summary>
@@ -153,7 +143,7 @@ namespace CommandLib
 		/// The description ends with details of about the current state of the command, if available.
 		/// </returns>
 		/// <remarks>
-		/// A parent is considered the owner, or the command that an <see cref="AbortLinkedCommand"/> is linked to (if any).
+		/// A parent is considered the owner
 		/// </remarks>
 		std::string Description() const;
 

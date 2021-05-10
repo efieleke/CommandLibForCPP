@@ -10,8 +10,8 @@
 #include "FailingCommand.h"
 #include "SequentialCommands.h"
 #include "ParallelCommands.h"
-#include "AbortLinkedCommand.h"
 #include "PeriodicCommand.h"
+#include "TimeLimitedCommand.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -22,15 +22,13 @@ namespace UnitTest
 	public:
 		TEST_METHOD(ComplexCommand_TestHappyPath)
 		{
-			CommandLib::Event::Ptr abortEvent(new CommandLib::Event(false));
-			CommandLib::Command::Ptr test = GenerateComplexCommand(abortEvent, 1, false);
+			CommandLib::Command::Ptr test = ComplexCommand::Create(1, false);
 			CommonTests::TestHappyPath(test);
 		}
 
 		TEST_METHOD(ComplexCommand_TestFail)
 		{
-			CommandLib::Event::Ptr abortEvent(new CommandLib::Event(false));
-			CommandLib::Command::Ptr test = GenerateComplexCommand(abortEvent, 1, true);
+			CommandLib::Command::Ptr test = ComplexCommand::Create(1, true);
 			CommonTests::TestFail<CommandLibTests::FailingCommand::FailException>(test);
 		}
 
@@ -48,22 +46,7 @@ namespace UnitTest
 
 		TEST_METHOD(ComplexCommand_TestAbort)
 		{
-			CommandLib::Event::Ptr abortEvent(new CommandLib::Event(false));
-			CommandLib::Command::Ptr test = GenerateComplexCommand(abortEvent, 1, false);
-			CmdListener listener(CmdListener::CallbackType::Aborted);
-			test->AsyncExecute(&listener);
-			abortEvent->Set();
-			test->Wait();
-			abortEvent->Reset();
-			listener.Check();
-
-			listener.Reset(CmdListener::CallbackType::Aborted);
-			test->AsyncExecute(&listener);
-			std::this_thread::sleep_for(std::chrono::milliseconds(10));
-			abortEvent->Set();
-			test->Wait();
-			listener.Check();
-
+			CommandLib::Command::Ptr test = ComplexCommand::Create(1, false);
 			CommonTests::TestAbort(test, 10);
 		}
 	private:
@@ -141,9 +124,10 @@ namespace UnitTest
 				combined->Add(seq);
 				combined->Add(parallel);
 
-				m_cmd = CommandLib::PeriodicCommand::Create(
+				CommandLib::PeriodicCommand::Ptr periodic = CommandLib::PeriodicCommand::Create(
 					combined, 3, maxPauseMS, CommandLib::PeriodicCommand::IntervalType::PauseAfter, true);
 
+				m_cmd = CommandLib::TimeLimitedCommand::Create(periodic, std::chrono::hours(24));
 				TakeOwnership(m_cmd);
 
 				// For code coverage. Also, gives us an opportunity to try the third overload of SyncExecute.
@@ -177,10 +161,5 @@ namespace UnitTest
 				return;
 			}
 		};
-
-		static CommandLib::Command::Ptr GenerateComplexCommand(CommandLib::Event::Ptr abortEvent, int maxPauseMS, bool insertFailure)
-		{
-			return CommandLib::AbortLinkedCommand::Create(ComplexCommand::Create(maxPauseMS, insertFailure), abortEvent);
-		}
 	};
 }
