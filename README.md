@@ -1,7 +1,7 @@
 CommandLib
 =========
 
-CommandLib is a C++ library that simplifies coordination of asynchronous and aynchronous activities. Versions for C# and Java exist at https://github.com/efieleke/CommandLib.git and https://github.com/efieleke/CommandLibForJava.git. The library is built upon class Command, which represents an action. A Command may be run synchronously or asynchronously, and may be aborted.
+CommandLib is a C++ library that simplifies coordination of asynchronous and aynchronous activities. A version for C# exists at https://github.com/efieleke/CommandLib.git. This library is built upon class Command, which represents an action. A Command may be run synchronously or asynchronously, and may be aborted.
 
 ParallelCommands, itself a Command, executes a collection of commands concurrently (in parallel), and SequentialCommands executes its commands in sequence. Using these classes, it's possible to compose deep levels of coordinated actions. For example, SequentialCommands can hold instances of ParallelCommands, SequentialCommands, and any other Command-derived object.
 
@@ -27,7 +27,7 @@ Included is a solution file that contains three projects: CommandLib itself, a u
 
 Example Usage
 ----
-A sample project is included that moves a simulated robot arm that tries to pick up a toy and drop it down the chute. It demonstrates how to author a naturally asynchronous Command, and makes use of ParallelCommands, SequentialCommands, PeriodicCommand and RetryableCommand.
+A sample project is included that prepares dinner.
 
 Author
 ----
