@@ -39,8 +39,6 @@ virtual bool \mbox{\hyperlink{class_command_lib_1_1_command_a4ccad987c43709c44c2
 \begin{DoxyCompactList}\small\item\em Returns true if this command\textquotesingle{}s most efficient form of execution is synchronous. This information is used on occasion to determine how to best execute a command. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_command_lib_1_1_command_a5d33760ccb927d7f6349c02907ab4ff3}{Sync\+Execute}} ()
 \begin{DoxyCompactList}\small\item\em Executes the command and does not return until it finishes. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_command_lib_1_1_command_a663d50889f527a4963eebd88bbcdc522}{Sync\+Execute}} (\mbox{\hyperlink{class_command_lib_1_1_command}{Command}} $\ast$owner)
-\begin{DoxyCompactList}\small\item\em Executes the command and does not return until it finishes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_command_lib_1_1_command_a44bad231a0f0a6de3d5405382d95f800}{Async\+Execute}} (\mbox{\hyperlink{class_command_lib_1_1_command_listener}{Command\+Listener}} $\ast$listener)
 \begin{DoxyCompactList}\small\item\em Starts executing the command and returns immediately. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_command_lib_1_1_command_a247cbc7325e3b9d9d7044d449b989aa6}{Abort}} ()
@@ -421,7 +419,7 @@ Resets the abort event of a command that is owned by this command. Derived imple
 \mbox{\Hypertarget{class_command_lib_1_1_command_a5d33760ccb927d7f6349c02907ab4ff3}\label{class_command_lib_1_1_command_a5d33760ccb927d7f6349c02907ab4ff3}} 
 \index{CommandLib::Command@{CommandLib::Command}!SyncExecute@{SyncExecute}}
 \index{SyncExecute@{SyncExecute}!CommandLib::Command@{CommandLib::Command}}
-\doxysubsubsection{\texorpdfstring{SyncExecute()}{SyncExecute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{SyncExecute()}{SyncExecute()}}
 {\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Sync\+Execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -437,33 +435,7 @@ Executes the command and does not return until it finishes.
 \end{DoxyExceptions}
 
 
-It is safe to call this any number of times, but it will cause undefined behavior to re-\/execute a command that is already executing. \mbox{\Hypertarget{class_command_lib_1_1_command_a663d50889f527a4963eebd88bbcdc522}\label{class_command_lib_1_1_command_a663d50889f527a4963eebd88bbcdc522}} 
-\index{CommandLib::Command@{CommandLib::Command}!SyncExecute@{SyncExecute}}
-\index{SyncExecute@{SyncExecute}!CommandLib::Command@{CommandLib::Command}}
-\doxysubsubsection{\texorpdfstring{SyncExecute()}{SyncExecute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Command\+Lib\+::\+Command\+::\+Sync\+Execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_lib_1_1_command}{Command}} $\ast$}]{owner }\end{DoxyParamCaption})}
-
-
-
-Executes the command and does not return until it finishes. 
-
-
-\begin{DoxyExceptions}{Exceptions}
-{\em \mbox{\hyperlink{class_command_lib_1_1_command_aborted_exception}{Command\+Aborted\+Exception}}} & Thrown when execution is aborted\\
-\hline
-{\em std\+::exception} & Thrown if execution does not complete successfully. \\
-\hline
-\end{DoxyExceptions}
-
-
-It is safe to call this any number of times, but it will cause undefined behavior to re-\/execute a command that is already executing. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em owner} & If you want this command to pay attention to abort requests of a different command, set this value to that command. Note that if this \mbox{\hyperlink{class_command_lib_1_1_command}{Command}} is already assigned an owner, passing a non-\/null value will raise an exception. Also note that the owner assignment is only in effect during the scope of this call. Upon return, this command will not have an owner. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}\label{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}} 
+It is safe to call this any number of times, but it will cause undefined behavior to re-\/execute a command that is already executing. \mbox{\Hypertarget{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}\label{class_command_lib_1_1_command_a0787e7b79c5424926be5c1c8be1ebb0d}} 
 \index{CommandLib::Command@{CommandLib::Command}!TakeOwnership@{TakeOwnership}}
 \index{TakeOwnership@{TakeOwnership}!CommandLib::Command@{CommandLib::Command}}
 \doxysubsubsection{\texorpdfstring{TakeOwnership()}{TakeOwnership()}}
@@ -544,4 +516,4 @@ There are no default monitors. \mbox{\hyperlink{class_command_lib_1_1_command_tr
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/efiel/source/repos/efieleke/\+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Command.\+h\end{DoxyCompactItemize}
+Command\+Lib\+For\+CPP/\+Command\+Lib/include/Command.\+h\end{DoxyCompactItemize}
